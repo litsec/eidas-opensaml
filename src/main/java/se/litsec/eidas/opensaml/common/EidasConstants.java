@@ -32,7 +32,16 @@ public class EidasConstants {
   
   /** The eIDAS SAML extension QName prefix. */
   public static final String EIDAS_PREFIX = "eidas";
+  
+  /** The Authentication Context URI for the "Low" Level of Assurance. */
+  public static final String EIDAS_LOA_LOW = "http://eidas.europa.eu/LoA/low";
 
+  /** The Authentication Context URI for the "Substantial" Level of Assurance. */
+  public static final String EIDAS_LOA_SUBSTANTIAL = "http://eidas.europa.eu/LoA/substantial";
+
+  /** The Authentication Context URI for the "High" Level of Assurance. */
+  public static final String EIDAS_LOA_HIGH = "http://eidas.europa.eu/LoA/high";
+  
   private EidasConstants() {
   }
 
