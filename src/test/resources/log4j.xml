@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %p [Thread: %t] [%c] - %m%n" />
+    </layout>
+  </appender>
+    
+  <appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="target/logs/test.log" />
+    <param name="DatePattern" value="'.'yyyy-MM-dd" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %p [%t] [%c{1}] - %m%n" />
+    </layout>
+  </appender>  
+    
+  <logger name="se.litsec">
+    <level value="TRACE" />
+  </logger>
+  
+  <logger name="org.springframework.web">
+    <level value="INFO" />
+  </logger>
+  
+  <logger name="org.opensaml">
+    <level value="INFO" />
+  </logger>
+    
+  <root>
+    <priority value="INFO" />
+    <appender-ref ref="ConsoleAppender" />
+    <appender-ref ref="FileAppender" />
+  </root>
+  
+</log4j:configuration>
