@@ -33,6 +33,12 @@ public class EidasConstants {
   /** The eIDAS SAML extension QName prefix. */
   public static final String EIDAS_PREFIX = "eidas";
   
+  /** The eIDAS Natural Persons attribute XML Namespace. */
+  public static final String EIDAS_NP_NS = "http://eidas.europa.eu/attributes/naturalperson";
+  
+  /** The eIDAS Natural Persons attribute QName prefix. */
+  public static final String EIDAS_NP_PREFIX = "eidasnp";
+  
   /** The Authentication Context URI for the "Low" Level of Assurance. */
   public static final String EIDAS_LOA_LOW = "http://eidas.europa.eu/LoA/low";
 

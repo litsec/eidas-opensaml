@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XMLTooling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns:eidas="http://eidas.europa.eu/saml-extensions" 
+  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson"
   xmlns="http://www.opensaml.org/xmltooling-config"
   xsi:schemaLocation="http://www.opensaml.org/xmltooling-config ../../src/schema/xmltooling-config.xsd">
 
@@ -12,6 +13,12 @@
       <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeBuilder" />
       <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeMarshaller" />
       <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:PersonIdentifierType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.PersonIdentifierTypeBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
     </ObjectProvider>
     
   </ObjectProviders>
