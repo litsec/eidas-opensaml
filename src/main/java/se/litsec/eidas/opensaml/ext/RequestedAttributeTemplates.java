@@ -39,11 +39,13 @@ public class RequestedAttributeTemplates {
    * 
    * @param isRequired
    *          flag to tell whether the attribute is required
+   * @param includeFriendlyName
+   *          flag that tells whether the friendly name should be included
    * @return a {@code RequestedAttribute} object representing the PersonIdentifier attribute
    */
-  public static RequestedAttribute PERSON_IDENTIFIER(Boolean isRequired) {
+  public static RequestedAttribute PERSON_IDENTIFIER(Boolean isRequired, boolean includeFriendlyName) {
     return create(AttributeConstants.EIDAS_PERSON_IDENTIFIER_ATTRIBUTE_NAME,
-      AttributeConstants.EIDAS_PERSON_IDENTIFIER_ATTRIBUTE_FRIENDLY_NAME,
+      includeFriendlyName ? AttributeConstants.EIDAS_PERSON_IDENTIFIER_ATTRIBUTE_FRIENDLY_NAME : null,
       Attribute.URI_REFERENCE, isRequired);
   }
 
@@ -52,11 +54,13 @@ public class RequestedAttributeTemplates {
    * 
    * @param isRequired
    *          flag to tell whether the attribute is required
+   * @param includeFriendlyName
+   *          flag that tells whether the friendly name should be included
    * @return a {@code RequestedAttribute} object representing the CurrentFamilyName attribute
    */
-  public static RequestedAttribute CURRENT_FAMILY_NAME(Boolean isRequired) {
+  public static RequestedAttribute CURRENT_FAMILY_NAME(Boolean isRequired, boolean includeFriendlyName) {
     return create(AttributeConstants.EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_NAME,
-      AttributeConstants.EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_FRIENDLY_NAME,
+      includeFriendlyName ? AttributeConstants.EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_FRIENDLY_NAME : null,
       Attribute.URI_REFERENCE, isRequired);
   }
 
@@ -65,11 +69,13 @@ public class RequestedAttributeTemplates {
    * 
    * @param isRequired
    *          flag to tell whether the attribute is required
+   * @param includeFriendlyName
+   *          flag that tells whether the friendly name should be included
    * @return a {@code RequestedAttribute} object representing the CurrentGivenName attribute
    */
-  public static RequestedAttribute CURRENT_GIVEN_NAME(Boolean isRequired) {
+  public static RequestedAttribute CURRENT_GIVEN_NAME(Boolean isRequired, boolean includeFriendlyName) {
     return create(AttributeConstants.EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_NAME,
-      AttributeConstants.EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_FRIENDLY_NAME,
+      includeFriendlyName ? AttributeConstants.EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_FRIENDLY_NAME : null,
       Attribute.URI_REFERENCE, isRequired);
   }
 
@@ -78,11 +84,28 @@ public class RequestedAttributeTemplates {
    * 
    * @param isRequired
    *          flag to tell whether the attribute is required
+   * @param includeFriendlyName
+   *          flag that tells whether the friendly name should be included
    * @return a {@code RequestedAttribute} object representing the DateOfBirth attribute
    */
-  public static RequestedAttribute DATE_OF_BIRTH(Boolean isRequired) {
+  public static RequestedAttribute DATE_OF_BIRTH(Boolean isRequired, boolean includeFriendlyName) {
     return create(AttributeConstants.EIDAS_DATE_OF_BIRTH_ATTRIBUTE_NAME,
-      AttributeConstants.EIDAS_DATE_OF_BIRTH_ATTRIBUTE_FRIENDLY_NAME,
+      includeFriendlyName ? AttributeConstants.EIDAS_DATE_OF_BIRTH_ATTRIBUTE_FRIENDLY_NAME : null,
+      Attribute.URI_REFERENCE, isRequired);
+  }
+
+  /**
+   * Creates a {@code RequestedAttribute} object for the Gender attribute.
+   * 
+   * @param isRequired
+   *          flag to tell whether the attribute is required
+   * @param includeFriendlyName
+   *          flag that tells whether the friendly name should be included
+   * @return a {@code RequestedAttribute} object representing the Gender attribute
+   */
+  public static RequestedAttribute GENDER(Boolean isRequired, boolean includeFriendlyName) {
+    return create(AttributeConstants.EIDAS_GENDER_ATTRIBUTE_NAME,
+      includeFriendlyName ? AttributeConstants.EIDAS_GENDER_ATTRIBUTE_FRIENDLY_NAME : null,
       Attribute.URI_REFERENCE, isRequired);
   }
 

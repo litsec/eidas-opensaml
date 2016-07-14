@@ -18,47 +18,50 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext;
+package se.litsec.eidas.opensaml.ext.attributes;
 
 /**
- * A type safe enumeration of the {@code <eidas:SPType>} element.
+ * A type safe enumeration of the {@code <eidas:GenderType>} type.
  *
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public final class SPTypeEnumeration {
+public final class GenderTypeEnumeration {
 
-  /** The "public" SP type. */
-  public static final SPTypeEnumeration PUBLIC = new SPTypeEnumeration("public");
+  /** Male. */
+  public static final GenderTypeEnumeration MALE = new GenderTypeEnumeration("Male");
 
-  /** The "private" SP type. */
-  public static final SPTypeEnumeration PRIVATE = new SPTypeEnumeration("private");
+  /** Female. */
+  public static final GenderTypeEnumeration FEMALE = new GenderTypeEnumeration("Female");
 
-  /** The SP type. */
-  private String type;
+  /** Unspecified. */
+  public static final GenderTypeEnumeration UNSPECIFIED = new GenderTypeEnumeration("Unspecified");
+
+  /** The gender. */
+  private String gender;
 
   /**
    * Constructor.
    *
-   * @param type
-   *          the SP type
+   * @param gender
+   *          the gender
    */
-  public SPTypeEnumeration(String type) {
-    this.type = type;
+  public GenderTypeEnumeration(String gender) {
+    this.gender = gender;
   }
 
   /**
-   * Returns the type value.
+   * Returns the gender value.
    *
    * @return the value
    */
   public String getValue() {
-    return this.type;
+    return this.gender;
   }
 
   /** {@inheritDoc} */
   @Override
   public String toString() {
-    return this.type;
+    return this.gender;
   }
 
   /** {@inheritDoc} */
@@ -66,7 +69,7 @@ public final class SPTypeEnumeration {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
+    result = prime * result + ((this.gender == null) ? 0 : this.gender.hashCode());
     return result;
   }
 
@@ -82,13 +85,13 @@ public final class SPTypeEnumeration {
     if (this.getClass() != obj.getClass()) {
       return false;
     }
-    SPTypeEnumeration other = (SPTypeEnumeration) obj;
-    if (this.type == null) {
-      if (other.type != null) {
+    GenderTypeEnumeration other = (GenderTypeEnumeration) obj;
+    if (this.gender == null) {
+      if (other.gender != null) {
         return false;
       }
     }
-    else if (!this.type.equals(other.type)) {
+    else if (!this.gender.equals(other.gender)) {
       return false;
     }
     return true;

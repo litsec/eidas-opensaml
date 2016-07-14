@@ -54,6 +54,13 @@
       <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeMarshaller" />
       <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeUnmarshaller" />
     </ObjectProvider>
+    
+    <!-- eidasnp:GenderType -->
+    <ObjectProvider qualifiedName="eidasnp:GenderType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.GenderTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.GenderTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.GenderTypeUnmarshaller" />
+    </ObjectProvider>    
 
   </ObjectProviders>
 

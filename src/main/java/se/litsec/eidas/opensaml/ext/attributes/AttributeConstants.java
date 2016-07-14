@@ -51,5 +51,11 @@ public class AttributeConstants {
   
   /** DateOfBirth friendly name. */
   public static final String EIDAS_DATE_OF_BIRTH_ATTRIBUTE_FRIENDLY_NAME = "DateOfBirth";
+  
+  /** Attribute name for Gender. */
+  public static final String EIDAS_GENDER_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/Gender";
+  
+  /** Gender friendly name. */
+  public static final String EIDAS_GENDER_ATTRIBUTE_FRIENDLY_NAME = "Gender";  
 
 }
