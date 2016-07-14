@@ -1,3 +1,23 @@
+/*
+ * The eidas-opensaml project is an open-source package that extends OpenSAML
+ * with definitions for the eIDAS Framework.
+ *
+ * More details on <https://github.com/litsec/eidas-opensaml>
+ * Copyright (C) 2016 Litsec AB
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 package se.litsec.eidas.opensaml;
 
 import java.util.HashMap;
@@ -13,8 +33,11 @@ import org.opensaml.core.xml.XMLObjectBuilder;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import org.opensaml.core.xml.config.XMLObjectProviderRegistry;
 import org.opensaml.core.xml.config.XMLObjectProviderRegistrySupport;
+import org.opensaml.core.xml.io.MarshallingException;
+import org.opensaml.core.xml.io.UnmarshallingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Element;
 
 import net.shibboleth.utilities.java.support.xml.BasicParserPool;
 
@@ -71,21 +94,6 @@ public abstract class OpenSAMLTestBase {
     basicParserPool.initialize();
     registry.setParserPool(basicParserPool);
   }
-  
-  /**
-   * Utility method for creating an OpenSAML object using the default element name of the class.
-   * <p>
-   * Note: The field DEFAULT_ELEMENT_NAME of the given class will be used as the object's element name.
-   * </p>
-   * 
-   * @param clazz
-   *          the class to create
-   * @return the XML object
-   * @see #createSamlObject(Class, QName)
-   */
-  public static <T extends XMLObject> T createSamlObject(Class<T> clazz) {
-    return createSamlObject(clazz, getDefaultElementName(clazz));
-  }
 
   /**
    * Utility method for creating an OpenSAML object given its element name.
@@ -124,6 +132,35 @@ public abstract class OpenSAMLTestBase {
     catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException | SecurityException e) {
       throw new RuntimeException(e);
     }
+  }
+  
+  /**
+   * Marshalls the supplied {@code XMLObject} into an {@code Element}.
+   * 
+   * @param object
+   *          the object to marshall
+   * @return an XML element
+   * @throws MarshallingException
+   *           for marshalling errors
+   */
+  public static <T extends XMLObject> Element marshall(T object) throws MarshallingException {
+    return XMLObjectProviderRegistrySupport.getMarshallerFactory().getMarshaller(object).marshall(object);
+  }
+
+  /**
+   * Unmarshalls the supplied element into the given type.
+   * 
+   * @param xml
+   *          the DOM (XML) to unmarshall
+   * @param targetClass
+   *          the required class
+   * @return an {@code XMLObject} of the given type
+   * @throws UnmarshallingException
+   *           for unmarshalling errors
+   */
+  public static <T extends XMLObject> T unmarshall(Element xml, Class<T> targetClass) throws UnmarshallingException {
+    XMLObject xmlObject = XMLObjectProviderRegistrySupport.getUnmarshallerFactory().getUnmarshaller(xml).unmarshall(xml);
+    return targetClass.cast(xmlObject);
   }
   
 }

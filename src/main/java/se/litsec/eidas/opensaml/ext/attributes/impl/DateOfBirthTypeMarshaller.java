@@ -20,28 +20,25 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.BaseXMLObjectMarshaller;
+import org.opensaml.core.xml.io.MarshallingException;
+import org.w3c.dom.Element;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import net.shibboleth.utilities.java.support.xml.ElementSupport;
+import se.litsec.eidas.opensaml.ext.attributes.DateOfBirthType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Thread-safe marshaller of {@link DateOfBirthType} objects.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class DateOfBirthTypeMarshaller extends BaseXMLObjectMarshaller {
 
   /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  protected void marshallElementContent(XMLObject xmlObject, Element domElement) throws MarshallingException {
+    DateOfBirthType birthDate = (DateOfBirthType) xmlObject;
+    ElementSupport.appendTextContent(domElement, birthDate.formatDate());
   }
 
 }

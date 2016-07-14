@@ -61,6 +61,12 @@ public interface SPType extends SAMLObject {
   /** Default element name. */
   public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NS, DEFAULT_ELEMENT_LOCAL_NAME,
     EidasConstants.EIDAS_PREFIX);
+  
+  /** Local name of the XSI type. */
+  public static final String TYPE_LOCAL_NAME = "SPTypeType";
+
+  /** QName of the XSI type. */
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_PREFIX);  
 
   /**
    * Returns the SP type.

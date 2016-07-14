@@ -76,12 +76,18 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  */
 public interface PersonIdentifierType extends XSString, SAMLObject {
 
-  /** Element local name. */
-  public static final String DEFAULT_ELEMENT_LOCAL_NAME = "PersonIdentifierType";
-
-  /** Default element name. */
-  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NP_NS, DEFAULT_ELEMENT_LOCAL_NAME,
-      EidasConstants.EIDAS_NP_PREFIX);
+//  /** Element local name. */
+//  public static final String DEFAULT_ELEMENT_LOCAL_NAME = "PersonIdentifierType";
+//
+//  /** Default element name. */
+//  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NP_NS, DEFAULT_ELEMENT_LOCAL_NAME,
+//      EidasConstants.EIDAS_NP_PREFIX);
+  
+  /** Local name of the XSI type. */
+  public static final String TYPE_LOCAL_NAME = "PersonIdentifierType"; 
+      
+  /** QName of the XSI type. */
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
 
   /**
    * Returns the first part of the uniqueness identifier that is the Nationality Code of the identifier. This is an ISO

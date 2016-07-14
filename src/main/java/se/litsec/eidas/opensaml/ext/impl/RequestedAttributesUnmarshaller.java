@@ -18,30 +18,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext.attributes.impl;
+package se.litsec.eidas.opensaml.ext.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.UnmarshallingException;
+import org.opensaml.saml.common.AbstractSAMLObjectUnmarshaller;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.RequestedAttribute;
+import se.litsec.eidas.opensaml.ext.RequestedAttributes;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * A thread safe unmarshaller for {@link RequestedAttributes}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class RequestedAttributesUnmarshaller extends AbstractSAMLObjectUnmarshaller {
 
   /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  protected void processChildElement(XMLObject parentSAMLObject, XMLObject childSAMLObject) throws UnmarshallingException {
+    RequestedAttributes attributes = (RequestedAttributes) parentSAMLObject;
+
+    if (childSAMLObject instanceof RequestedAttribute) {
+      attributes.getRequestedAttributes().add((RequestedAttribute) childSAMLObject);
+    }
+    else {
+      super.processChildElement(parentSAMLObject, childSAMLObject);
+    }
   }
 
 }

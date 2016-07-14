@@ -46,7 +46,7 @@ public class SPTypeTest extends OpenSAMLTestBase {
     Assert.assertNotNull(type);
     type.setType(SPTypeEnumeration.PRIVATE);
     
-    SPType type2 = OpenSAMLTestBase.createSamlObject(SPType.class);
+    SPType type2 = OpenSAMLTestBase.createSamlObject(SPType.class, SPType.DEFAULT_ELEMENT_NAME);
     Assert.assertNotNull(type2);
   }
 

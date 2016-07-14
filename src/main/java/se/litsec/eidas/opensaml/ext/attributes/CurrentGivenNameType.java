@@ -22,18 +22,18 @@ package se.litsec.eidas.opensaml.ext.attributes;
 
 import javax.xml.namespace.QName;
 
-import org.opensaml.core.xml.XMLObject;
+import org.opensaml.saml.common.SAMLObject;
 
 import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**
- * The eIDAS {@code CurrentFamilyNameType}.
+ * The eIDAS {@code CurrentGivenNameType}.
  * 
  * <pre>
- * <xsd:complexType name="CurrentFamilyNameType">
+ * <xsd:complexType name="CurrentGivenNameType">
  *   <xsd:annotation>
  *     <xsd:documentation>
- *       Current family name of the natural person.
+ *       Current given names of the natural person.
  *     </xsd:documentation>
  *   </xsd:annotation>
  *   <xsd:simpleContent>
@@ -47,29 +47,30 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * Example:
  * <pre>
  * <saml:Attribute
- *       FriendlyName="FamilyName"
- *       Name="http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName"
+ *       FriendlyName="FirstName"
+ *       Name="http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName"
  *       NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
- *   <saml:AttributeValue xsi:type="eidas:CurrentFamilyNameType">
- *     Chalk
+ *   <saml:AttributeValue xsi:type="eidas:CurrentGivenNameType">
+ *     Sarah
  *   </saml:AttributeValue>
  * </saml:Attribute>
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface CurrentFamilyNameType extends TransliterationStringType, XMLObject {
+public interface CurrentGivenNameType extends TransliterationStringType, SAMLObject {
   
-//  /** Element local name. */
-//  public static final String DEFAULT_ELEMENT_LOCAL_NAME = "CurrentFamilyNameType";
+  /** Element local name. */
+//  public static final String DEFAULT_ELEMENT_LOCAL_NAME = "CurrentGivenNameType";
 //
 //  /** Default element name. */
 //  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NP_NS, DEFAULT_ELEMENT_LOCAL_NAME,
 //      EidasConstants.EIDAS_NP_PREFIX);
   
   /** Local name of the XSI type. */
-  public static final String TYPE_LOCAL_NAME = "CurrentFamilyNameType"; 
+  public static final String TYPE_LOCAL_NAME = "CurrentGivenNameType"; 
       
   /** QName of the XSI type. */
-  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);  
+
 }

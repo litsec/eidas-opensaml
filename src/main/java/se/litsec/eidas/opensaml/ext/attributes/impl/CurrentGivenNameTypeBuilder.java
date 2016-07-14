@@ -22,26 +22,26 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 
 import org.opensaml.core.xml.AbstractXMLObjectBuilder;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Builder for {@link CurrentGivenNameType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
+public class CurrentGivenNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentGivenNameType> {
+
 //  /** {@inheritDoc} */
 //  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
+//  public CurrentGivenNameType buildObject() {
+//    return buildObject(EidasConstants.EIDAS_NP_NS, CurrentGivenNameType.DEFAULT_ELEMENT_LOCAL_NAME,
+//      EidasConstants.EIDAS_NP_PREFIX);
 //  }
 
   /** {@inheritDoc} */
   @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  public CurrentGivenNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {
+    return new CurrentGivenNameTypeImpl(namespaceURI, localName, namespacePrefix);
   }
 
 }

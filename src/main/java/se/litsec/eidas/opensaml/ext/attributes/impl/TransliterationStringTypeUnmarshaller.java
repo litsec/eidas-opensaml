@@ -20,28 +20,27 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.UnmarshallingException;
+import org.opensaml.core.xml.schema.impl.XSStringUnmarshaller;
+import org.w3c.dom.Attr;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.attributes.TransliterationStringType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Unmarshaller for {@link TransliterationStringType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class TransliterationStringTypeUnmarshaller extends XSStringUnmarshaller {
 
   /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  protected void processAttribute(XMLObject xmlObject, Attr attribute) throws UnmarshallingException {
+    TransliterationStringType tstring = (TransliterationStringType) xmlObject;
+
+    if (attribute.getLocalName().equals(TransliterationStringType.LATIN_SCRIPT_ATTRIB_NAME) && attribute.getNamespaceURI() == null) {
+      tstring.setLatinScript(Boolean.parseBoolean(attribute.getValue()));
+    }
   }
 
 }

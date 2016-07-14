@@ -20,28 +20,28 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.MarshallingException;
+import org.opensaml.core.xml.schema.impl.XSStringMarshaller;
+import org.w3c.dom.Element;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.attributes.TransliterationStringType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Marshaller for {@link TransliterationStringType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class TransliterationStringTypeMarshaller extends XSStringMarshaller {
 
   /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  protected void marshallAttributes(XMLObject xmlObject, Element domElement) throws MarshallingException {
+    TransliterationStringType tstring = (TransliterationStringType) xmlObject;
+
+    if (tstring.getLatinScriptXSBooleanValue() != null) {
+      domElement.setAttributeNS(null, TransliterationStringType.LATIN_SCRIPT_ATTRIB_NAME,
+        tstring.getLatinScriptXSBooleanValue().getValue().toString());
+    }
   }
 
 }

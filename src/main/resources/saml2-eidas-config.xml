@@ -1,26 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMLTooling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:eidas="http://eidas.europa.eu/saml-extensions" 
-  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson"
-  xmlns="http://www.opensaml.org/xmltooling-config"
+<XMLTooling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eidas="http://eidas.europa.eu/saml-extensions"
+  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson" xmlns="http://www.opensaml.org/xmltooling-config"
   xsi:schemaLocation="http://www.opensaml.org/xmltooling-config ../../src/schema/xmltooling-config.xsd">
 
   <!-- SAML 2.0 Providers for the OpenSAML eIDAS extensions -->
   <ObjectProviders>
-  
-    <!-- SPType -->
+
+    <!-- eidas:SPType -->
     <ObjectProvider qualifiedName="eidas:SPType">
       <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeBuilder" />
       <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeMarshaller" />
       <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeUnmarshaller" />
     </ObjectProvider>
-    
+
+    <!-- eidas:RequestedAttribute -->
+    <ObjectProvider qualifiedName="eidas:RequestedAttribute">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributeBuilder" />
+      <MarshallingClass className="org.opensaml.saml.saml2.metadata.impl.RequestedAttributeMarshaller" />
+      <UnmarshallingClass className="org.opensaml.saml.saml2.metadata.impl.RequestedAttributeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidas:RequestedAttributes -->
+    <ObjectProvider qualifiedName="eidas:RequestedAttributes">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidasnp:PersonIdentifierType -->
     <ObjectProvider qualifiedName="eidasnp:PersonIdentifierType">
       <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.PersonIdentifierTypeBuilder" />
       <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
       <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
     </ObjectProvider>
-    
+
+    <!-- eidasnp:CurrentFamilyNameType -->
+    <ObjectProvider qualifiedName="eidasnp:CurrentFamilyNameType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentFamilyNameTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidasnp:CurrentGivenNameType -->
+    <ObjectProvider qualifiedName="eidasnp:CurrentGivenNameType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentGivenNameTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidasnp:DateOfBirthType -->
+    <ObjectProvider qualifiedName="eidasnp:DateOfBirthType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeUnmarshaller" />
+    </ObjectProvider>
+
   </ObjectProviders>
 
 </XMLTooling>

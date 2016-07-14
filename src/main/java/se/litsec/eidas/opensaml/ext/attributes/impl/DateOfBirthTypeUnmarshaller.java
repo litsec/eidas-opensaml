@@ -20,28 +20,25 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.joda.time.LocalDate;
+import org.joda.time.chrono.ISOChronology;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.BaseXMLObjectUnmarshaller;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.attributes.DateOfBirthType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Thread-safe unmarshaller for {@link DateOfBirthType} objects.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class DateOfBirthTypeUnmarshaller extends BaseXMLObjectUnmarshaller {
 
   /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  protected void processElementContent(XMLObject xmlObject, String elementContent) {
+    DateOfBirthType date = (DateOfBirthType) xmlObject;
+
+    date.setDate(new LocalDate(elementContent, ISOChronology.getInstanceUTC()));
   }
 
 }

@@ -18,30 +18,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext.attributes.impl;
+package se.litsec.eidas.opensaml.ext.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
-
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.RequestedAttribute;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Implementation of {@link RequestedAttribute}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class RequestedAttributeImpl extends org.opensaml.saml.saml2.metadata.impl.RequestedAttributeImpl implements RequestedAttribute {
 
-  /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  /**
+   * @see org.opensaml.saml.saml2.metadata.impl.RequestedAttributeImpl
+   */
+  protected RequestedAttributeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+    super(namespaceURI, elementLocalName, namespacePrefix);
   }
 
 }

@@ -20,28 +20,20 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
-
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.attributes.CurrentFamilyNameType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Implementation class for {@link CurrentFamilyNameType} 
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
-  
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
+public class CurrentFamilyNameTypeImpl extends TransliterationStringTypeImpl implements CurrentFamilyNameType {
 
-  /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  /**
+   * @see TransliterationStringTypeImpl
+   */
+  public CurrentFamilyNameTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+    super(namespaceURI, elementLocalName, namespacePrefix);
   }
 
 }

@@ -57,8 +57,13 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 public interface RequestedAttribute extends org.opensaml.saml.saml2.metadata.RequestedAttribute {
 
   /** Default element name. */
-  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NS, 
+  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NS,
     org.opensaml.saml.saml2.metadata.RequestedAttribute.DEFAULT_ELEMENT_LOCAL_NAME,
+    EidasConstants.EIDAS_PREFIX);
+
+  /** QName of the XSI type. */
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NS, 
+    org.opensaml.saml.saml2.metadata.RequestedAttribute.TYPE_LOCAL_NAME,
     EidasConstants.EIDAS_PREFIX);
 
 }

@@ -18,30 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext.attributes.impl;
-
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
-
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+package se.litsec.eidas.opensaml.ext.attributes;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Utility methods for handling attributes and attribute values.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
+public class AttributeUtils {
   
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
-
-  /** {@inheritDoc} */
-  @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  private AttributeUtils() {
   }
 
 }

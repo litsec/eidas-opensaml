@@ -37,8 +37,19 @@ public class AttributeConstants {
   /** Attribute name for CurrentFamilyName. */
   public static final String EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName";
   
-  /** PersonIdentifier friendly name. */
+  /** CurrentFamilyName friendly name. */
   public static final String EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_FRIENDLY_NAME = "FamilyName";
   
+  /** Attribute name for CurrentGivenName. */
+  public static final String EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName";
+  
+  /** CurrentGivenName friendly name. */
+  public static final String EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_FRIENDLY_NAME = "FirstName";
+  
+  /** Attribute name for DateOfBirth. */
+  public static final String EIDAS_DATE_OF_BIRTH_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/DateOfBirth";
+  
+  /** DateOfBirth friendly name. */
+  public static final String EIDAS_DATE_OF_BIRTH_ATTRIBUTE_FRIENDLY_NAME = "DateOfBirth";
 
 }

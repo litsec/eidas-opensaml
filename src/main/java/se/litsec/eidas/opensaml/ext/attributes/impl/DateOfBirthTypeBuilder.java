@@ -22,26 +22,19 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 
 import org.opensaml.core.xml.AbstractXMLObjectBuilder;
 
-import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
+import se.litsec.eidas.opensaml.ext.attributes.DateOfBirthType;
 
 /**
- * Builder for {@link PersonIdentifierType}.
+ * Builder of {@link DateOfBirthType} objects.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
+public class DateOfBirthTypeBuilder extends AbstractXMLObjectBuilder<DateOfBirthType> {
   
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
-
   /** {@inheritDoc} */
   @Override
-  public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new PersonIdentifierTypeImpl(namespaceURI, localName, namespacePrefix);
+  public DateOfBirthType buildObject(String namespaceURI, String localName, String namespacePrefix) {
+    return new DateOfBirthTypeImpl(namespaceURI, localName, namespacePrefix);
   }
 
 }
