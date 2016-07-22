@@ -20,6 +20,7 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes;
 
+import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.schema.XSBooleanValue;
 import org.opensaml.core.xml.schema.XSString;
 
@@ -52,7 +53,7 @@ import org.opensaml.core.xml.schema.XSString;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  * @see https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf
  */
-public interface TransliterationStringType extends XSString {
+public interface TransliterationStringType extends XSString, XMLObject {
 
   /** "LatinScript" attribute's local name. */
   public static final String LATIN_SCRIPT_ATTRIB_NAME = "LatinScript";

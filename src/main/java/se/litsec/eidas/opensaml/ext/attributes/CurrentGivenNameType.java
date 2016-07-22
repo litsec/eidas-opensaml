@@ -58,15 +58,8 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface CurrentGivenNameType extends TransliterationStringType, SAMLObject {
-  
-  /** Element local name. */
-//  public static final String DEFAULT_ELEMENT_LOCAL_NAME = "CurrentGivenNameType";
-//
-//  /** Default element name. */
-//  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NP_NS, DEFAULT_ELEMENT_LOCAL_NAME,
-//      EidasConstants.EIDAS_NP_PREFIX);
-  
+public interface CurrentGivenNameType extends TransliterationStringType {
+    
   /** Local name of the XSI type. */
   public static final String TYPE_LOCAL_NAME = "CurrentGivenNameType"; 
       

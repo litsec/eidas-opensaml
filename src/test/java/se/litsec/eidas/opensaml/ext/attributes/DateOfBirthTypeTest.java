@@ -24,6 +24,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Element;
 
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import se.litsec.eidas.opensaml.OpenSAMLTestBase;
 
 /**
@@ -47,6 +48,8 @@ public class DateOfBirthTypeTest extends OpenSAMLTestBase {
     
     Element xml = OpenSAMLTestBase.marshall(date);    
     Assert.assertEquals("1969-11-29", xml.getTextContent());
+    
+    System.out.println(SerializeSupport.prettyPrintXML(xml));
     
     DateOfBirthType date2 = OpenSAMLTestBase.unmarshall(xml, DateOfBirthType.class);
     Assert.assertEquals(date.getDate(), date2.getDate());

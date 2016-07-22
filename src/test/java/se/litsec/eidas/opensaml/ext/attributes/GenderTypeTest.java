@@ -24,6 +24,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Element;
 
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import se.litsec.eidas.opensaml.OpenSAMLTestBase;
 
 /**
@@ -47,6 +48,8 @@ public class GenderTypeTest extends OpenSAMLTestBase {
     
     Element xml = OpenSAMLTestBase.marshall(gender);
     Assert.assertEquals(GenderTypeEnumeration.MALE.getValue(), xml.getTextContent());
+    
+    System.out.println(SerializeSupport.prettyPrintXML(xml));
     
     GenderType gender2 = OpenSAMLTestBase.unmarshall(xml, GenderType.class);
     Assert.assertEquals(gender.getGender(), gender2.getGender());
