@@ -135,6 +135,18 @@ public abstract class OpenSAMLTestBase {
   }
   
   /**
+   * Returns the builder object that can be used to build object for the given element name.
+   * 
+   * @param elementName
+   *          the element name for the XML object that the builder should return
+   * @return a builder object
+   */
+  @SuppressWarnings("unchecked")
+  public static <T extends XMLObject> XMLObjectBuilder<T> getBuilder(QName elementName) {
+    return (XMLObjectBuilder<T>) XMLObjectProviderRegistrySupport.getBuilderFactory().getBuilder(elementName);
+  }
+  
+  /**
    * Marshalls the supplied {@code XMLObject} into an {@code Element}.
    * 
    * @param object

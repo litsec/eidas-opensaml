@@ -25,42 +25,53 @@ import javax.xml.namespace.QName;
 import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**
- * The eIDAS {@code CurrentFamilyNameType}.
+ * The eIDAS {@code CurrentAddressType}.
  * 
  * <pre>
- * <xsd:complexType name="CurrentFamilyNameType">
+ * <xsd:simpleType name="CurrentAddressType">
  *   <xsd:annotation>
  *     <xsd:documentation>
- *       Current family name of the natural person.
+ *       Current address of the natural person as a base64 encoded string.
  *     </xsd:documentation>
  *   </xsd:annotation>
- *   <xsd:simpleContent>
- *     <xsd:extension base="xsd:string">
- *       <xsd:attribute ref="LatinScript"/>
- *     </xsd:extension>
- *   </xsd:simpleContent>
- * </xsd:complexType>
+ *   <xsd:restriction base="xsd:string"/>
+ * </xsd:simpleType>
  * </pre>
  * 
+ * <p>
+ * This attribute describes the current address for the natural person as registered with the MS authority. <br />
+ * Address data is structured by nature and is defined in the attribute schema as a structured XML sequence of
+ * {@code xsd:string} elements. Where appropriate this structure address data follows the Core ISA Vocabulary type
+ * CvAddressType although this has been simplified to a sequence of {@code xsd:string} elements. <br />
+ * To enable this data to be passed in a single attribute value this data MUST first be base64 encoded as described in
+ * section 2.2.3 Responding Attributes, of the eIDAS Message Format specification.
+ * </p>
+ * 
  * Example:
+ * 
  * <pre>
  * <saml:Attribute
- *       FriendlyName="FamilyName"
- *       Name="http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName"
+ *       FriendlyName="CurrentAddress"
+ *       Name="http://eidas.europa.eu/attributes/naturalperson/CurrentAddress"
  *       NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
- *   <saml:AttributeValue xsi:type="eidas:CurrentFamilyNameType">
- *     Chalk
+ *   <saml:AttributeValue xsi:type="eidas:CurrentAddressType">
+ *     PGVpZGFzOkxvY2F0b3JEZXNpZ25hdG9yPjIyPC9laWRhczpMb2NhdG9yRGVzaWduYX
+ *     Rvcj48ZWlkYXM6VGhvcm91Z2hmYXJlPkFyY2FjaWEgQXZlbnVlPC9laWRhczpUaG9y
+ *     b3VnaGZhcmU+DQo8ZWlkYXM6UG9zdE5hbWU+TG9uZG9uPC9laWRhczpQb3N0TmFtZT
+ *     4NCjxlaWRhczpQb3N0Q29kZT5TVzFBIDFBQTwvZWlkYXM6UG9zdENvZGU+
  *   </saml:AttributeValue>
  * </saml:Attribute>
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
+ * @see CurrentAddressStructuredType
  */
-public interface CurrentFamilyNameType extends TransliterationStringType {
-    
+public interface CurrentAddressType extends CurrentAddressStructuredType {
+
   /** Local name of the XSI type. */
-  public static final String TYPE_LOCAL_NAME = "CurrentFamilyNameType"; 
-      
+  public static final String TYPE_LOCAL_NAME = "CurrentAddressType";
+
   /** QName of the XSI type. */
   public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
+  
 }

@@ -20,7 +20,11 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes;
 
+import javax.xml.namespace.QName;
+
 import org.opensaml.core.xml.XMLObject;
+
+import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**
  * The eIDAS type {@code CurrentAddressStructuredType}.
@@ -49,15 +53,170 @@ import org.opensaml.core.xml.XMLObject;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public interface CurrentAddressStructuredType extends XMLObject {
+
+  /** Local name of the XSI type. */
+  public static final String TYPE_LOCAL_NAME = "CurrentAddressStructuredType";
+
+  /** QName of the XSI type. */
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
+
   
+  /**
+   * Assigns the Post box element.
+   * 
+   * @param poBox
+   *          the Post box
+   */
   void setPoBox(String poBox);
-  
+
+  /**
+   * Returns the Post box element
+   * 
+   * @return the Post box element or {@code null} if no such element is available
+   */
   String getPoBox();
-  
+
+  /**
+   * Assigns the locator designator element.
+   * <p>
+   * About a locator designator from mapping.semic.eu:
+   * </p>
+   * <blockquote cite=
+   * "http://mapping.semic.eu/vdm/description.vsp?namespace=cv&type=63915929e74ac20f49eaa549ea877d92&id=&format="> The
+   * locator designator is a number or a sequence of characters that uniquely identifies the locator within the relevant
+   * scope(s). The full identification of the locator could include one or more locator designators. [INSPIRE] In
+   * simpler terms, this is the building number, apartment number, etc. It is characteristic that these designators,
+   * according to tradition or to a specific set of rules, are assigned systematically. For example address numbers are
+   * most often assigned in ascending order with odd and even numbers on each side of the thoroughfare. Another example
+   * is the floor identifier that in a standardized way expresses on which level the address is located. [INSPIRE] The
+   * key difference between a locator designator and a locator name is that the latter is a proper name and is unlikely
+   * to include digits. </blockquote>
+   * 
+   * @param locatorDesignator
+   *          the locator designator
+   */
   void setLocatorDesignator(String locatorDesignator);
-  
+
+  /**
+   * Returns the locator designator element
+   * 
+   * @return the locator designator element or {@code null} if no such element is available
+   */
   String getLocatorDesignator();
-  
-  // TODO
+
+  /**
+   * Assigns the locator name element.
+   * <p>
+   * A locator name is typically a building, site or room name.
+   * </p>
+   * 
+   * @param locatorName
+   *          the locator name
+   */
+  void setLocatorName(String locatorName);
+
+  /**
+   * Returns the locator name element.
+   * 
+   * @return the locator name element or {@code null} if no such element is available.
+   */
+  String getLocatorName();
+
+  /**
+   * Assigns the Cvaddress area element.
+   * 
+   * @param cvaddressArea
+   *          the Cvaddress area element
+   */
+  void setCvaddressArea(String cvaddressArea);
+
+  /**
+   * Returns the Cvaddress area element.
+   * 
+   * @return the Cvaddress area element or {@code null} if no such element is available
+   */
+  String getCvaddressArea();
+
+  /**
+   * Assigns the Thoroughfare element.
+   * <p>
+   * The element contains information about the thoroughfare - for example, the street, avenue, or boulevard - on which
+   * an address is located.
+   * </p>
+   * 
+   * @param thoroughfare
+   *          the Thoroughfare element
+   */
+  void setThoroughfare(String thoroughfare);
+
+  /**
+   * Returns the Thoroughfare element.
+   * 
+   * @return the Thoroughfare element or {@code null} if no such element is available
+   */
+  String getThoroughfare();
+
+  /**
+   * Assigns the post name element.
+   * <p>
+   * The post name is generally the city-part of the address.
+   * </p>
+   * 
+   * @param postName
+   *          the post name
+   */
+  void setPostName(String postName);
+
+  /**
+   * Returns the post name element.
+   * 
+   * @return the post name element or {@code null} if no such element is available
+   */
+  String getPostName();
+
+  /**
+   * Assigns the admin unit first line element.
+   * 
+   * @param adminunitFirstline
+   *          the admin unit first line element
+   */
+  void setAdminunitFirstline(String adminunitFirstline);
+
+  /**
+   * Returns the the admin unit first line element.
+   * 
+   * @return the the admin unit first line element or {@code null} if no such element is available
+   */
+  String getAdminunitFirstline();
+
+  /**
+   * Assigns the admin unit second line element.
+   * 
+   * @param adminunitSecondline
+   *          the admin unit second line element
+   */
+  void setAdminunitSecondline(String adminunitSecondline);
+
+  /**
+   * Returns the the admin unit second line element.
+   * 
+   * @return the the admin unit second line element or {@code null} if no such element is available
+   */
+  String getAdminunitSecondline();
+
+  /**
+   * Assigns the Post code element.
+   * 
+   * @param postCode
+   *          the Post code element
+   */
+  void setPostCode(String postCode);
+
+  /**
+   * Returns the Post code element.
+   * 
+   * @return the Post code element or {@code null} if no such element is available
+   */
+  String getPostCode();
 
 }

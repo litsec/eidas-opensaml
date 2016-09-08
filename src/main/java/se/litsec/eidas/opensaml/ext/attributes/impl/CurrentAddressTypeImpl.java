@@ -20,21 +20,34 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.opensaml.core.xml.schema.impl.XSStringImpl;
 
-import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
+import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
 
 /**
- * Builder for {@link CurrentGivenNameType}.
+ * Implementation of {@code CurrentAddressType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class CurrentGivenNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentGivenNameType> {
+public class CurrentAddressTypeImpl extends CurrentAddressStructuredTypeImpl implements CurrentAddressType {
+
+  /**
+   * @see XSStringImpl
+   */
+  public CurrentAddressTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+    super(namespaceURI, elementLocalName, namespacePrefix);
+  }
 
   /** {@inheritDoc} */
-  @Override
-  public CurrentGivenNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new CurrentGivenNameTypeImpl(namespaceURI, localName, namespacePrefix);
-  }
+//  @Override
+//  public void setEncodedCurrentAddress(String encodedCurrentAddress) {
+//    this.setValue(encodedCurrentAddress);
+//  }
+
+  /** {@inheritDoc} */
+//  @Override
+//  public String getEncodedCurrentAddress() {
+//    return this.getValue();
+//  }
 
 }

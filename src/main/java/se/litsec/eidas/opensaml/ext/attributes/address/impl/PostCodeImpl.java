@@ -18,23 +18,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext.attributes.impl;
+package se.litsec.eidas.opensaml.ext.attributes.address.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import org.opensaml.core.xml.schema.impl.XSStringImpl;
 
-import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
+import se.litsec.eidas.opensaml.ext.attributes.address.PostCode;
 
 /**
- * Builder for {@link CurrentGivenNameType}.
+ * Implementation of {@code PostCode}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class CurrentGivenNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentGivenNameType> {
+public class PostCodeImpl extends XSStringImpl implements PostCode {
 
-  /** {@inheritDoc} */
-  @Override
-  public CurrentGivenNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new CurrentGivenNameTypeImpl(namespaceURI, localName, namespacePrefix);
+  /**
+   * Constructor.
+   *
+   * @param namespaceURI
+   *          the namespace the element is in
+   * @param elementLocalName
+   *          the local name of the XML element this Object represents
+   * @param namespacePrefix
+   *          the prefix for the given namespace
+   */
+  public PostCodeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+    super(namespaceURI, elementLocalName, namespacePrefix);
   }
 
 }

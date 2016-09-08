@@ -18,23 +18,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext.attributes.impl;
+package se.litsec.eidas.opensaml.ext.attributes.address;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
+import javax.xml.namespace.QName;
 
-import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
+import org.opensaml.core.xml.schema.XSString;
+
+import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**
- * Builder for {@link CurrentGivenNameType}.
+ * The {@code PoBox} element of the {@code CurrentAddressStructuredType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class CurrentGivenNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentGivenNameType> {
+public interface PoBox extends XSString {
 
-  /** {@inheritDoc} */
-  @Override
-  public CurrentGivenNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new CurrentGivenNameTypeImpl(namespaceURI, localName, namespacePrefix);
-  }
+  /** Element local name. */
+  public static final String DEFAULT_ELEMENT_LOCAL_NAME = "PoBox";
 
+  /** Default element name. */
+  public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_NP_NS, DEFAULT_ELEMENT_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
+  
 }

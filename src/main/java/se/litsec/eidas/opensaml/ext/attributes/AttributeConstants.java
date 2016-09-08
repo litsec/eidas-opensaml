@@ -57,5 +57,11 @@ public class AttributeConstants {
   
   /** Gender friendly name. */
   public static final String EIDAS_GENDER_ATTRIBUTE_FRIENDLY_NAME = "Gender";  
+  
+  /** Attribute name for CurrentAddress. */
+  public static final String EIDAS_CURRENT_ADDRESS_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/CurrentAddress";
+  
+  /** CurrentGivenName friendly name. */
+  public static final String EIDAS_CURRENT_ADDRESS_ATTRIBUTE_FRIENDLY_NAME = "CurrentAddress";
 
 }

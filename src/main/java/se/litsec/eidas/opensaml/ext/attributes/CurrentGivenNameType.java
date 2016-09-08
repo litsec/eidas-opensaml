@@ -22,8 +22,6 @@ package se.litsec.eidas.opensaml.ext.attributes;
 
 import javax.xml.namespace.QName;
 
-import org.opensaml.saml.common.SAMLObject;
-
 import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**

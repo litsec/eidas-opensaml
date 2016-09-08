@@ -22,19 +22,19 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 
 import org.opensaml.core.xml.AbstractXMLObjectBuilder;
 
-import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
+import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
 
 /**
- * Builder for {@link CurrentGivenNameType}.
+ * Builder for {@link CurrentAddressType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class CurrentGivenNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentGivenNameType> {
+public class CurrentAddressTypeBuilder extends AbstractXMLObjectBuilder<CurrentAddressType> {
 
   /** {@inheritDoc} */
   @Override
-  public CurrentGivenNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new CurrentGivenNameTypeImpl(namespaceURI, localName, namespacePrefix);
+  public CurrentAddressType buildObject(String namespaceURI, String localName, String namespacePrefix) {
+    return new CurrentAddressTypeImpl(namespaceURI, localName, namespacePrefix); 
   }
 
 }

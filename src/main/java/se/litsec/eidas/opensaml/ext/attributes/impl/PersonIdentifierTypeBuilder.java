@@ -31,13 +31,6 @@ import se.litsec.eidas.opensaml.ext.attributes.PersonIdentifierType;
  */
 public class PersonIdentifierTypeBuilder extends AbstractXMLObjectBuilder<PersonIdentifierType> {
   
-//  /** {@inheritDoc} */
-//  @Override
-//  public PersonIdentifierType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, PersonIdentifierType.DEFAULT_ELEMENT_LOCAL_NAME,
-//        EidasConstants.EIDAS_NP_PREFIX);
-//  }
-
   /** {@inheritDoc} */
   @Override
   public PersonIdentifierType buildObject(String namespaceURI, String localName, String namespacePrefix) {

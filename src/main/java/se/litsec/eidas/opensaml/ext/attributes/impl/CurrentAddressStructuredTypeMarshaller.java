@@ -20,21 +20,12 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.AbstractXMLObjectBuilder;
-
-import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
+import org.opensaml.core.xml.io.AbstractXMLObjectMarshaller;
 
 /**
- * Builder for {@link CurrentGivenNameType}.
+ * Marshaller for {@code CurrentAddressStructuredType}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class CurrentGivenNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentGivenNameType> {
-
-  /** {@inheritDoc} */
-  @Override
-  public CurrentGivenNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new CurrentGivenNameTypeImpl(namespaceURI, localName, namespacePrefix);
-  }
-
+public class CurrentAddressStructuredTypeMarshaller extends AbstractXMLObjectMarshaller {
 }

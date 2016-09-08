@@ -31,13 +31,6 @@ import se.litsec.eidas.opensaml.ext.attributes.CurrentFamilyNameType;
  */
 public class CurrentFamilyNameTypeBuilder extends AbstractXMLObjectBuilder<CurrentFamilyNameType> {
 
-//  /** {@inheritDoc} */
-//  @Override
-//  public CurrentFamilyNameType buildObject() {
-//    return buildObject(EidasConstants.EIDAS_NP_NS, CurrentFamilyNameType.DEFAULT_ELEMENT_LOCAL_NAME,
-//      EidasConstants.EIDAS_NP_PREFIX);
-//  }
-
   /** {@inheritDoc} */
   @Override
   public CurrentFamilyNameType buildObject(String namespaceURI, String localName, String namespacePrefix) {

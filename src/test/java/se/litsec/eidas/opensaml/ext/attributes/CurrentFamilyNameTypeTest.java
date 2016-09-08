@@ -24,6 +24,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Element;
 
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import se.litsec.eidas.opensaml.OpenSAMLTestBase;
 
 /**
@@ -51,6 +52,10 @@ public class CurrentFamilyNameTypeTest extends OpenSAMLTestBase {
     
     Element element = OpenSAMLTestBase.marshall(cfn); 
     Assert.assertNotNull(element);
+    
+    //System.out.println(SerializeSupport.prettyPrintXML(element));
+    
+    System.out.println(SerializeSupport.nodeToString(element));
     
     CurrentFamilyNameType cfn2 = OpenSAMLTestBase.unmarshall(element, CurrentFamilyNameType.class);
     Assert.assertEquals(cfn.getValue(), cfn2.getValue());
