@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml:Attribute 
+  FriendlyName="FamilyName" 
+  Name="http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName"
+  NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" 
+  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:eidas="http://eidas.europa.eu/attributes/naturalperson">
+  <saml:AttributeValue xsi:type="eidas:CurrentFamilyNameType">Onasis</saml:AttributeValue>
+  <!-- <saml:AttributeValue xsi:type="eidas:CurrentFamilyNameType" eidas:LatinScript=”false”>Ωνάσης</saml:AttributeValue> -->
+  <saml:AttributeValue xsi:type="eidas:CurrentFamilyNameType" eidas:LatinScript="false">&#937;&#957;&#945;&#963;&#951;&#962;</saml:AttributeValue>
+
+  <!-- xmlns:saml="urn:oasis:names:tc:saml2:2.0:assertion" --> <!-- error in example -->
+</saml:Attribute>

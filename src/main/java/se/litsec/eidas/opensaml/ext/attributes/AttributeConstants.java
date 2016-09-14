@@ -27,6 +27,9 @@ package se.litsec.eidas.opensaml.ext.attributes;
  * @see https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf
  */
 public class AttributeConstants {
+  
+  /** Attribute name for the LoA attribute used in metadata (as an EntityAttribute). */
+  public static final String EIDAS_LOA_ATTRIBUTE_NAME = "http://eidas.europa.eu/LoA";
 
   /** Attribute name for PersonIdentifier. */
   public static final String EIDAS_PERSON_IDENTIFIER_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/PersonIdentifier";

@@ -25,6 +25,7 @@ import org.opensaml.core.xml.io.UnmarshallingException;
 import org.opensaml.core.xml.schema.impl.XSStringUnmarshaller;
 import org.w3c.dom.Attr;
 
+import se.litsec.eidas.opensaml.common.EidasConstants;
 import se.litsec.eidas.opensaml.ext.attributes.TransliterationStringType;
 
 /**
@@ -38,7 +39,8 @@ public class TransliterationStringTypeUnmarshaller extends XSStringUnmarshaller 
   protected void processAttribute(XMLObject xmlObject, Attr attribute) throws UnmarshallingException {
     TransliterationStringType tstring = (TransliterationStringType) xmlObject;
 
-    if (attribute.getLocalName().equals(TransliterationStringType.LATIN_SCRIPT_ATTRIB_NAME) && attribute.getNamespaceURI() == null) {
+    if (attribute.getLocalName().equals(TransliterationStringType.LATIN_SCRIPT_ATTRIB_NAME) && (attribute.getNamespaceURI() == null
+        || EidasConstants.EIDAS_NP_NS.equals(attribute.getNamespaceURI()))) {
       tstring.setLatinScript(Boolean.parseBoolean(attribute.getValue()));
     }
   }
