@@ -38,7 +38,9 @@ import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
  * The marshaller for {@code CurrentAddressType}.
  * <p>
  * Since the eIDAS {@code CurrentAddressType} is defined to contain a string value that is in fact the Base64-encoding
- * of an XML-snippet of {@code CurrentAddressStructuredType} we have to fool around a bit here. <br />
+ * of an XML-snippet of {@code CurrentAddressStructuredType} we have to fool around a bit here.
+ * </p>
+ * <p>
  * <i>Personal note: I really can't understand how anyone thinks they made things easier for implemetors when they
  * figured that out</i>.
  * </p>

@@ -30,7 +30,14 @@ import se.litsec.eidas.opensaml.ext.RequestedAttribute;
 public class RequestedAttributeImpl extends org.opensaml.saml.saml2.metadata.impl.RequestedAttributeImpl implements RequestedAttribute {
 
   /**
-   * @see org.opensaml.saml.saml2.metadata.impl.RequestedAttributeImpl
+   * Constructor.
+   * 
+   * @param namespaceURI
+   *          the namespace the element is in
+   * @param elementLocalName
+   *          the local name of the XML element this Object represents
+   * @param namespacePrefix
+   *          the prefix for the given namespace
    */
   protected RequestedAttributeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);

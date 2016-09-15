@@ -29,15 +29,15 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code <eidas:SPType>} element.
  * 
- * <pre>
+ * <pre> {@code 
  * <?xml version="1.0" encoding="UTF-8"?>
  * <xsd:schema
- *    xmlns="http://eidas.europa.eu/saml-extensions"
- *    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
- *    targetNamespace="http://eidas.europa.eu/saml-extensions"
- *    elementFormDefault="qualified"
- *    attributeFormDefault="unqualified"
- *    version="1">
+ *      xmlns="http://eidas.europa.eu/saml-extensions"
+ *      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ *      targetNamespace="http://eidas.europa.eu/saml-extensions"
+ *      elementFormDefault="qualified"
+ *      attributeFormDefault="unqualified"
+ *      version="1">
  *    
  *   <xs:element name="SPType" type="SPTypeType"/>
  *   
@@ -48,7 +48,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     </xs:restriction>
  *   </xs:simpleType>
  *   
- * </xsd:schema>
+ * </xsd:schema>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)

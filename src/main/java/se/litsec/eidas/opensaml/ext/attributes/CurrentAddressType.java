@@ -27,7 +27,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code CurrentAddressType}.
  * 
- * <pre>
+ * <pre>{@code 
  * <xsd:simpleType name="CurrentAddressType">
  *   <xsd:annotation>
  *     <xsd:documentation>
@@ -35,21 +35,25 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     </xsd:documentation>
  *   </xsd:annotation>
  *   <xsd:restriction base="xsd:string"/>
- * </xsd:simpleType>
+ * </xsd:simpleType>}
  * </pre>
  * 
  * <p>
- * This attribute describes the current address for the natural person as registered with the MS authority. <br />
+ * This attribute describes the current address for the natural person as registered with the MS authority.
+ * </p>
+ * <p>
  * Address data is structured by nature and is defined in the attribute schema as a structured XML sequence of
  * {@code xsd:string} elements. Where appropriate this structure address data follows the Core ISA Vocabulary type
- * CvAddressType although this has been simplified to a sequence of {@code xsd:string} elements. <br />
+ * CvAddressType although this has been simplified to a sequence of {@code xsd:string} elements.
+ * </p>
+ * <p>
  * To enable this data to be passed in a single attribute value this data MUST first be base64 encoded as described in
  * section 2.2.3 Responding Attributes, of the eIDAS Message Format specification.
  * </p>
  * 
  * Example:
  * 
- * <pre>
+ * <pre>{@code 
  * <saml:Attribute
  *       FriendlyName="CurrentAddress"
  *       Name="http://eidas.europa.eu/attributes/naturalperson/CurrentAddress"
@@ -60,7 +64,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     b3VnaGZhcmU+DQo8ZWlkYXM6UG9zdE5hbWU+TG9uZG9uPC9laWRhczpQb3N0TmFtZT
  *     4NCjxlaWRhczpQb3N0Q29kZT5TVzFBIDFBQTwvZWlkYXM6UG9zdENvZGU+
  *   </saml:AttributeValue>
- * </saml:Attribute>
+ * </saml:Attribute>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
@@ -73,5 +77,5 @@ public interface CurrentAddressType extends CurrentAddressStructuredType {
 
   /** QName of the XSI type. */
   public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
-  
+
 }

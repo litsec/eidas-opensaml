@@ -20,8 +20,6 @@
  */
 package se.litsec.eidas.opensaml.ext.attributes.impl;
 
-import org.opensaml.core.xml.schema.impl.XSStringImpl;
-
 import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
 
 /**
@@ -32,22 +30,14 @@ import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
 public class CurrentAddressTypeImpl extends CurrentAddressStructuredTypeImpl implements CurrentAddressType {
 
   /**
-   * @see XSStringImpl
+   * Constructor.
+   * 
+   * @param namespaceURI the namespace the element is in
+   * @param elementLocalName the local name of the XML element this Object represents
+   * @param namespacePrefix the prefix for the given namespace
    */
   public CurrentAddressTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
   }
-
-  /** {@inheritDoc} */
-//  @Override
-//  public void setEncodedCurrentAddress(String encodedCurrentAddress) {
-//    this.setValue(encodedCurrentAddress);
-//  }
-
-  /** {@inheritDoc} */
-//  @Override
-//  public String getEncodedCurrentAddress() {
-//    return this.getValue();
-//  }
 
 }

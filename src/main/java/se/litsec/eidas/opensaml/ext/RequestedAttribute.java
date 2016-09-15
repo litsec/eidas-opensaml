@@ -27,15 +27,15 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code <eidas:RequestedAttribute>} element.
  * 
- * <pre>
+ * <pre>{@code 
  * <?xml version="1.0" encoding="UTF-8"?>
  * <xsd:schema
- *       xmlns="http://eidas.europa.eu/saml-extensions"
- *       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
- *       targetNamespace="http://eidas.europa.eu/saml-extensions"
- *       elementFormDefault="qualified"
- *       attributeFormDefault="unqualified"
- *       version="1">
+ *     xmlns="http://eidas.europa.eu/saml-extensions"
+ *     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ *     targetNamespace="http://eidas.europa.eu/saml-extensions"
+ *     elementFormDefault="qualified"
+ *     attributeFormDefault="unqualified"
+ *     version="1">
  *       
  *   <complexType name="RequestedAttributeType">
  *     <sequence>
@@ -48,8 +48,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     <attribute name="isRequired" type="boolean" use="optional"/>
  *   </complexType>
  *   
- * </xsd:schema>
- * 
+ * </xsd:schema>} 
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)

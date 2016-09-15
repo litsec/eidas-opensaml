@@ -30,7 +30,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code PersonIdentifierType}.
  * 
- * <pre>
+ * <pre>{@code 
  * <xsd:simpleType name="PersonIdentifierType">
  *   <xsd:annotation>
  *     <xsd:documentation>
@@ -38,12 +38,12 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     </xsd:documentation>
  *   </xsd:annotation>
  * <xsd:restriction base="xsd:string"/>
- * </xsd:simpleType>
+ * </xsd:simpleType>}
  * </pre>
  * 
  * Example:
  * 
- * <pre>
+ * <pre>{@code
  *  <saml:Attribute
  *        FriendlyName="PersonIdentifier"
  *        Name="http://eidas.europa.eu/attributes/naturalperson/PersonIdentifier"
@@ -51,7 +51,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *    <saml:AttributeValue xsi:type="eidasnp:PersonIdentifierType">
  *      ES/AT/02635542Y
  *    </saml:AttributeValue>
- *  </saml:Attribute>
+ *  </saml:Attribute>}
  * </pre>
  * 
  * The uniqueness identifier consists of:
@@ -70,7 +70,10 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * (for example, username, fiscal number etc).
  * </li>
  * </ol>
- * Example: ES/AT/02635542Y (Spanish eIDNumber for an Austrian SP)
+ * 
+ * <p>
+ * Example: {@code ES/AT/02635542Y} (Spanish eIDNumber for an Austrian SP)
+ * </p>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
@@ -98,7 +101,7 @@ public interface PersonIdentifierType extends XSString, SAMLObject {
    * international organization. This is an ISO 3166-1 alpha-2 code.
    * 
    * <p>
-   * Example: ES</<b>AT</b>/02635542Y
+   * Example: ES/<b>AT</b>/02635542Y
    * </p>
    * 
    * @return the destination Nationality Code of the identifier
@@ -112,7 +115,7 @@ public interface PersonIdentifierType extends XSString, SAMLObject {
    * identifier (for example, username, fiscal number etc).
    *
    * <p>
-   * Example: ES</AT/<b>02635542Y</b>
+   * Example: {@code ES</AT/<b>02635542Y</b>}
    * </p>
    * 
    * @return the identifier string of the uniqueness identifier

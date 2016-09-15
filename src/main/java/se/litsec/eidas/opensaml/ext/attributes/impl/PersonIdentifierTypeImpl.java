@@ -33,13 +33,13 @@ public class PersonIdentifierTypeImpl extends XSStringImpl implements PersonIden
 
   /**
    * Constructor.
-   *
+   * 
    * @param namespaceURI
-   *          namespace URI
+   *          the namespace the element is in
    * @param elementLocalName
-   *          local name
+   *          the local name of the XML element this Object represents
    * @param namespacePrefix
-   *          namespace prefix
+   *          the prefix for the given namespace
    */
   protected PersonIdentifierTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);

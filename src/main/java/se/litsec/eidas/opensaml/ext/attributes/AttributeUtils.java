@@ -84,7 +84,9 @@ public class AttributeUtils {
    * After the object has been constructed, its setter methods should be called to setup the value object before adding
    * it to the attribute itself.
    * </p>
-   * 
+   *
+   * @param <T>
+   *          the type
    * @param clazz
    *          the type of attribute value
    * @return the attribute value
@@ -107,8 +109,13 @@ public class AttributeUtils {
    * it to the attribute itself.
    * </p>
    * 
-   * @param schemaType the schema type that should be assigned to the attribute value, i.e., {@code xsi:type="eidas:CurrentFamilyNameType"}
-   * @param clazz the type of the attribute value
+   * @param <T>
+   *          the type
+   * @param schemaType
+   *          the schema type that should be assigned to the attribute value, i.e.,
+   *          {@code xsi:type="eidas:CurrentFamilyNameType"}
+   * @param clazz
+   *          the type of the attribute value
    * @return the attribute value
    * @see #createAttributeValueObject(Class)
    */
@@ -122,15 +129,21 @@ public class AttributeUtils {
    * Utility method that adds an XML object as a value to an {@code Attribute}.
    * <p>
    * Example:
-   * <pre>
-   * Attribute attr = AttributeUtils.createAttribute("http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName", "FamilyName");
+   * </p>
+   * <pre>{@code
+   * Attribute attr = 
+   *   AttributeUtils.createAttribute("http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName", "FamilyName");
    * CurrentFamilyNameType value = AttributeUtils.createAttributeValueObject(CurrentFamilyNameType.class);
    * value.setValue("Lindström");
-   * AttributeUtils.addAttributeValue(attr, value);
+   * AttributeUtils.addAttributeValue(attr, value);}
    * </pre>
-   * </p>
-   * @param attribute the attribute to update
-   * @param value the value to add
+   * 
+   * @param <T>
+   *          the type
+   * @param attribute
+   *          the attribute to update
+   * @param value
+   *          the value to add
    */
   public static <T extends XMLObject> void addAttributeValue(Attribute attribute, T value) {
     attribute.getAttributeValues().add(value);

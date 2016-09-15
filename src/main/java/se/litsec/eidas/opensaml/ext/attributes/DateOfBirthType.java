@@ -29,7 +29,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code DateOfBirthType}.
  * 
- * <pre>
+ * <pre>{@code 
  * <xsd:simpleType name="DateOfBirthType">
  *   <xsd:annotation>
  *     <xsd:documentation>
@@ -37,12 +37,12 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     </xsd:documentation>
  *   </xsd:annotation>
  *   <xsd:restriction base="xsd:date"/>
- * </xsd:simpleType>
+ * </xsd:simpleType>}
  * </pre>
  * 
  * Example:
  * 
- * <pre>
+ * <pre>{@code
  * <saml:Attribute
  *       FriendlyName="DateOfBirth"
  *       Name="http://eidas.europa.eu/attributes/naturalperson/DateOfBirth"
@@ -50,7 +50,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *   <saml:AttributeValue xsi:type="eidas:DateOfBirthType">
  *     1970-05-28
  *   </saml:AttributeValue>
- * </saml:Attribute>
+ * </saml:Attribute>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)

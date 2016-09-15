@@ -21,7 +21,7 @@
 package se.litsec.eidas.opensaml.ext.attributes;
 
 /**
- * A type safe enumeration of the {@code <eidas:GenderType>} type.
+ * Enumeration of the {@code <eidas:GenderType>} type.
  *
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */

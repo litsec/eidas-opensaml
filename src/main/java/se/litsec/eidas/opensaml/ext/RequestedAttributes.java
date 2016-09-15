@@ -31,7 +31,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code <eidas:RequestedAttributes>} element.
  * 
- * <pre>
+ * <pre>{@code 
  * <?xml version="1.0" encoding="UTF-8"?>
  * <xsd:schema
  *      xmlns="http://eidas.europa.eu/saml-extensions"
@@ -48,7 +48,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *       <xs:element minOccurs="0" maxOccurs="unbounded" ref="eidas:RequestedAttribute"/>
  *     </xs:sequence>
  *   </xs:complexType>
- * </xsd:schema>
+ * </xsd:schema>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)

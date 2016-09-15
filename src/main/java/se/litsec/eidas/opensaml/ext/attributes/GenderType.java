@@ -29,7 +29,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code GenderType}.
  * 
- * <pre>
+ * <pre>{@code
  * <xsd:simpleType name="GenderType">
  *   <xsd:annotation>
  *     <xsd:documentation>
@@ -41,12 +41,12 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     <xsd:enumeration value="Female"/>
  *     <xsd:enumeration value="Unspecified"/>
  *   </xsd:restriction>
- * </xsd:simpleType>
+ * </xsd:simpleType>}
  * </pre>
  * 
  * Example:
  * 
- * <pre>
+ * <pre>{@code 
  * <saml:Attribute
  *       FriendlyName="Gender"
  *       Name="http://eidas.europa.eu/attributes/naturalperson/Gender"
@@ -54,7 +54,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *   <saml:AttributeValue xsi:type="eidas:GenderType">
  *     Female
  *   </saml:AttributeValue>
- * </saml:Attribute>
+ * </saml:Attribute>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)

@@ -118,6 +118,8 @@ public class CreateAuthnRequestExample extends OpenSAMLTestBase {
     if (requstedAttributes != null && !requstedAttributes.isEmpty()) {
       RequestedAttributes requestedAttributesElement = OpenSAMLTestBase.createSamlObject(RequestedAttributes.class,
         RequestedAttributes.DEFAULT_ELEMENT_NAME);
+      
+      // Also see the RequestedAttributeTemplates class ...
 
       for (String attr : requstedAttributes) {
         RequestedAttribute reqAttr = OpenSAMLTestBase.createSamlObject(RequestedAttribute.class, RequestedAttribute.DEFAULT_ELEMENT_NAME);

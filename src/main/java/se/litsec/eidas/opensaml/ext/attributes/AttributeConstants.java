@@ -21,49 +21,50 @@
 package se.litsec.eidas.opensaml.ext.attributes;
 
 /**
- * Constant values for attribute names defined in "eIDAS SAML Attribute Profile".
+ * Constant values for attribute names defined in
+ * <a href="https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf">eIDAS SAML
+ * Attribute Profile</a>.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
- * @see https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf
  */
 public class AttributeConstants {
-  
+
   /** Attribute name for the LoA attribute used in metadata (as an EntityAttribute). */
   public static final String EIDAS_LOA_ATTRIBUTE_NAME = "http://eidas.europa.eu/LoA";
 
   /** Attribute name for PersonIdentifier. */
   public static final String EIDAS_PERSON_IDENTIFIER_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/PersonIdentifier";
-  
+
   /** PersonIdentifier friendly name. */
   public static final String EIDAS_PERSON_IDENTIFIER_ATTRIBUTE_FRIENDLY_NAME = "PersonIdentifier";
-  
+
   /** Attribute name for CurrentFamilyName. */
   public static final String EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName";
-  
+
   /** CurrentFamilyName friendly name. */
   public static final String EIDAS_CURRENT_FAMILY_NAME_ATTRIBUTE_FRIENDLY_NAME = "FamilyName";
-  
+
   /** Attribute name for CurrentGivenName. */
   public static final String EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName";
-  
+
   /** CurrentGivenName friendly name. */
   public static final String EIDAS_CURRENT_GIVEN_NAME_ATTRIBUTE_FRIENDLY_NAME = "FirstName";
-  
+
   /** Attribute name for DateOfBirth. */
   public static final String EIDAS_DATE_OF_BIRTH_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/DateOfBirth";
-  
+
   /** DateOfBirth friendly name. */
   public static final String EIDAS_DATE_OF_BIRTH_ATTRIBUTE_FRIENDLY_NAME = "DateOfBirth";
-  
+
   /** Attribute name for Gender. */
   public static final String EIDAS_GENDER_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/Gender";
-  
+
   /** Gender friendly name. */
-  public static final String EIDAS_GENDER_ATTRIBUTE_FRIENDLY_NAME = "Gender";  
-  
+  public static final String EIDAS_GENDER_ATTRIBUTE_FRIENDLY_NAME = "Gender";
+
   /** Attribute name for CurrentAddress. */
   public static final String EIDAS_CURRENT_ADDRESS_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/CurrentAddress";
-  
+
   /** CurrentGivenName friendly name. */
   public static final String EIDAS_CURRENT_ADDRESS_ATTRIBUTE_FRIENDLY_NAME = "CurrentAddress";
 

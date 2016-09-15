@@ -23,14 +23,21 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 import se.litsec.eidas.opensaml.ext.attributes.CurrentFamilyNameType;
 
 /**
- * Implementation class for {@link CurrentFamilyNameType} 
+ * Implementation class for {@link CurrentFamilyNameType}
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class CurrentFamilyNameTypeImpl extends TransliterationStringTypeImpl implements CurrentFamilyNameType {
 
   /**
-   * @see TransliterationStringTypeImpl
+   * Constructor.
+   * 
+   * @param namespaceURI
+   *          the namespace the element is in
+   * @param elementLocalName
+   *          the local name of the XML element this Object represents
+   * @param namespacePrefix
+   *          the prefix for the given namespace
    */
   public CurrentFamilyNameTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);

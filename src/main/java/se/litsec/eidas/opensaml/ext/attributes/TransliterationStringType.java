@@ -27,30 +27,33 @@ import org.opensaml.core.xml.schema.XSString;
  * Interface for eIDAS attribute values that may be represented as non-Latin scripts.
  * 
  * <p>
- * Section 2.4 of the "eIDAS SAML Attribute Profile" states the following:
- * <br />
+ * Section 2.4 of the
+ * <a href="https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf">eIDAS SAML
+ * Attribute Profile</a> states the following: 
+ * </p>
+ * <p>
  * Transliteration allows the consumer of identity assertions to determine which attribute values are recorded in Latin
- * and non-Latin script.
- * <br />
+ * and non-Latin script. 
+ * </p>
+ * <p>
  * For attribute values where transliteration is applicable (as defined by the profile) a modifying attribute
  * {@code LatinScript=”false”} MUST be applied to the {@code <AttributeValue>}. This {@code LatinScript} attribute is
- * optional and set to {@code true} by default.
- * <br />
+ * optional and set to {@code true} by default. 
+ * </p>
  * To facilitate transliteration two {@code <AttributeValue>} statements MUST be included in the {@code <Attribute>}
  * statement;
  * <ol>
  * <li>a Latin script variant of the attribute value</li>
- * <li>a non-Latin script variant which MUST be clearly identified using the {@code LatinScript}
- * attribute set to {@code false}.</li>
+ * <li>a non-Latin script variant which MUST be clearly identified using the {@code LatinScript} attribute set to
+ * {@code false}.</li>
  * </ol>
- * 
+ * <p>
  * If a transliterated attribute value is included the {@code LatinScript} attribute MUST be set to {@code false}
  * indicating a non-latin variant of the attribute value. Nodes MUST take account of the {@code LatinScript} attribute
  * where present and act accordingly.
  * </p>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
- * @see https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf
  */
 public interface TransliterationStringType extends XSString {
 

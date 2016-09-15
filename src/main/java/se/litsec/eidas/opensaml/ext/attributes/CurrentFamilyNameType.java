@@ -27,7 +27,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 /**
  * The eIDAS {@code CurrentFamilyNameType}.
  * 
- * <pre>
+ * <pre>{@code 
  * <xsd:complexType name="CurrentFamilyNameType">
  *   <xsd:annotation>
  *     <xsd:documentation>
@@ -39,11 +39,11 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *       <xsd:attribute ref="LatinScript"/>
  *     </xsd:extension>
  *   </xsd:simpleContent>
- * </xsd:complexType>
+ * </xsd:complexType>}
  * </pre>
  * 
  * Example:
- * <pre>
+ * <pre>{@code 
  * <saml:Attribute
  *       FriendlyName="FamilyName"
  *       Name="http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName"
@@ -51,7 +51,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *   <saml:AttributeValue xsi:type="eidas:CurrentFamilyNameType">
  *     Chalk
  *   </saml:AttributeValue>
- * </saml:Attribute>
+ * </saml:Attribute>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)

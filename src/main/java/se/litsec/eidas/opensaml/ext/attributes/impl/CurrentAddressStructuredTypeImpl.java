@@ -78,7 +78,14 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
   private PostCode postCode;
 
   /**
-   * @see AbstractXMLObject
+   * Constructor.
+   * 
+   * @param namespaceURI
+   *          the namespace the element is in
+   * @param elementLocalName
+   *          the local name of the XML element this Object represents
+   * @param namespacePrefix
+   *          the prefix for the given namespace
    */
   public CurrentAddressStructuredTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
@@ -126,7 +133,7 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
   /** {@inheritDoc} */
   @Override
   public void setPoBox(String poBox) {
-    this.poBox = this.prepareForAssignment(this.poBox, this.createXSString(PoBox.class, poBox)); 
+    this.poBox = this.prepareForAssignment(this.poBox, this.createXSString(PoBox.class, poBox));
   }
 
   /** {@inheritDoc} */
@@ -135,10 +142,11 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
     return this.poBox != null ? this.poBox.getValue() : null;
   }
 
-  /** {@inheritDoc} */  
+  /** {@inheritDoc} */
   @Override
   public void setLocatorDesignator(String locatorDesignator) {
-    this.locatorDesignator = this.prepareForAssignment(this.locatorDesignator, this.createXSString(LocatorDesignator.class, locatorDesignator));
+    this.locatorDesignator = this.prepareForAssignment(this.locatorDesignator, this.createXSString(LocatorDesignator.class,
+      locatorDesignator));
   }
 
   /** {@inheritDoc} */
@@ -198,7 +206,8 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
   /** {@inheritDoc} */
   @Override
   public void setAdminunitFirstline(String adminunitFirstline) {
-    this.adminunitFirstline = this.prepareForAssignment(this.adminunitFirstline, this.createXSString(AdminunitFirstline.class, adminunitFirstline));
+    this.adminunitFirstline = this.prepareForAssignment(this.adminunitFirstline, this.createXSString(AdminunitFirstline.class,
+      adminunitFirstline));
   }
 
   /** {@inheritDoc} */
@@ -210,7 +219,8 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
   /** {@inheritDoc} */
   @Override
   public void setAdminunitSecondline(String adminunitSecondline) {
-    this.adminunitSecondline = this.prepareForAssignment(this.adminunitSecondline, this.createXSString(AdminunitSecondline.class, adminunitSecondline));
+    this.adminunitSecondline = this.prepareForAssignment(this.adminunitSecondline, this.createXSString(AdminunitSecondline.class,
+      adminunitSecondline));
   }
 
   /** {@inheritDoc} */

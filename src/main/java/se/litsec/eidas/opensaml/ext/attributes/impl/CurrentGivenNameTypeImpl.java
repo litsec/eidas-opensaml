@@ -23,14 +23,21 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 import se.litsec.eidas.opensaml.ext.attributes.CurrentGivenNameType;
 
 /**
- * Implementation class for {@link CurrentGivenNameType} 
+ * Implementation class for {@link CurrentGivenNameType}
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class CurrentGivenNameTypeImpl extends TransliterationStringTypeImpl implements CurrentGivenNameType {
 
   /**
-   * @see TransliterationStringTypeImpl
+   * Constructor.
+   * 
+   * @param namespaceURI
+   *          the namespace the element is in
+   * @param elementLocalName
+   *          the local name of the XML element this Object represents
+   * @param namespacePrefix
+   *          the prefix for the given namespace
    */
   public CurrentGivenNameTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);

@@ -30,6 +30,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * The eIDAS type {@code CurrentAddressStructuredType}.
  * 
  * <pre>
+ * {@code 
  * <xsd:complexType name="CurrentAddressStructuredType">
  *   <xsd:annotation>
  *     <xsd:documentation>
@@ -47,7 +48,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     <xsd:element name="AdminunitSecondline" type="xsd:string" minOccurs="0" maxOccurs="1"/>
  *     <xsd:element name="PostCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
  *   </xsd:sequence>
- * </xsd:complexType>
+ * </xsd:complexType>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
@@ -60,7 +61,6 @@ public interface CurrentAddressStructuredType extends XMLObject {
   /** QName of the XSI type. */
   public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
 
-  
   /**
    * Assigns the Post box element.
    * 
@@ -79,18 +79,18 @@ public interface CurrentAddressStructuredType extends XMLObject {
   /**
    * Assigns the locator designator element.
    * <p>
-   * About a locator designator from mapping.semic.eu:
+   * About a locator designator from <a href=
+   * "http://mapping.semic.eu/vdm/description.vsp?namespace=cv&type=63915929e74ac20f49eaa549ea877d92&id=&format=">
+   * mapping.semic.eu</a>:
    * </p>
-   * <blockquote cite=
-   * "http://mapping.semic.eu/vdm/description.vsp?namespace=cv&type=63915929e74ac20f49eaa549ea877d92&id=&format="> The
-   * locator designator is a number or a sequence of characters that uniquely identifies the locator within the relevant
-   * scope(s). The full identification of the locator could include one or more locator designators. [INSPIRE] In
-   * simpler terms, this is the building number, apartment number, etc. It is characteristic that these designators,
-   * according to tradition or to a specific set of rules, are assigned systematically. For example address numbers are
-   * most often assigned in ascending order with odd and even numbers on each side of the thoroughfare. Another example
-   * is the floor identifier that in a standardized way expresses on which level the address is located. [INSPIRE] The
-   * key difference between a locator designator and a locator name is that the latter is a proper name and is unlikely
-   * to include digits. </blockquote>
+   * <blockquote> The locator designator is a number or a sequence of characters that uniquely identifies the locator
+   * within the relevant scope(s). The full identification of the locator could include one or more locator designators.
+   * [INSPIRE] In simpler terms, this is the building number, apartment number, etc. It is characteristic that these
+   * designators, according to tradition or to a specific set of rules, are assigned systematically. For example address
+   * numbers are most often assigned in ascending order with odd and even numbers on each side of the thoroughfare.
+   * Another example is the floor identifier that in a standardized way expresses on which level the address is located.
+   * [INSPIRE] The key difference between a locator designator and a locator name is that the latter is a proper name
+   * and is unlikely to include digits. </blockquote>
    * 
    * @param locatorDesignator
    *          the locator designator
@@ -98,7 +98,7 @@ public interface CurrentAddressStructuredType extends XMLObject {
   void setLocatorDesignator(String locatorDesignator);
 
   /**
-   * Returns the locator designator element
+   * Returns the locator designator element.
    * 
    * @return the locator designator element or {@code null} if no such element is available
    */
