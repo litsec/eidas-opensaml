@@ -1,4 +1,4 @@
-![Logo](http://litsec.se/onewebstatic/2a34d64d1f-pics-litsec.png)
+![Logo](http://litsec.se/onewebstatic/4a6ec88da7-pics-litsec.png)
 
 ------
 
