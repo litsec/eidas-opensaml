@@ -110,6 +110,21 @@ public class RequestedAttributeTemplates {
   }
 
   /**
+   * Creates a {@code RequestedAttribute} object for the CurrentAddress attribute.
+   * 
+   * @param isRequired
+   *          flag to tell whether the attribute is required
+   * @param includeFriendlyName
+   *          flag that tells whether the friendly name should be included
+   * @return a {@code RequestedAttribute} object representing the CurrentAddress attribute
+   */
+  public static RequestedAttribute CURRENT_ADDRESS(Boolean isRequired, boolean includeFriendlyName) {
+    return create(AttributeConstants.EIDAS_CURRENT_ADDRESS_ATTRIBUTE_NAME,
+      includeFriendlyName ? AttributeConstants.EIDAS_CURRENT_ADDRESS_ATTRIBUTE_FRIENDLY_NAME : null,
+      Attribute.URI_REFERENCE, isRequired);
+  }
+    
+  /**
    * Creates a {@code RequestedAttribute} object for the given attribute name.
    * 
    * @param name
