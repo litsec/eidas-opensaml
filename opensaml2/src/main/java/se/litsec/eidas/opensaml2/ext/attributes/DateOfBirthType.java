@@ -69,7 +69,6 @@ public interface DateOfBirthType extends XMLObject {
    * 
    * @param date
    *          the date to assign
-   * @see #setDate(java.time.LocalDate)
    */
   void setDate(org.joda.time.LocalDate date);
 
@@ -89,7 +88,6 @@ public interface DateOfBirthType extends XMLObject {
    * Returns the birth date.
    * 
    * @return the date
-   * @see #getDateJava()
    */
   LocalDate getDate();
 
