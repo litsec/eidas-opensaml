@@ -16,9 +16,9 @@
 <body>
 
   <div class="container">
-
+  
     <h1>eidas-opensaml</h1>
-    <p class="lead">OpenSAML library for eIDAS</p>
+    <p class="lead">OpenSAML library for eIDAS</p>      
     
     <hr />
     
@@ -28,35 +28,174 @@
       requirements on cross-border recognition of electronic identification means in EU.
     </p>
     <p>
-      <i>Text about technical specs ...</i>
+      The eIDAS technical specifications defines a number of SAML elements and attribute definitions which are normally not
+      supported by standard SAML software. The <a href="https://github.com/litsec/eidas-opensaml">eidas-opensaml</a> Open 
+      Source Java library extends the OpenSAML framework with support for the definitions from the eIDAS technical specifications.
     </p>
     <p>
-      The eidas-opensaml Open Source Java library extends the OpenSAML framework with definitions for the SAML elements that
-      are defined within the eIDAS technical specifications. 
+      For the eidas-opensaml on GitHub, visit <a href="https://github.com/litsec/eidas-opensaml">https://github.com/litsec/eidas-opensaml</a>.
     </p>
 
-    <h3>Usage</h3>
+    <hr />
+    <h3>How to use the eidas-opensaml library</h3>
     <p>
-      <i>TODO</i>
+      The eidas-opensaml package comprises two artifacts, one for OpenSAML 2.x users and one for OpenSAML 3.x users. The API:s 
+      are almost identical, but since OpenSAML 2 and OpenSAML 3 is not compatible, the eIDAS support are divided into the eidas-opensaml2
+      and eidas-opensaml3 jar files. The functional differences between these artifacts are:
     </p>
-    <p>
-      <ul>
-        <li>
-          <a href="https://litsec.github.io/eidas-opensaml/javadoc/opensaml2/1.0/index.html">API documentation for the eidas-opensaml2</a>
-        </li>
-        <li>
-          <a href="https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.0/index.html">API documentation for the eidas-opensaml3</a>
-        </li>                
-      </ul>
-    </p>
-
-
-    <h3>Contact and support</h3>
-    <p>
-      <i>TODO</i>
-    </p>
+    <ul>
+      <li>
+        eidas-opensaml3 is built using Java 8 and makes use of Java 8-features.
+      </li>
+      <li>
+        Since OpenSAML 2 is used in many older systems, we decided to build eidas-opensaml2 using Java 7.
+      </li>
+      <li>
+        The eidas-opensaml2 library needs to be explicitly initialized (per design of OpenSAML 2).
+      </li>
+      <li>
+        The eidas-opensaml3 does not need explicit initialization. It is sufficient to place it in the classpath of
+        the application.
+      </li>
+    </ul>
     
+    <h4>Maven</h4>
+    <p>
+      The eidas-opensaml artifacts are published to Maven central and a dependency to the library should be included as follows 
+      in the application POM-file:
+    </p>
+    <div class="row">
+      <div class="col-lg-6">
+        <p>
+          For OpenSAML 2 support (OpenSAML 2.6.4):
+        </p>
+        <div>
+          <pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;se.litsec.eidas&lt;/groupId&gt;
+  &lt;artifactId&gt;eidas-opensaml2&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p>
+          For OpenSAML 3 support (OpenSAML 3.2.0):
+        </p>      
+        <div>
+          <pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;se.litsec.eidas&lt;/groupId&gt;
+  &lt;artifactId&gt;eidas-opensaml3&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+        </div>      
+      </div>
+    </div>
 
+    <h4>API documentation</h4>
+    <ul>
+      <li>
+        <a href="https://litsec.github.io/eidas-opensaml/javadoc/opensaml2/1.0/index.html">eidas-opensaml2</a> (OpenSAML 2.x version)
+      </li>
+      <li>
+        <a href="https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.0/index.html">eidas-opensaml3</a> (OpenSAML 3.x version)
+      </li>                
+    </ul>
+    
+    <div id="examples">
+    
+      <h4>Examples</h4>
+      
+      <div class="row">
+      
+        <div class="col-lg-6">    
+          <div class="panel panel-default">
+            <div class="panel-heading">Initializing for OpenSAML2</div>
+            <div class="panel-body">
+              <p>
+                OpenSAML 2 requires its users to initialize the library before it can be used. 
+                The eidas-opensaml2 library offers the class <code>EidasBootstrap</code> for this 
+                purpose. The following code snippet first initializes the core OpenSAML library, 
+                and after that initializes the eIDAS extension (registers support for marshalling 
+                and unmarshalling the eIDAS types):
+              </p>
+              <div>
+                <pre><code>  DefaultBootstrap.bootstrap();
+  EidasBootstrap.getInstance().bootstrap();</code></pre>
+              </div> 
+            </div>
+          </div>      
+        </div>
+        
+        <div class="col-lg-6">      
+          <div class="panel panel-default">
+            <div class="panel-heading">Creating an eIDAS AuthnRequest message</div>
+            <div class="panel-body">
+              <p>
+                The <a href="https://joinup.ec.europa.eu/sites/default/files/eidas_message_format_v1.0.pdf">eIDAS SAML Message Format</a>
+                specification describes how a SAML AuthnRequest message should be put together to comply the eIDAS. 
+              </p>
+              <p>
+                <a href="https://github.com/litsec/eidas-opensaml/blob/master/opensaml3/src/test/java/se/litsec/eidas/opensaml/examples/CreateAuthnRequestExample.java">CreateAuthnRequestExample.java</a> illustrates 
+                how you could create an authentication request message using the eidas-opensaml library.
+              </p>        
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6">    
+          <div class="panel panel-default">
+            <div class="panel-heading">Parsing an Assertion</div>
+            <div class="panel-body">
+              <p>
+                An assertion issued from an eIDAS service will contain the attributes defined in 
+                <a href="https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf">eIDAS SAML Attribute Profile v1.0.2</a>.
+              </p>
+              <p>
+                <a href="https://github.com/litsec/eidas-opensaml/blob/master/opensaml3/src/test/java/se/litsec/eidas/opensaml/examples/ParseAssertionExample.java">ParseAssertionExample.java</a>
+                shows how to parse an Assertion and get hold of all attribute values.
+              </p>
+            </div>
+          </div>      
+        </div>
+        
+        <div class="col-lg-6">      
+          <div class="panel panel-default">
+            <div class="panel-heading">Creating attributes and adding values</div>
+            <div class="panel-body">
+              <p>
+                <i>Example will be added ...</i>
+              </p>        
+            </div>
+          </div>
+        </div>
+      </div>      
+      
+    </div> <!-- examples -->
+
+
+    <hr />
+    <h3>TODO:s</h3>
+    <ul>
+      <li>
+        Version 1.0 of the eidas-opensaml only implements attribute types for natural persons. In coming versions, support for
+        attributes defined for "Legal persons" will be added.
+      </li>
+    </ul>
+
+    <hr />
+    <h3>Contact and support</h3>
+    <div class="row">
+      <div class="col-lg-2">
+        <img class="img-responsive" width="97" height="97" src="img/logo.png" />
+      </div>
+      <div class="col-lg-10">
+        Contact <a href="mailto:martin@litsec.se">Litsec Labs</a> if you have any questions och suggestions ...
+      </div>
+    </div>    
+
+    <hr />
     <h3>Resources</h3>
 
     <div class="row">
