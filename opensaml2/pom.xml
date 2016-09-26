@@ -24,14 +24,15 @@
   <scm>
     <connection>scm:https://github.com/litsec/eidas-opensaml.git</connection>
     <developerConnection>scm:https://github.com/litsec/eidas-opensaml.git</developerConnection>
-    <url>https://github.com/litsec/eidas-opensaml.git</url>
-    <tag>HEAD</tag>
+    <url>https://github.com/litsec/eidas-opensaml/tree/master</url>
   </scm>
 
   <developers>
     <developer>
       <name>Martin Lindström</name>
       <email>martin.lindstrom@litsec.se</email>
+      <organization>Litsec AB</organization>
+      <organizationUrl>http://www.litsec.se</organizationUrl>
     </developer>
   </developers>
 
@@ -40,13 +41,25 @@
     <java.version>1.7</java.version>
 
     <!-- Versions on dependencies -->
-    <opensaml.version>2.5.3</opensaml.version>
+    <opensaml.version>2.6.4</opensaml.version>
+    <opensaml.xmltooling.version>1.4.4</opensaml.xmltooling.version>
 
     <slf4j.version>1.7.5</slf4j.version>
 
     <junit.version>4.12</junit.version>
 
   </properties>
+  
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+    <id>ossrh</id>
+    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>    
 
   <dependencies>
 
@@ -57,6 +70,14 @@
       <version>${opensaml.version}</version>
       <scope>compile</scope>
       <type>jar</type>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.opensaml</groupId>
+      <artifactId>xmltooling</artifactId>
+      <version>${opensaml.xmltooling.version}</version>
+      <scope>compile</scope>
+      <type>jar</type>      
     </dependency>
 
     <dependency>
@@ -168,8 +189,44 @@
 
     <profile>
       <id>release</id>
+      
+      <!-- See http://central.sonatype.org/pages/apache-maven.html for setup -->
+      
       <build>
         <plugins>
+        
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.7</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>false</autoReleaseAfterClose>
+              <!--
+                Allows manual inspection of the staging repo before deploying
+                it to the central repo.
+                Use 'mvn nexus-staging:release -Prelease' to release and
+                'mvn nexus-staging:drop' to abort. 
+               -->
+            </configuration>
+          </plugin>
+        
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>        
 
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -208,12 +265,9 @@
               <doctitle>eIDAS extension for OpenSAML 2.x - ${project.version}</doctitle>
               <windowtitle>eIDAS extension for OpenSAML 2.x - ${project.version}</windowtitle>
             
-              <!-- 
-                TODO: Doesn't work since the Shib webserver sets X-Frame-Options to SAMEORIGIN
-                which makes it impossible to use frames. 
-              --> 
               <links>
-                <link>https://build.shibboleth.net/nexus/service/local/repositories/releases/archive/org/opensaml/opensaml/2.5.3/opensaml-2.5.3-javadoc.jar/!/index.html</link>
+                <link>http://www.atetric.com/atetric/javadoc/org.opensaml/opensaml/${opensaml.version}/</link>
+                <link>http://www.atetric.com/atetric/javadoc/org.opensaml/xmltooling/${opensaml.xmltooling.version}/</link>
               </links>
               <detectJavaApiLink>true</detectJavaApiLink>
             </configuration>
