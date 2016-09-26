@@ -13,3 +13,4 @@ The following eIDAS specifications are implemented:
 * [eIDAS SAML Message Format v1.0](https://joinup.ec.europa.eu/sites/default/files/eidas_message_format_v1.0.pdf)
 * [eIDAS SAML Attribute Profile v1.0.2](https://joinup.ec.europa.eu/sites/default/files/eidas_saml_attribute_profile_v1.0_2.pdf) 
 
+For more information about this package, see  [https://litsec.github.io/eidas-opensaml](https://litsec.github.io/eidas-opensaml/).
