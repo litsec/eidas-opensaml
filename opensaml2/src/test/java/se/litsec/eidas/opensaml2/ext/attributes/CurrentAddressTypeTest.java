@@ -119,6 +119,9 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     CurrentAddressType address2 = OpenSAMLTestBase.unmarshall(element, CurrentAddressType.class);
 
     verify(address, address2);
+    
+    String swedishEidString = address2.toSwedishEidString();
+    Assert.assertEquals("LocatorDesignator=6%20tr;LocatorName=10;Thoroughfare=Korta%20gatan;PostName=Solna;PostCode=19174", swedishEidString);    
 
     // Test unmarshall again
     String xml = XMLHelper.prettyPrintXML(element);

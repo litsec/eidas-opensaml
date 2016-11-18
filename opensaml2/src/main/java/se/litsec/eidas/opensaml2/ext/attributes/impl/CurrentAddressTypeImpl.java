@@ -20,6 +20,13 @@
  */
 package se.litsec.eidas.opensaml2.ext.attributes.impl;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.List;
+
+import org.opensaml.xml.XMLObject;
+import org.opensaml.xml.schema.XSString;
+
 import se.litsec.eidas.opensaml2.ext.attributes.CurrentAddressType;
 
 /**
@@ -40,4 +47,33 @@ public class CurrentAddressTypeImpl extends CurrentAddressStructuredTypeImpl imp
     super(namespaceURI, elementLocalName, namespacePrefix);
   }
 
+  /** {@inheritDoc} */
+  @Override
+  public String toSwedishEidString() {
+    StringBuilder sb = new StringBuilder();
+
+    List<XMLObject> children = this.getOrderedChildren();
+    for (XMLObject child : children) {
+      if (child instanceof XSString) {
+        final String value = ((XSString) child).getValue();
+        if (value.trim().isEmpty()) {
+          continue;
+        }
+        if (sb.length() > 0) {
+          sb.append(';');
+        }
+        try {
+          sb.append(child.getElementQName().getLocalPart())
+            .append('=')
+            .append(URLEncoder.encode(value, "UTF-8").replaceAll("\\+", "%20"));
+        }
+        catch (UnsupportedEncodingException e) {
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    return sb.toString();
+  }  
+  
 }

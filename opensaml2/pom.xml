@@ -6,7 +6,7 @@
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml2</artifactId>
   <packaging>jar</packaging>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <name>eIDAS :: OpenSAML 2.X</name>
   <description>OpenSAML 2.X extension library for the eIDAS Framework</description>
