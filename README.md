@@ -4,6 +4,8 @@
 
 # eidas-opensaml
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3)
+
 OpenSAML extensions for the eIDAS Framework.
 
 This open source package is an extension to OpenSAML 2.X and 3.X that offers interfaces and classes for SAML elements defined within the eIDAS Framework.
