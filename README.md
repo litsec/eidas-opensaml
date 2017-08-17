@@ -1,4 +1,4 @@
-![Logo](http://litsec.se/onewebstatic/4a6ec88da7-pics-litsec.png)
+![Logo](https://github.com/litsec/eidas-opensaml/blob/master/docs/img/litsec-small.png)
 
 ------
 
