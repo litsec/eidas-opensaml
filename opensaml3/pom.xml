@@ -6,7 +6,7 @@
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
 
   <name>eIDAS :: OpenSAML 3.X</name>
   <description>OpenSAML 3.X extension library for the eIDAS Framework</description>
@@ -41,10 +41,12 @@
     <java.version>1.8</java.version>
 
     <!-- Versions on dependencies -->
-    <opensaml.version>3.2.0</opensaml.version>
-
-    <slf4j.version>1.7.5</slf4j.version>
-
+    <opensaml.version>3.3.0</opensaml.version>
+    <shibboleth.java-support.version>7.3.0</shibboleth.java-support.version>
+    
+    <commons-lang.version>2.4</commons-lang.version>
+    <joda-time.version>2.9</joda-time.version>
+    <slf4j.version>1.7.12</slf4j.version>
     <junit.version>4.12</junit.version>
 
   </properties>
@@ -90,7 +92,7 @@
     <dependency>
       <groupId>net.shibboleth.utilities</groupId>
       <artifactId>java-support</artifactId>
-      <version>7.1.1</version>
+      <version>${shibboleth.java-support.version}</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
@@ -98,7 +100,7 @@
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
-      <version>2.7</version>
+      <version>${joda-time.version}</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
@@ -106,7 +108,7 @@
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
-      <version>2.4</version>
+      <version>${commons-lang.version}</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
@@ -170,7 +172,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
+        <version>3.6.2</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
@@ -180,13 +182,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
+        <version>3.0.2</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>2.6.1</version>
+        <version>3.0.0</version>
         <configuration>
           <filesets>
             <fileset>
@@ -231,7 +233,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
+            <version>1.6</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -266,13 +268,18 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>2.10.4</version>
+            <version>3.0.0-M1</version>
             <executions>
               <execution>
                 <id>attach-javadoc</id>
                 <goals>
                   <goal>jar</goal>
                 </goals>
+                <!-- 
+                <configuration>
+                  <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                -->                
               </execution>
             </executions>
             <configuration>
