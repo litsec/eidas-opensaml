@@ -26,28 +26,40 @@ package se.litsec.eidas.opensaml.common;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class EidasConstants {
-  
+
   /** The eIDAS SAML extension XML Namespace. */
   public static final String EIDAS_NS = "http://eidas.europa.eu/saml-extensions";
-  
+
   /** The eIDAS SAML extension QName prefix. */
   public static final String EIDAS_PREFIX = "eidas";
-  
+
   /** The eIDAS Natural Persons attribute XML Namespace. */
   public static final String EIDAS_NP_NS = "http://eidas.europa.eu/attributes/naturalperson";
-  
+
   /** The eIDAS Natural Persons attribute QName prefix. */
   public static final String EIDAS_NP_PREFIX = "eidasnp";
-  
+
   /** The Authentication Context URI for the "Low" Level of Assurance. */
   public static final String EIDAS_LOA_LOW = "http://eidas.europa.eu/LoA/low";
 
   /** The Authentication Context URI for the "Substantial" Level of Assurance. */
   public static final String EIDAS_LOA_SUBSTANTIAL = "http://eidas.europa.eu/LoA/substantial";
 
+  /**
+   * The Authentication Context URI for the "Substantial" Level of Assurance where the eID scheme is not notified by the
+   * eIDAS country. <b>Note</b>: URI is not yet determined.
+   */
+  public static final String EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED = "http://eidas.europa.eu/LoA/substantial-nn";
+
   /** The Authentication Context URI for the "High" Level of Assurance. */
   public static final String EIDAS_LOA_HIGH = "http://eidas.europa.eu/LoA/high";
-  
+
+  /**
+   * The Authentication Context URI for the "High" Level of Assurance where the eID scheme is not notified by the eIDAS
+   * country. <b>Note</b>: URI is not yet determined.
+   */
+  public static final String EIDAS_LOA_HIGH_NON_NOTIFIED = "http://eidas.europa.eu/LoA/high-nn";
+
   private EidasConstants() {
   }
 

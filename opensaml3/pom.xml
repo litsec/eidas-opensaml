@@ -6,7 +6,7 @@
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.2</version>
+  <version>1.0.3-SNAPSHOT</version>
 
   <name>eIDAS :: OpenSAML 3.X</name>
   <description>OpenSAML 3.X extension library for the eIDAS Framework</description>

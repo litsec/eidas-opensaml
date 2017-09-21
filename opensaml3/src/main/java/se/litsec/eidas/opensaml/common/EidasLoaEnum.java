@@ -28,13 +28,19 @@ package se.litsec.eidas.opensaml.common;
 public enum EidasLoaEnum {
   
   /** eIDAS "low" Level of assurance. */
-  LOA_LOW(EidasConstants.EIDAS_LOA_HIGH),
+  LOA_LOW(EidasConstants.EIDAS_LOA_LOW, 1),
+  
+  /** eIDAS "substantial" Level of assurance. For non-notified eID scheme. */
+  LOA_SUBSTANTIAL_NON_NOTIFIED(EidasConstants.EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED, 2),
   
   /** eIDAS "substantial" Level of assurance. */
-  LOA_SUBSTANTIAL(EidasConstants.EIDAS_LOA_SUBSTANTIAL),
+  LOA_SUBSTANTIAL(EidasConstants.EIDAS_LOA_SUBSTANTIAL, 3),
+  
+  /** eIDAS "high" Level of assurance. For non-notified eID scheme. */
+  LOA_HIGH_NON_NOTIFIED(EidasConstants.EIDAS_LOA_HIGH_NON_NOTIFIED, 4),  
   
   /** eIDAS "high" Level of assurance. */
-  LOA_HIGH(EidasConstants.EIDAS_LOA_HIGH);
+  LOA_HIGH(EidasConstants.EIDAS_LOA_HIGH, 5);
   
   /**
    * Returns the URI for this LoA.
@@ -44,6 +50,15 @@ public enum EidasLoaEnum {
   public String getUri() {
     return this.loaUri;
   }
+  
+  /**
+   * Returns the sorting order index.
+   * 
+   * @return the sorting order (the higher the strength, the higher the value)
+   */
+  public int getOrder() {
+    return this.order;
+  }  
   
   /**
    * Given a URI the method returns the enum value matching.
@@ -64,13 +79,20 @@ public enum EidasLoaEnum {
   
   /**
    * Constructor setting the LoA URI.
-   * @param uri the LoA URI
+   * 
+   * @param uri
+   *          the LoA URI
+   * @param order
+   *          the sorting order
    */
-  private EidasLoaEnum(String uri) {
+  private EidasLoaEnum(String uri, int order) {
     this.loaUri = uri;
   }
   
   /** The LoA URI. */
   private String loaUri;
+  
+  /** Sorting order. */
+  private int order;  
 
 }
