@@ -3,7 +3,7 @@
  * with definitions for the eIDAS Framework.
  *
  * More details on <https://github.com/litsec/eidas-opensaml>
- * Copyright (C) 2016 Litsec AB
+ * Copyright (C) 2016-2017 Litsec AB
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -79,6 +79,18 @@ public abstract class TransliterationStringTypeImpl extends XSStringImpl impleme
   @Override
   public void setLatinScript(XSBooleanValue latinScript) {
     this.latinScript = prepareForAssignment(this.latinScript, latinScript);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public String toStringValue() {
+    return this.getValue();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void parseStringValue(String value) {
+    this.setValue(value);
   }
 
 }

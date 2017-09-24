@@ -22,64 +22,46 @@ package se.litsec.eidas.opensaml.ext.attributes;
 
 import javax.xml.namespace.QName;
 
-import org.opensaml.core.xml.XMLObject;
-
 import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**
- * The eIDAS {@code GenderType}.
+ * The eIDAS {@code BirthNameType}.
  * 
- * <pre>{@code
- * <xsd:simpleType name="GenderType">
+ * <pre>
+ * {@code 
+ * <xsd:complexType name="BirthNameType">
  *   <xsd:annotation>
  *     <xsd:documentation>
- *       Gender of the natural person.
+ *       First name(s) and family name(s) of the natural person at birth.
  *     </xsd:documentation>
  *   </xsd:annotation>
- *   <xsd:restriction base="xsd:string">
- *     <xsd:enumeration value="Male"/>
- *     <xsd:enumeration value="Female"/>
- *     <xsd:enumeration value="Unspecified"/>
- *   </xsd:restriction>
- * </xsd:simpleType>}
+ *   <xsd:simpleContent>
+ *     <xsd:extension base="xsd:string">
+ *       <xsd:attribute ref="LatinScript" />
+ *     </xsd:extension>
+ *   </xsd:simpleContent>
+ * </xsd:complexType>}
  * </pre>
  * 
  * Example:
- * 
- * <pre>{@code 
+ * <pre>{@code
  * <saml:Attribute
- *       FriendlyName="Gender"
- *       Name="http://eidas.europa.eu/attributes/naturalperson/Gender"
+ *       FriendlyName="BirthName"
+ *       Name="http://eidas.europa.eu/attributes/naturalperson/BirthName"
  *       NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
- *   <saml:AttributeValue xsi:type="eidas:GenderType">
- *     Female
- *   </saml:AttributeValue>
+ *   <saml:AttributeValue xsi:type="eidas:BirthNameType">
+ *     Sarah Jane Booth
+ *   </saml:AttributeValue
  * </saml:Attribute>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface GenderType extends XMLObject, EidasAttributeValueType {
-
+public interface BirthNameType extends TransliterationStringType {
+  
   /** Local name of the XSI type. */
-  public static final String TYPE_LOCAL_NAME = "GenderType";
-
+  public static final String TYPE_LOCAL_NAME = "BirthNameType"; 
+      
   /** QName of the XSI type. */
-  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
-
-  /**
-   * Assigns the gender.
-   * 
-   * @param gender
-   *          the gender
-   */
-  void setGender(GenderTypeEnumeration gender);
-
-  /**
-   * Returns the gender.
-   * 
-   * @return the gender
-   */
-  GenderTypeEnumeration getGender();
-
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);  
 }

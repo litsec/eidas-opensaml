@@ -3,7 +3,7 @@
  * with definitions for the eIDAS Framework.
  *
  * More details on <https://github.com/litsec/eidas-opensaml>
- * Copyright (C) 2016 Litsec AB
+ * Copyright (C) 2016-2017 Litsec AB
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ public class PersonIdentifierTypeImpl extends XSStringImpl implements PersonIden
    * @param namespacePrefix
    *          the prefix for the given namespace
    */
-  protected PersonIdentifierTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+  public PersonIdentifierTypeImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
   }
 
@@ -77,6 +77,18 @@ public class PersonIdentifierTypeImpl extends XSStringImpl implements PersonIden
     }
     String[] parts = value.split("/");
     return parts.length >= pos + 1 ? parts[pos] : null;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public String toStringValue() {
+    return this.getValue();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void parseStringValue(String value) {
+    this.setValue(value);
   }
 
 }

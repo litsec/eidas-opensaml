@@ -77,7 +77,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface PersonIdentifierType extends XSString, SAMLObject {
+public interface PersonIdentifierType extends XSString, SAMLObject, EidasAttributeValueType {
   
   /** Local name of the XSI type. */
   public static final String TYPE_LOCAL_NAME = "PersonIdentifierType"; 
@@ -121,5 +121,7 @@ public interface PersonIdentifierType extends XSString, SAMLObject {
    * @return the identifier string of the uniqueness identifier
    */
   String getIdentifierString();
+  
+  
 
 }

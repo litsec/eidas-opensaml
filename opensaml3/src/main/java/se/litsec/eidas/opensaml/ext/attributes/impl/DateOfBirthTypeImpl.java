@@ -23,6 +23,7 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 import java.util.Collections;
 import java.util.List;
 
+import org.joda.time.LocalDate;
 import org.joda.time.chrono.ISOChronology;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
@@ -105,6 +106,23 @@ public class DateOfBirthTypeImpl extends AbstractXMLObject implements DateOfBirt
   @Override
   public List<XMLObject> getOrderedChildren() {
     return Collections.emptyList();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public String toStringValue() {
+    return this.formatDate();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void parseStringValue(String value) {
+    LocalDate d = this.formatter.parseLocalDate(value);
+    // The parser allows dates on the format YY-MM-DD (commonly used in Sweden), but we require 4 digits for year.
+    if (d.getCenturyOfEra() == 0) {
+      throw new IllegalArgumentException("Illegal date format - YYYY-MM-DD is required");
+    }
+    this.setDate(d);
   }
 
 }

@@ -3,7 +3,7 @@
  * with definitions for the eIDAS Framework.
  *
  * More details on <https://github.com/litsec/eidas-opensaml>
- * Copyright (C) 2016 Litsec AB
+ * Copyright (C) 2016-2017 Litsec AB
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,6 +56,28 @@ public final class GenderTypeEnumeration {
    */
   public String getValue() {
     return this.gender;
+  }
+
+  /**
+   * Parses a string into a {@code GenderTypeEnumeration} object.
+   * 
+   * @param value
+   *          the value to parse
+   * @return a {@code GenderTypeEnumeration} object
+   */
+  public static GenderTypeEnumeration fromValue(String value) {
+    if (MALE.getValue().equalsIgnoreCase(value)) {
+      return MALE;
+    }
+    else if (FEMALE.getValue().equalsIgnoreCase(value)) {
+      return FEMALE;
+    }
+    else if (UNSPECIFIED.getValue().equalsIgnoreCase(value)) {
+      return UNSPECIFIED;
+    }
+    else {
+      return null;
+    }
   }
 
   /** {@inheritDoc} */

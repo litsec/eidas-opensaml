@@ -42,32 +42,59 @@ public class DateOfBirthTypeTest extends OpenSAMLTestBase {
    */
   @Test
   public void testMarshallUnmarshall() throws Exception {
-    
+
     DateOfBirthType date = OpenSAMLTestBase.createSamlObject(DateOfBirthType.class, DateOfBirthType.TYPE_NAME);
     date.setDate(1969, 11, 29);
-    
-    Element xml = OpenSAMLTestBase.marshall(date);    
+
+    Element xml = OpenSAMLTestBase.marshall(date);
     Assert.assertEquals("1969-11-29", xml.getTextContent());
-    
+
     System.out.println(SerializeSupport.prettyPrintXML(xml));
-    
+
     DateOfBirthType date2 = OpenSAMLTestBase.unmarshall(xml, DateOfBirthType.class);
     Assert.assertEquals(date.getDate(), date2.getDate());
     Assert.assertEquals(date.getDateJava(), date2.getDateJava());
-    
+    Assert.assertEquals("1969-11-29", date2.toStringValue());
+
     // Create Java Time
     date = OpenSAMLTestBase.createSamlObject(DateOfBirthType.class, DateOfBirthType.TYPE_NAME);
     date.setDate(java.time.LocalDate.of(1969, 11, 29));
-    
-    xml = OpenSAMLTestBase.marshall(date);    
+
+    xml = OpenSAMLTestBase.marshall(date);
     Assert.assertEquals("1969-11-29", xml.getTextContent());
-    
+
     date2 = OpenSAMLTestBase.unmarshall(xml, DateOfBirthType.class);
     Assert.assertEquals(date.getDate(), date2.getDate());
     Assert.assertEquals(date.getDateJava(), date2.getDateJava());
 
+    DateOfBirthType date3 = OpenSAMLTestBase.createSamlObject(DateOfBirthType.class, DateOfBirthType.TYPE_NAME);
+    date3.parseStringValue("1969-11-29");
+
+    xml = OpenSAMLTestBase.marshall(date);
+    Assert.assertEquals("1969-11-29", xml.getTextContent());
+
+    DateOfBirthType date4 = OpenSAMLTestBase.unmarshall(xml, DateOfBirthType.class);
+    Assert.assertEquals(date3.getDate(), date4.getDate());
+    Assert.assertEquals(date3.getDateJava(), date4.getDateJava());
+    Assert.assertEquals("1969-11-29", date4.toStringValue());
   }
-  
-  
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testParseError() throws Exception {
+    DateOfBirthType date = OpenSAMLTestBase.createSamlObject(DateOfBirthType.class, DateOfBirthType.TYPE_NAME);
+    date.parseStringValue("NOT_A_DATE");
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testEmpty() throws Exception {
+    DateOfBirthType date = OpenSAMLTestBase.createSamlObject(DateOfBirthType.class, DateOfBirthType.TYPE_NAME);
+    date.parseStringValue("");
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testParseBadYear() throws Exception {
+    DateOfBirthType date = OpenSAMLTestBase.createSamlObject(DateOfBirthType.class, DateOfBirthType.TYPE_NAME);
+    date.parseStringValue("69-11-29"); // Not a full year
+  }
 
 }

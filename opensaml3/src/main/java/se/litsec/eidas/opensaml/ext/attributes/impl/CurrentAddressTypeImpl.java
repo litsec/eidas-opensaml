@@ -79,4 +79,15 @@ public class CurrentAddressTypeImpl extends CurrentAddressStructuredTypeImpl imp
     return sb.toString();
   }
 
+  /** {@inheritDoc} */
+  @Override
+  public String toStringValue() {
+    return this.toSwedishEidString();
+  }
+
+  @Override
+  public void parseStringValue(String value) throws IllegalArgumentException, NullPointerException {
+    // Not supported
+  }
+
 }

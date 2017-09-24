@@ -3,7 +3,7 @@
  * with definitions for the eIDAS Framework.
  *
  * More details on <https://github.com/litsec/eidas-opensaml>
- * Copyright (C) 2016 Litsec AB
+ * Copyright (C) 2016-2017 Litsec AB
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -67,5 +67,17 @@ public class AttributeConstants {
 
   /** CurrentGivenName friendly name. */
   public static final String EIDAS_CURRENT_ADDRESS_ATTRIBUTE_FRIENDLY_NAME = "CurrentAddress";
+  
+  /** Attribute name for BirthName. */
+  public static final String EIDAS_BIRTH_NAME_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/BirthName";
+  
+  /** BirthName friendly name. */
+  public static final String EIDAS_BIRTH_NAME_ATTRIBUTE_FRIENDLY_NAME = "BirthName";
+
+  /** Attribute name for PlaceOfBirth. */
+  public static final String EIDAS_PLACE_OF_BIRTH_ATTRIBUTE_NAME = "http://eidas.europa.eu/attributes/naturalperson/PlaceOfBirth";
+  
+  /** PlaceOfBirth friendly name. */
+  public static final String EIDAS_PLACE_OF_BIRTH_ATTRIBUTE_FRIENDLY_NAME = "PlaceOfBirth";  
 
 }

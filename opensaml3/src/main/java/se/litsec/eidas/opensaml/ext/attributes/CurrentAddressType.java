@@ -72,7 +72,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  * @see CurrentAddressStructuredType
  */
-public interface CurrentAddressType extends CurrentAddressStructuredType {
+public interface CurrentAddressType extends CurrentAddressStructuredType, EidasAttributeValueType {
 
   /** Local name of the XSI type. */
   public static final String TYPE_LOCAL_NAME = "CurrentAddressType";
@@ -102,6 +102,7 @@ public interface CurrentAddressType extends CurrentAddressStructuredType {
    * 
    * 
    * @return the address represented as a name-value string
+   * @see #toStringValue()
    */
   String toSwedishEidString();
 

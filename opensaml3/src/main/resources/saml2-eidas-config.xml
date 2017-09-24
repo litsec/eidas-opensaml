@@ -74,8 +74,22 @@
       <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressStructuredTypeBuilder" />
       <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressStructuredTypeMarshaller" />
       <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressStructuredTypeUnmarshaller" />
-    </ObjectProvider>    
+    </ObjectProvider>
     
+    <!-- eidasnp:BirthNameType -->
+    <ObjectProvider qualifiedName="eidasnp:BirthNameType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.BirthNameTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidasnp:PlaceOfBirthType -->
+    <ObjectProvider qualifiedName="eidasnp:PlaceOfBirthType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.PlaceOfBirthTypeBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>    
+        
     <!-- Underlying types used in CurrentAddressStructuredType -->
 
     <ObjectProvider qualifiedName="eidasnp:PoBox">

@@ -3,7 +3,7 @@
  * with definitions for the eIDAS Framework.
  *
  * More details on <https://github.com/litsec/eidas-opensaml>
- * Copyright (C) 2016 Litsec AB
+ * Copyright (C) 2016-2017 Litsec AB
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -55,7 +55,7 @@ import org.opensaml.core.xml.schema.XSString;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface TransliterationStringType extends XSString {
+public interface TransliterationStringType extends XSString, EidasAttributeValueType {
 
   /** "LatinScript" attribute's local name. */
   public static final String LATIN_SCRIPT_ATTRIB_NAME = "LatinScript";

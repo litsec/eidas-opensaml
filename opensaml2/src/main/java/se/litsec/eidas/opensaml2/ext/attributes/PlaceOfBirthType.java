@@ -18,68 +18,52 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package se.litsec.eidas.opensaml.ext.attributes;
+package se.litsec.eidas.opensaml2.ext.attributes;
 
 import javax.xml.namespace.QName;
 
-import org.opensaml.core.xml.XMLObject;
+import org.opensaml.common.SAMLObject;
+import org.opensaml.xml.schema.XSString;
 
-import se.litsec.eidas.opensaml.common.EidasConstants;
+import se.litsec.eidas.opensaml2.common.EidasConstants;
 
 /**
- * The eIDAS {@code GenderType}.
+ * The eIDAS {@code PlaceOfBirthType}.
  * 
- * <pre>{@code
- * <xsd:simpleType name="GenderType">
+ * <pre>
+ * {@code
+ * <xsd:complexType name="PlaceOfBirthType">
  *   <xsd:annotation>
  *     <xsd:documentation>
- *       Gender of the natural person.
+ *       Place of birth for a natural person.
  *     </xsd:documentation>
  *   </xsd:annotation>
- *   <xsd:restriction base="xsd:string">
- *     <xsd:enumeration value="Male"/>
- *     <xsd:enumeration value="Female"/>
- *     <xsd:enumeration value="Unspecified"/>
- *   </xsd:restriction>
- * </xsd:simpleType>}
+ *   <xsd:simpleContent>
+ *     <xsd:extension base="xsd:string">
+ *     </xsd:extension>
+ *   </xsd:simpleContent>
+ * </xsd:complexType>}
  * </pre>
  * 
  * Example:
- * 
- * <pre>{@code 
+ * <pre>{@code
  * <saml:Attribute
- *       FriendlyName="Gender"
- *       Name="http://eidas.europa.eu/attributes/naturalperson/Gender"
+ *       FriendlyName="PlaceOfBirth"
+ *       Name="http://eidas.europa.eu/attributes/naturalperson/PlaceOfBirth"
  *       NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
- *   <saml:AttributeValue xsi:type="eidas:GenderType">
- *     Female
+ *   <saml:AttributeValue xsi:type="eidas:PlaceOfBirthType">
+ *     Peterborough
  *   </saml:AttributeValue>
  * </saml:Attribute>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface GenderType extends XMLObject, EidasAttributeValueType {
-
+public interface PlaceOfBirthType extends XSString, SAMLObject {
+  
   /** Local name of the XSI type. */
-  public static final String TYPE_LOCAL_NAME = "GenderType";
-
+  public static final String TYPE_LOCAL_NAME = "PlaceOfBirthType"; 
+      
   /** QName of the XSI type. */
-  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);
-
-  /**
-   * Assigns the gender.
-   * 
-   * @param gender
-   *          the gender
-   */
-  void setGender(GenderTypeEnumeration gender);
-
-  /**
-   * Returns the gender.
-   * 
-   * @return the gender
-   */
-  GenderTypeEnumeration getGender();
-
+  public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_NP_NS, TYPE_LOCAL_NAME, EidasConstants.EIDAS_NP_PREFIX);  
 }
