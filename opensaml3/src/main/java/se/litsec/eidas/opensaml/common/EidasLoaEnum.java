@@ -87,6 +87,7 @@ public enum EidasLoaEnum {
    */
   private EidasLoaEnum(String uri, int order) {
     this.loaUri = uri;
+    this.order = order;
   }
   
   /** The LoA URI. */
