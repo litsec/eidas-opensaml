@@ -17,4 +17,5 @@ The following eIDAS specifications are implemented:
 
 For more information about this package, see  [https://litsec.github.io/eidas-opensaml](https://litsec.github.io/eidas-opensaml/).
 
-Copyright &copy; 2017, [Litsec AB](http://www.litsec.se). Licensed under the GNU General Public License 3, for details see [LICENSE](LICENSE). 
+Copyright &copy; 2016-2017, [Litsec AB](http://www.litsec.se). Licensed under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
+
