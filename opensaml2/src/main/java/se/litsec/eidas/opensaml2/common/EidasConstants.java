@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Litsec AB
+ * Copyright 2016-2018 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,12 @@ public class EidasConstants {
 
   /** The eIDAS Natural Persons attribute QName prefix. */
   public static final String EIDAS_NP_PREFIX = "eidasnp";
+  
+  /** The eIDAS metadata service list XML namespace. */
+  public static final String EIDAS_SERVICELIST_NS = "http://eidas.europa.eu/metadata/servicelist";
+  
+  /** The eIDAS metadata service list namespace prefix. */
+  public static final String EIDAS_SERVICELIST_PREFIX = "ser";  
 
   /** The Authentication Context URI for the "Low" Level of Assurance. */
   public static final String EIDAS_LOA_LOW = "http://eidas.europa.eu/LoA/low";
