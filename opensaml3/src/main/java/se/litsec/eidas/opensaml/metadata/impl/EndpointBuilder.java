@@ -17,26 +17,26 @@ package se.litsec.eidas.opensaml.metadata.impl;
 
 import org.opensaml.saml.common.AbstractSAMLObjectBuilder;
 
-import se.litsec.eidas.opensaml.metadata.IssuerName;
+import se.litsec.eidas.opensaml.metadata.Endpoint;
 
 /**
- * Builder for {@link IssuerName} objects.
+ * Builder for {@link Endpoint} objects.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class IssuerNameBuilder extends AbstractSAMLObjectBuilder<IssuerName> {
+public class EndpointBuilder extends AbstractSAMLObjectBuilder<Endpoint> {
 
   /** {@inheritDoc} */
   @Override
-  public IssuerName buildObject() {
-    return new IssuerNameImpl(IssuerName.DEFAULT_ELEMENT_NAME.getNamespaceURI(), IssuerName.DEFAULT_ELEMENT_LOCAL_NAME,
-      IssuerName.DEFAULT_ELEMENT_NAME.getPrefix());
+  public Endpoint buildObject() {
+    return new EndpointImpl(Endpoint.DEFAULT_ELEMENT_NAME.getNamespaceURI(), Endpoint.DEFAULT_ELEMENT_LOCAL_NAME,
+      Endpoint.DEFAULT_ELEMENT_NAME.getPrefix());
   }
 
   /** {@inheritDoc} */
   @Override
-  public IssuerName buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new IssuerNameImpl(namespaceURI, localName, namespacePrefix);
+  public Endpoint buildObject(String namespaceURI, String localName, String namespacePrefix) {
+    return new EndpointImpl(namespaceURI, localName, namespacePrefix);
   }
 
 }

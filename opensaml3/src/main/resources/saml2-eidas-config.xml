@@ -177,6 +177,20 @@
       <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeTerritoryUnmarshaller" />
     </ObjectProvider>
     
+    <!-- ser:Endpoint -->
+    <ObjectProvider qualifiedName="ser:Endpoint">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataLocation -->
+    <ObjectProvider qualifiedName="ser:MetadataLocation">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationUnmarshaller" />
+    </ObjectProvider>
+    
   </ObjectProviders>
 
 </XMLTooling>

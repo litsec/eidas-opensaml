@@ -15,28 +15,29 @@
  */
 package se.litsec.eidas.opensaml.metadata.impl;
 
-import org.opensaml.saml.common.AbstractSAMLObjectBuilder;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.MarshallingException;
+import org.opensaml.saml.common.AbstractSAMLObjectMarshaller;
+import org.w3c.dom.Element;
 
-import se.litsec.eidas.opensaml.metadata.IssuerName;
+import se.litsec.eidas.opensaml.metadata.MetadataLocation;
 
 /**
- * Builder for {@link IssuerName} objects.
+ * A marshaller for {@link MetadataLocation}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class IssuerNameBuilder extends AbstractSAMLObjectBuilder<IssuerName> {
+public class MetadataLocationMarshaller extends AbstractSAMLObjectMarshaller {
 
   /** {@inheritDoc} */
   @Override
-  public IssuerName buildObject() {
-    return new IssuerNameImpl(IssuerName.DEFAULT_ELEMENT_NAME.getNamespaceURI(), IssuerName.DEFAULT_ELEMENT_LOCAL_NAME,
-      IssuerName.DEFAULT_ELEMENT_NAME.getPrefix());
-  }
+  protected void marshallAttributes(XMLObject xmlObject, Element domElement) throws MarshallingException {
 
-  /** {@inheritDoc} */
-  @Override
-  public IssuerName buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new IssuerNameImpl(namespaceURI, localName, namespacePrefix);
+    MetadataLocation mdl = (MetadataLocation) xmlObject;
+
+    if (mdl.getLocation() != null) {
+      domElement.setAttributeNS(null, MetadataLocation.LOCATION_ATTR_NAME, mdl.getLocation());
+    }
   }
 
 }
