@@ -17,6 +17,7 @@ package se.litsec.eidas.opensaml.metadata;
 
 import javax.xml.namespace.QName;
 
+import org.opensaml.core.xml.schema.XSString;
 import org.opensaml.saml.common.SAMLObject;
 
 import se.litsec.eidas.opensaml.common.EidasConstants;
@@ -26,7 +27,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface SchemeTerritory extends SAMLObject {
+public interface SchemeTerritory extends XSString, SAMLObject {
 
   /** Element local name. */
   public static final String DEFAULT_ELEMENT_LOCAL_NAME = "SchemeTerritory";
@@ -34,20 +35,5 @@ public interface SchemeTerritory extends SAMLObject {
   /** Default element name. */
   public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_SERVICELIST_NS, DEFAULT_ELEMENT_LOCAL_NAME,
     EidasConstants.EIDAS_SERVICELIST_PREFIX);
-
-  /**
-   * Returns the scheme territory string
-   * 
-   * @return the territory string
-   */
-  String getValue();
-
-  /**
-   * Assigns the scheme territory string
-   * 
-   * @param value
-   *          the the territory string
-   */
-  void setValue(String value);
 
 }

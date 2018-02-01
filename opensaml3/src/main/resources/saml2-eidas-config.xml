@@ -159,22 +159,22 @@
     <!-- ser:IssuerName -->
     <ObjectProvider qualifiedName="ser:IssuerName">
       <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.IssuerNameBuilder" />
-      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.IssuerNameMarshaller" />
-      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.IssuerNameUnmarshaller" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
     </ObjectProvider>
-    
+        
     <!-- ser:SchemeIdentifier -->
     <ObjectProvider qualifiedName="ser:SchemeIdentifier">
       <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeIdentifierBuilder" />
-      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeIdentifierMarshaller" />
-      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeIdentifierUnmarshaller" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIUnmarshaller" />      
     </ObjectProvider>
     
     <!-- ser:SchemeTerritory -->
     <ObjectProvider qualifiedName="ser:SchemeTerritory">
       <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeTerritoryBuilder" />
-      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeTerritoryMarshaller" />
-      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeTerritoryUnmarshaller" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
     </ObjectProvider>
     
     <!-- ser:Endpoint -->

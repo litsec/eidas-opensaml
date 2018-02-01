@@ -15,10 +15,7 @@
  */
 package se.litsec.eidas.opensaml.metadata.impl;
 
-import java.util.List;
-
-import org.opensaml.core.xml.XMLObject;
-import org.opensaml.saml.common.AbstractSAMLObject;
+import org.opensaml.core.xml.schema.impl.XSURIImpl;
 
 import se.litsec.eidas.opensaml.metadata.SchemeIdentifier;
 
@@ -27,11 +24,8 @@ import se.litsec.eidas.opensaml.metadata.SchemeIdentifier;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class SchemeIdentifierImpl extends AbstractSAMLObject implements SchemeIdentifier {
+public class SchemeIdentifierImpl extends XSURIImpl implements SchemeIdentifier {
   
-  /** The ID. */
-  private String value;
-
   /**
    * Constructor.
    * 
@@ -45,23 +39,5 @@ public class SchemeIdentifierImpl extends AbstractSAMLObject implements SchemeId
   protected SchemeIdentifierImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
   }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getValue() {
-    return this.value;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void setValue(String value) {
-    this.value = this.prepareForAssignment(this.value, value);
-  }
   
-  /** {@inheritDoc} */
-  @Override
-  public List<XMLObject> getOrderedChildren() {
-    return null;
-  }
-
 }

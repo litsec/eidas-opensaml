@@ -15,10 +15,7 @@
  */
 package se.litsec.eidas.opensaml.metadata.impl;
 
-import java.util.List;
-
-import org.opensaml.core.xml.XMLObject;
-import org.opensaml.saml.common.AbstractSAMLObject;
+import org.opensaml.core.xml.schema.impl.XSStringImpl;
 
 import se.litsec.eidas.opensaml.metadata.SchemeTerritory;
 
@@ -27,11 +24,8 @@ import se.litsec.eidas.opensaml.metadata.SchemeTerritory;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class SchemeTerritoryImpl extends AbstractSAMLObject implements SchemeTerritory {
+public class SchemeTerritoryImpl extends XSStringImpl implements SchemeTerritory {
   
-  /** The country code. */
-  private String value;
-
   /**
    * Constructor.
    * 
@@ -44,24 +38,6 @@ public class SchemeTerritoryImpl extends AbstractSAMLObject implements SchemeTer
    */  
   protected SchemeTerritoryImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getValue() {
-    return this.value;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void setValue(String value) {
-    this.value = this.prepareForAssignment(this.value, value);
-  }
-  
-  /** {@inheritDoc} */
-  @Override
-  public List<XMLObject> getOrderedChildren() {
-    return null;
   }
 
 }

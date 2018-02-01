@@ -17,6 +17,7 @@ package se.litsec.eidas.opensaml.metadata;
 
 import javax.xml.namespace.QName;
 
+import org.opensaml.core.xml.schema.XSString;
 import org.opensaml.saml.common.SAMLObject;
 
 import se.litsec.eidas.opensaml.common.EidasConstants;
@@ -26,7 +27,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface IssuerName extends SAMLObject {
+public interface IssuerName extends XSString, SAMLObject {
 
   /** Element local name. */
   public static final String DEFAULT_ELEMENT_LOCAL_NAME = "IssuerName";
@@ -34,20 +35,5 @@ public interface IssuerName extends SAMLObject {
   /** Default element name. */
   public static final QName DEFAULT_ELEMENT_NAME = new QName(EidasConstants.EIDAS_SERVICELIST_NS, DEFAULT_ELEMENT_LOCAL_NAME,
     EidasConstants.EIDAS_SERVICELIST_PREFIX);
-
-  /**
-   * Returns the name
-   * 
-   * @return the name
-   */
-  String getValue();
-
-  /**
-   * Assigns the name
-   * 
-   * @param value
-   *          the name
-   */
-  void setValue(String value);
 
 }
