@@ -15,6 +15,7 @@
  */
 package se.litsec.eidas.opensaml.metadata;
 
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
@@ -73,7 +74,26 @@ public class MetadataLocationTest extends OpenSAMLTestBase {
    */
   @Test
   public void testMarshallAndUnmarshall() throws Exception {
+    
+    MetadataLocation mdl = createMetadataLocation();
 
+
+    Element element = OpenSAMLTestBase.marshall(mdl);
+
+    MetadataLocation mdl2 = OpenSAMLTestBase.unmarshall(element, MetadataLocation.class);
+    Assert.assertEquals(mdl.getEndpoints().size(), mdl2.getEndpoints().size());
+    Assert.assertEquals(mdl.getEndpoints().get(0).getEndpointType(), mdl2.getEndpoints().get(0).getEndpointType());
+    Assert.assertEquals(mdl.getEndpoints().get(0).getEntityID(), mdl2.getEndpoints().get(0).getEntityID());
+    Assert.assertEquals(mdl.getEndpoints().get(1).getEndpointType(), mdl2.getEndpoints().get(1).getEndpointType());
+    Assert.assertEquals(mdl.getEndpoints().get(1).getEntityID(), mdl2.getEndpoints().get(1).getEntityID());
+
+    Assert.assertEquals(mdl.getKeyInfo().getX509Datas().get(0).getX509Certificates().get(0).getValue(), 
+      mdl2.getKeyInfo().getX509Datas().get(0).getX509Certificates().get(0).getValue());
+    
+    Assert.assertEquals(mdl.getLocation(), mdl2.getLocation());
+  }
+  
+  public static MetadataLocation createMetadataLocation() throws CertificateEncodingException {
     MetadataLocation mdl = OpenSAMLTestBase.createSamlObject(MetadataLocation.class, MetadataLocation.DEFAULT_ELEMENT_NAME);
 
     Endpoint ep1 = OpenSAMLTestBase.createSamlObject(Endpoint.class, Endpoint.DEFAULT_ELEMENT_NAME);
@@ -102,20 +122,8 @@ public class MetadataLocationTest extends OpenSAMLTestBase {
       mdl.setKeyInfo(keyInfo);
     }
     mdl.setLocation("https://eid.litsec.se/eidas/metadatalist");
-
-    Element element = OpenSAMLTestBase.marshall(mdl);
-
-    MetadataLocation mdl2 = OpenSAMLTestBase.unmarshall(element, MetadataLocation.class);
-    Assert.assertEquals(mdl.getEndpoints().size(), mdl2.getEndpoints().size());
-    Assert.assertEquals(mdl.getEndpoints().get(0).getEndpointType(), mdl2.getEndpoints().get(0).getEndpointType());
-    Assert.assertEquals(mdl.getEndpoints().get(0).getEntityID(), mdl2.getEndpoints().get(0).getEntityID());
-    Assert.assertEquals(mdl.getEndpoints().get(1).getEndpointType(), mdl2.getEndpoints().get(1).getEndpointType());
-    Assert.assertEquals(mdl.getEndpoints().get(1).getEntityID(), mdl2.getEndpoints().get(1).getEntityID());
-
-    Assert.assertEquals(mdl.getKeyInfo().getX509Datas().get(0).getX509Certificates().get(0).getValue(), 
-      mdl2.getKeyInfo().getX509Datas().get(0).getX509Certificates().get(0).getValue());
     
-    Assert.assertEquals(mdl.getLocation(), mdl2.getLocation());
+    return mdl;
   }
   
   /**

@@ -191,6 +191,27 @@
       <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationUnmarshaller" />
     </ObjectProvider>
     
+    <!-- ser:DistributionPoint -->
+    <ObjectProvider qualifiedName="ser:DistributionPoint">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIUnmarshaller" />      
+    </ObjectProvider>
+    
+    <!-- ser:DistributionPoints -->
+    <ObjectProvider qualifiedName="ser:DistributionPoints">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataList -->
+    <ObjectProvider qualifiedName="ser:MetadataList">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListUnmarshaller" />
+    </ObjectProvider>
+    
   </ObjectProviders>
 
 </XMLTooling>

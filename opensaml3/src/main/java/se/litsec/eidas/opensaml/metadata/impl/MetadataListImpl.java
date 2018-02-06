@@ -15,6 +15,8 @@
  */
 package se.litsec.eidas.opensaml.metadata.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.xml.namespace.QName;
@@ -22,27 +24,29 @@ import javax.xml.namespace.QName;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.schema.XSBooleanValue;
 import org.opensaml.core.xml.util.AttributeMap;
+import org.opensaml.core.xml.util.XMLObjectChildrenList;
 import org.opensaml.saml.common.AbstractSAMLObject;
 
-import se.litsec.eidas.opensaml.metadata.Endpoint;
+import se.litsec.eidas.opensaml.metadata.MetadataList;
+import se.litsec.eidas.opensaml.metadata.MetadataLocation;
 
 /**
- * Implementation class for {@link Endpoint}.
+ * Implementation class for {@link MetadataList}.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class EndpointImpl extends AbstractSAMLObject implements Endpoint {
+public class MetadataListImpl extends AbstractSAMLObject implements MetadataList {
+  
+  /** Metadata location children. */
+  private final XMLObjectChildrenList<MetadataLocation> metadataLocations;
   
   /** "anyAttribute" attributes */
   private final AttributeMap unknownAttributes;
   
-  /** The endpoint type. */
-  private String endpointType;
-  
-  /** The entityID. */
-  private String entityID;
-  
-  private static final QName suspendQname = new QName("Suspend");
+  /** The territory attribute. */
+  private String territory;
+    
+  private static final QName suspendQname = new QName("Suspend");  
 
   /**
    * Constructor.
@@ -54,39 +58,42 @@ public class EndpointImpl extends AbstractSAMLObject implements Endpoint {
    * @param namespacePrefix
    *          the prefix for the given namespace
    */  
-  protected EndpointImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+  protected MetadataListImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
+    this.metadataLocations = new XMLObjectChildrenList<MetadataLocation>(this);
     this.unknownAttributes = new AttributeMap(this);
   }
 
   /** {@inheritDoc} */
   @Override
   public List<XMLObject> getOrderedChildren() {
-    return null;
+    ArrayList<XMLObject> children = new ArrayList<XMLObject>();
+    children.addAll(this.metadataLocations);
+    return Collections.unmodifiableList(children);
   }
 
   /** {@inheritDoc} */
   @Override
-  public String getEndpointType() {
-    return this.endpointType;
+  public AttributeMap getUnknownAttributes() {
+    return this.unknownAttributes;
   }
 
   /** {@inheritDoc} */
   @Override
-  public void setEndpointType(String endpointType) {
-    this.endpointType = this.prepareForAssignment(this.endpointType, endpointType);
+  public List<MetadataLocation> getMetadataLocations() {
+    return this.metadataLocations;
   }
 
   /** {@inheritDoc} */
   @Override
-  public String getEntityID() {
-    return this.entityID;
+  public String getTerritory() {
+    return this.territory;
   }
 
   /** {@inheritDoc} */
   @Override
-  public void setEntityID(String entityID) {
-    this.entityID = this.prepareForAssignment(this.entityID, entityID);
+  public void setTerritory(String territory) {
+    this.territory = this.prepareForAssignment(this.territory, territory);
   }
 
   /** {@inheritDoc} */
@@ -100,11 +107,6 @@ public class EndpointImpl extends AbstractSAMLObject implements Endpoint {
   @Override
   public void setSuspend(boolean suspendFlag) {
     this.unknownAttributes.put(suspendQname, XSBooleanValue.toString(suspendFlag, false));
-  }
-  
-  @Override
-  public AttributeMap getUnknownAttributes() {
-    return this.unknownAttributes;
   }
 
 }
