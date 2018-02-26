@@ -22,11 +22,11 @@ package se.litsec.eidas.opensaml.common;
  */
 public enum EidasLoaEnum {
   
-  /** eIDAS "low" Level of assurance. */
-  LOA_LOW(EidasConstants.EIDAS_LOA_LOW, 1),
-
   /** eIDAS "low" Level of assurance. For non-notified eID scheme. */
-  LOA_LOW_NON_NOTIFIED(EidasConstants.EIDAS_LOA_LOW_NON_NOTIFIED, 2),
+  LOA_LOW_NON_NOTIFIED(EidasConstants.EIDAS_LOA_LOW_NON_NOTIFIED, 1),
+  
+  /** eIDAS "low" Level of assurance. */
+  LOA_LOW(EidasConstants.EIDAS_LOA_LOW, 2),
   
   /** eIDAS "substantial" Level of assurance. For non-notified eID scheme. */
   LOA_SUBSTANTIAL_NON_NOTIFIED(EidasConstants.EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED, 3),
