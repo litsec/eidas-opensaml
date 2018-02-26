@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Litsec AB
+ * Copyright 2016-2018 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,17 +25,20 @@ public enum EidasLoaEnum {
   /** eIDAS "low" Level of assurance. */
   LOA_LOW(EidasConstants.EIDAS_LOA_LOW, 1),
 
+  /** eIDAS "low" Level of assurance. For non-notified eID scheme. */
+  LOA_LOW_NON_NOTIFIED(EidasConstants.EIDAS_LOA_LOW_NON_NOTIFIED, 2),
+
   /** eIDAS "substantial" Level of assurance. For non-notified eID scheme. */
-  LOA_SUBSTANTIAL_NON_NOTIFIED(EidasConstants.EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED, 2),
+  LOA_SUBSTANTIAL_NON_NOTIFIED(EidasConstants.EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED, 3),
 
   /** eIDAS "substantial" Level of assurance. */
-  LOA_SUBSTANTIAL(EidasConstants.EIDAS_LOA_SUBSTANTIAL, 3),
+  LOA_SUBSTANTIAL(EidasConstants.EIDAS_LOA_SUBSTANTIAL, 4),
 
   /** eIDAS "high" Level of assurance. For non-notified eID scheme. */
-  LOA_HIGH_NON_NOTIFIED(EidasConstants.EIDAS_LOA_HIGH_NON_NOTIFIED, 4),
+  LOA_HIGH_NON_NOTIFIED(EidasConstants.EIDAS_LOA_HIGH_NON_NOTIFIED, 5),
 
   /** eIDAS "high" Level of assurance. */
-  LOA_HIGH(EidasConstants.EIDAS_LOA_HIGH, 5);
+  LOA_HIGH(EidasConstants.EIDAS_LOA_HIGH, 6);
 
   /**
    * Returns the URI for this LoA.

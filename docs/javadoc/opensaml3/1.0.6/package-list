@@ -1,0 +1,8 @@
+se.litsec.eidas.opensaml.common
+se.litsec.eidas.opensaml.config
+se.litsec.eidas.opensaml.ext
+se.litsec.eidas.opensaml.ext.attributes
+se.litsec.eidas.opensaml.ext.attributes.address
+se.litsec.eidas.opensaml.ext.attributes.address.impl
+se.litsec.eidas.opensaml.ext.attributes.impl
+se.litsec.eidas.opensaml.ext.impl

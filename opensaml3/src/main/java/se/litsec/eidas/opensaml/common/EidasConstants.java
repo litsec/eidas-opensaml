@@ -43,6 +43,12 @@ public class EidasConstants {
   /** The Authentication Context URI for the "Low" Level of Assurance. */
   public static final String EIDAS_LOA_LOW = "http://eidas.europa.eu/LoA/low";
 
+  /**
+   * The Authentication Context URI for the "Low" Level of Assurance where the eID scheme is not notified by the
+   * eIDAS country. <b>Note</b>: URI is not yet determined.
+   */
+  public static final String EIDAS_LOA_LOW_NON_NOTIFIED = "http://eidas.europa.eu/LoA/low-nn";
+
   /** The Authentication Context URI for the "Substantial" Level of Assurance. */
   public static final String EIDAS_LOA_SUBSTANTIAL = "http://eidas.europa.eu/LoA/substantial";
 
