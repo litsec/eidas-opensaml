@@ -17,5 +17,7 @@ The following eIDAS specifications are implemented:
 
 For more information about this package, see  [https://litsec.github.io/eidas-opensaml](https://litsec.github.io/eidas-opensaml/).
 
+> **Note**: Support for OpenSAML 2.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6.
+
 Copyright &copy; 2016-2018, [Litsec AB](http://www.litsec.se). Licensed under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 
