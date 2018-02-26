@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XMLTooling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eidas="http://eidas.europa.eu/saml-extensions"
-  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson" xmlns="http://www.opensaml.org/xmltooling-config"
+  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson" xmlns:ser="http://eidas.europa.eu/metadata/servicelist" 
+  xmlns="http://www.opensaml.org/xmltooling-config"
   xsi:schemaLocation="http://www.opensaml.org/xmltooling-config ../../src/schema/xmltooling-config.xsd">
 
   <!-- SAML 2.0 Providers for the OpenSAML eIDAS extensions -->
@@ -144,6 +145,78 @@
       <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.PostCodeBuilder" />
       <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
       <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- MetadataServiceList -->
+    
+    <!-- ser:SchemeInformation -->
+    <ObjectProvider qualifiedName="ser:SchemeInformation">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeInformationBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeInformationMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeInformationUnmarshaller" />
+    </ObjectProvider>
+        
+    <!-- ser:IssuerName -->
+    <ObjectProvider qualifiedName="ser:IssuerName">
+      <BuilderClass className="org.opensaml.core.xml.schema.impl.XSStringBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+        
+    <!-- ser:SchemeIdentifier -->
+    <ObjectProvider qualifiedName="ser:SchemeIdentifier">
+      <BuilderClass className="org.opensaml.core.xml.schema.impl.XSURIBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIUnmarshaller" />      
+    </ObjectProvider>
+    
+    <!-- ser:SchemeTerritory -->
+    <ObjectProvider qualifiedName="ser:SchemeTerritory">
+      <BuilderClass className="org.opensaml.core.xml.schema.impl.XSStringBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:Endpoint -->
+    <ObjectProvider qualifiedName="ser:Endpoint">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataLocation -->
+    <ObjectProvider qualifiedName="ser:MetadataLocation">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:DistributionPoint -->
+    <ObjectProvider qualifiedName="ser:DistributionPoint">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIUnmarshaller" />      
+    </ObjectProvider>
+    
+    <!-- ser:DistributionPoints -->
+    <ObjectProvider qualifiedName="ser:DistributionPoints">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataList -->
+    <ObjectProvider qualifiedName="ser:MetadataList">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataServiceList -->
+    <ObjectProvider qualifiedName="ser:MetadataServiceList">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataServiceListBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataServiceListMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataServiceListUnmarshaller" />
     </ObjectProvider>
     
   </ObjectProviders>

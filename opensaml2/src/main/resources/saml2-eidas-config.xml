@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XMLTooling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eidas="http://eidas.europa.eu/saml-extensions"
-  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson" xmlns="http://www.opensaml.org/xmltooling-config"
+  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson" 
+  xmlns="http://www.opensaml.org/xmltooling-config"
   xsi:schemaLocation="http://www.opensaml.org/xmltooling-config ../../src/schema/xmltooling-config.xsd">
 
   <!-- SAML 2.0 Providers for the OpenSAML eIDAS extensions -->
@@ -146,7 +147,7 @@
       <MarshallingClass className="org.opensaml.xml.schema.impl.XSStringMarshaller" />
       <UnmarshallingClass className="org.opensaml.xml.schema.impl.XSStringUnmarshaller" />
     </ObjectProvider>
-    
+        
   </ObjectProviders>
 
 </XMLTooling>

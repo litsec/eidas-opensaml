@@ -15,6 +15,10 @@
  */
 package se.litsec.eidas.opensaml;
 
+import java.io.InputStream;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +39,7 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
 
 import net.shibboleth.utilities.java.support.xml.BasicParserPool;
+import net.shibboleth.utilities.java.support.xml.XMLParserException;
 
 /**
  * Abstract base class that initializes OpenSAML for test classes.
@@ -42,18 +47,28 @@ import net.shibboleth.utilities.java.support.xml.BasicParserPool;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public abstract class OpenSAMLTestBase {
-  
+
   /** Logger instance. */
   private static Logger logger = LoggerFactory.getLogger(OpenSAMLTestBase.class);
-  
+
   /** Builder features for the default parser pool. */
   private static final Map<String, Boolean> builderFeatures;
+
+  /** Factory for creating certificates. */
+  private static CertificateFactory factory = null;
 
   static {
     builderFeatures = new HashMap<String, Boolean>();
     builderFeatures.put("http://apache.org/xml/features/disallow-doctype-decl", Boolean.TRUE);
     builderFeatures.put("http://apache.org/xml/features/validation/schema/normalized-value", Boolean.FALSE);
     builderFeatures.put("http://javax.xml.XMLConstants/feature/secure-processing", Boolean.TRUE);
+
+    try {
+      factory = CertificateFactory.getInstance("X.509");
+    }
+    catch (CertificateException e) {
+      throw new SecurityException(e);
+    }
   }
 
   /**
@@ -64,11 +79,11 @@ public abstract class OpenSAMLTestBase {
    */
   @BeforeClass
   public static void initializeOpenSAML() throws Exception {
-    
+
     logger.debug("Initializing OpenSAML 3.X library ...");
-    
+
     InitializationService.initialize();
-    
+
     XMLObjectProviderRegistry registry = null;
     synchronized (ConfigurationService.class) {
       registry = ConfigurationService.get(XMLObjectProviderRegistry.class);
@@ -78,7 +93,7 @@ public abstract class OpenSAMLTestBase {
         ConfigurationService.register(XMLObjectProviderRegistry.class, registry);
       }
     }
-    
+
     BasicParserPool basicParserPool = new BasicParserPool();
     basicParserPool.setMaxPoolSize(100);
     basicParserPool.setCoalescing(true);
@@ -112,7 +127,7 @@ public abstract class OpenSAMLTestBase {
     Object object = builder.buildObject(elementName);
     return clazz.cast(object);
   }
-  
+
   /**
    * Returns the default element name for the supplied class
    * 
@@ -128,7 +143,7 @@ public abstract class OpenSAMLTestBase {
       throw new RuntimeException(e);
     }
   }
-  
+
   /**
    * Returns the builder object that can be used to build object for the given element name.
    * 
@@ -140,7 +155,7 @@ public abstract class OpenSAMLTestBase {
   public static <T extends XMLObject> XMLObjectBuilder<T> getBuilder(QName elementName) {
     return (XMLObjectBuilder<T>) XMLObjectProviderRegistrySupport.getBuilderFactory().getBuilder(elementName);
   }
-  
+
   /**
    * Marshalls the supplied {@code XMLObject} into an {@code Element}.
    * 
@@ -169,5 +184,33 @@ public abstract class OpenSAMLTestBase {
     XMLObject xmlObject = XMLObjectProviderRegistrySupport.getUnmarshallerFactory().getUnmarshaller(xml).unmarshall(xml);
     return targetClass.cast(xmlObject);
   }
-  
+
+  /**
+   * Loads an XML element from file.
+   * 
+   * @param systemResource
+   *          the file
+   * @return the element
+   * @throws XMLParserException
+   *           for parsing errors
+   */
+  public static Element loadElement(String systemResource) throws XMLParserException {
+    InputStream serviceListStream = ClassLoader.getSystemResourceAsStream(systemResource);
+    return XMLObjectProviderRegistrySupport.getParserPool().parse(serviceListStream).getDocumentElement();
+  }
+
+  /**
+   * Loads a certificate from file (system resource).
+   * 
+   * @param systemResource
+   *          the certificate file
+   * @return a certificate
+   * @throws CertificateException
+   *           for decoding errors
+   */
+  public static X509Certificate loadCertificate(String systemResource) throws CertificateException {
+    InputStream certStream = ClassLoader.getSystemResourceAsStream(systemResource);
+    return (X509Certificate) factory.generateCertificate(certStream);
+  }
+
 }
