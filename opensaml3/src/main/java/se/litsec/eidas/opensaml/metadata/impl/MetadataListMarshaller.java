@@ -36,7 +36,7 @@ public class MetadataListMarshaller extends AbstractSAMLObjectMarshaller {
     MetadataList mdl = (MetadataList) xmlObject;
 
     if (mdl.getTerritory() != null) {
-      domElement.setAttributeNS(null, MetadataList.TERRITORY_TYPE_ATTR_NAME, mdl.getTerritory());
+      domElement.setAttributeNS(null, MetadataList.TERRITORY_ATTR_NAME, mdl.getTerritory());
     }
     this.marshallUnknownAttributes(mdl, domElement);    
   }  

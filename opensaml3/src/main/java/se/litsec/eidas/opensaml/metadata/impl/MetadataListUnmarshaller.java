@@ -36,7 +36,7 @@ public class MetadataListUnmarshaller extends AbstractSAMLObjectUnmarshaller {
 
     if (childSAMLObject instanceof MetadataLocation) {
       mdl.getMetadataLocations().add((MetadataLocation) childSAMLObject);
-    }
+    }    
     else {
       super.processChildElement(parentSAMLObject, childSAMLObject);
     }
@@ -48,7 +48,7 @@ public class MetadataListUnmarshaller extends AbstractSAMLObjectUnmarshaller {
 
     MetadataList mdl = (MetadataList) samlObject;
 
-    if (attribute.getLocalName().equals(MetadataList.TERRITORY_TYPE_ATTR_NAME)) {
+    if (attribute.getLocalName().equals(MetadataList.TERRITORY_ATTR_NAME)) {
       mdl.setTerritory(attribute.getValue());
     }
     else {

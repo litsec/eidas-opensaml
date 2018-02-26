@@ -41,7 +41,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *     <xs:element type="ser:MetadataLocationType" name="MetadataLocation" minOccurs="0" maxOccurs="unbounded" />
  *   </xs:sequence>
  *   <xs:attribute name="Territory" type="xs:string" use="required" />
- *   <xs:anyAttribute namespace="##other" processContents="lax" />
+ *   <xs:anyAttribute namespace="##any" processContents="lax" />
  * </xs:complexType>}
  * </pre>
  * 
@@ -64,7 +64,7 @@ public interface MetadataList extends SAMLObject, AttributeExtensibleXMLObject {
     EidasConstants.EIDAS_SERVICELIST_PREFIX);
 
   /** Attribute label for the Territory attribute. */
-  public static final String TERRITORY_TYPE_ATTR_NAME = "Territory";
+  public static final String TERRITORY_ATTR_NAME = "Territory";
 
   /**
    * Returns a reference to the list of metadata location elements.

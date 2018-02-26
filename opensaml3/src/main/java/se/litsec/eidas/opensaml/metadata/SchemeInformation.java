@@ -64,31 +64,25 @@ public interface SchemeInformation extends SAMLObject {
   /** QName of the XSI type. */
   public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_SERVICELIST_NS, TYPE_LOCAL_NAME,
     EidasConstants.EIDAS_SERVICELIST_PREFIX);
+  
+  /** Name of the IssuerName element. */
+  public static final String ISSUER_NAME_LOCAL_NAME = "IssuerName";
+  
+  /** Name of the SchemeIdentifier element. */
+  public static final String SCHEME_IDENTIFIER_LOCAL_NAME = "SchemeIdentifier";
+  
+  /** Name of the SchemeTerritory element. */
+  public static final String SCHEME_TERRITORY_LOCAL_NAME = "SchemeTerritory";
 
   /**
    * Returns the name of the organization that issued a metadata service list.
    * 
    * @return issuer name
    */
-  IssuerName getIssuerName();
-
-  /**
-   * See {@link #getIssuerName()}.
-   * 
-   * @return issuer name
-   */
-  String getIssuerNameString();
+  String getIssuerName();
 
   /**
    * Assigns the name of the organization that issued a metadata service list.
-   * 
-   * @param issuerName
-   *          issuer name
-   */
-  void setIssuerName(IssuerName issuerName);
-
-  /**
-   * See {@link #setIssuerName(IssuerName)}.
    * 
    * @param issuerName
    *          issuer name
@@ -100,25 +94,10 @@ public interface SchemeInformation extends SAMLObject {
    * 
    * @return scheme identifier
    */
-  SchemeIdentifier getSchemeIdentifier();
-
-  /**
-   * See {@link #getSchemeIdentifier()}.
-   * 
-   * @return scheme identifier
-   */
-  String getSchemeIdentifierString();
+  String getSchemeIdentifier();
 
   /**
    * Assigns the scheme identifier for the metadata service list.
-   * 
-   * @param schemeIdentifier
-   *          scheme identifier
-   */
-  void setSchemeIdentifier(SchemeIdentifier schemeIdentifier);
-
-  /**
-   * See {@link #setSchemeIdentifier(SchemeIdentifier)}.
    * 
    * @param schemeIdentifier
    *          scheme identifier
@@ -130,25 +109,10 @@ public interface SchemeInformation extends SAMLObject {
    * 
    * @return country code
    */
-  SchemeTerritory getSchemeTerritory();
-
-  /**
-   * See {@link #getSchemeTerritory()}.
-   * 
-   * @return country code
-   */
-  String getSchemeTerritoryString();
+  String getSchemeTerritory();
 
   /**
    * Assigns the two-letter country code for the "territory" of this scheme.
-   * 
-   * @param schemeTerritory
-   *          country code
-   */
-  void setSchemeTerritory(SchemeTerritory schemeTerritory);
-
-  /**
-   * See {@link #setSchemeTerritory(SchemeTerritory)}.
    * 
    * @param schemeTerritory
    *          country code

@@ -58,6 +58,9 @@ public class MetadataLocationUnmarshaller extends AbstractSAMLObjectUnmarshaller
     if (attribute.getLocalName().equals(MetadataLocation.LOCATION_ATTR_NAME)) {
       mdl.setLocation(attribute.getValue());
     }
+    else {
+      this.processUnknownAttribute(mdl, attribute);
+    }    
 
   }
 

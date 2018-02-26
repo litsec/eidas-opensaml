@@ -56,6 +56,9 @@ public interface DistributionPoints extends SAMLObject {
   /** QName of the XSI type. */
   public static final QName TYPE_NAME = new QName(EidasConstants.EIDAS_SERVICELIST_NS, TYPE_LOCAL_NAME,
     EidasConstants.EIDAS_SERVICELIST_PREFIX);
+  
+  /** Name of the DistributionPoint elements. */
+  public static final String DISTRIBUTION_POINT_LOCAL_NAME = "DistributionPoint";
 
   /**
    * Returns a reference to the list of distribution points.

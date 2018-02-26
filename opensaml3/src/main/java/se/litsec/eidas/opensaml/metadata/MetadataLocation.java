@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.xml.namespace.QName;
 
+import org.opensaml.core.xml.AttributeExtensibleXMLObject;
 import org.opensaml.saml.common.SAMLObject;
 import org.opensaml.xmlsec.signature.KeyInfo;
 
@@ -57,12 +58,13 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *        </xs:documentation>
  *      </xs:annotation>
  *    </xs:attribute>
+ *    <xs:anyAttribute namespace="##any" processContents="lax" />
  *  </xs:complexType>}
  * </pre>
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public interface MetadataLocation extends SAMLObject {
+public interface MetadataLocation extends SAMLObject, AttributeExtensibleXMLObject {
 
   /** Name of the element. */
   public static final String DEFAULT_ELEMENT_LOCAL_NAME = "MetadataLocation";
@@ -127,5 +129,22 @@ public interface MetadataLocation extends SAMLObject {
    *          URL
    */
   void setLocation(String location);
+  
+  /**
+   * For the Swedish eIDAS configuration, a flag, {@code Suspend} is used to indicate whether an endpoint has been
+   * suspended. This method is just a short cut instead of using {@link #getUnknownAttributes()}.
+   * 
+   * @return if the {@code Suspend} flag has been set to {@code true} this method returns {@code true}, otherwise
+   *         {@code false} 
+   */
+  boolean getSuspend();
+
+  /**
+   * Assigns the {@code Suspend} flag. See {@link #getSuspend()}.
+   * 
+   * @param suspendFlag
+   *          the suspend flag
+   */
+  void setSuspend(boolean suspendFlag);  
 
 }

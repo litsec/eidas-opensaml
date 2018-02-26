@@ -15,14 +15,15 @@
  */
 package se.litsec.eidas.opensaml.metadata.impl;
 
+import javax.xml.namespace.QName;
+
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.io.UnmarshallingException;
+import org.opensaml.core.xml.schema.XSString;
+import org.opensaml.core.xml.schema.XSURI;
 import org.opensaml.saml.common.AbstractSAMLObjectUnmarshaller;
 
-import se.litsec.eidas.opensaml.metadata.IssuerName;
-import se.litsec.eidas.opensaml.metadata.SchemeIdentifier;
 import se.litsec.eidas.opensaml.metadata.SchemeInformation;
-import se.litsec.eidas.opensaml.metadata.SchemeTerritory;
 
 /**
  * Unmarshaller for {@link SchemeInformation} objects.
@@ -37,19 +38,43 @@ public class SchemeInformationUnmarshaller extends AbstractSAMLObjectUnmarshalle
       throws UnmarshallingException {
     
     SchemeInformation schemeInformation = (SchemeInformation) parentSAMLObject; 
+    
+    final QName issuerNameIdQName = new QName(schemeInformation.getElementQName().getNamespaceURI(),
+      SchemeInformation.ISSUER_NAME_LOCAL_NAME, schemeInformation.getElementQName().getPrefix());
+        
+    final QName schemeIdentifierQName = new QName(schemeInformation.getElementQName().getNamespaceURI(),
+      SchemeInformation.SCHEME_IDENTIFIER_LOCAL_NAME, schemeInformation.getElementQName().getPrefix());
 
-    if (childSAMLObject instanceof IssuerName) {
-      schemeInformation.setIssuerName((IssuerName) childSAMLObject);
+    final QName schemeTerritoryQName = new QName(schemeInformation.getElementQName().getNamespaceURI(),
+      SchemeInformation.SCHEME_TERRITORY_LOCAL_NAME, schemeInformation.getElementQName().getPrefix());
+    
+    if ((childSAMLObject instanceof XSString) && issuerNameIdQName.equals(childSAMLObject.getElementQName())) {
+      if (schemeInformation instanceof SchemeInformationImpl) {
+        ((SchemeInformationImpl) schemeInformation).setIssuerName((XSString) childSAMLObject);
+      }
+      else {
+        schemeInformation.setIssuerName(((XSString) childSAMLObject).getValue());
+      }
     }
-    else if (childSAMLObject instanceof SchemeIdentifier) {
-      schemeInformation.setSchemeIdentifier((SchemeIdentifier) childSAMLObject);
+    else if ((childSAMLObject instanceof XSURI) && schemeIdentifierQName.equals(childSAMLObject.getElementQName())) {
+      if (schemeInformation instanceof SchemeInformationImpl) {
+        ((SchemeInformationImpl) schemeInformation).setSchemeIdentifier((XSURI) childSAMLObject);
+      }
+      else {
+        schemeInformation.setSchemeIdentifier(((XSURI) childSAMLObject).getValue());
+      }
     }
-    else if (childSAMLObject instanceof SchemeTerritory) {
-      schemeInformation.setSchemeTerritory((SchemeTerritory) childSAMLObject);
-    }
+    else if ((childSAMLObject instanceof XSString) && schemeTerritoryQName.equals(childSAMLObject.getElementQName())) {
+      if (schemeInformation instanceof SchemeInformationImpl) {
+        ((SchemeInformationImpl) schemeInformation).setSchemeTerritory((XSString) childSAMLObject);
+      }
+      else {
+        schemeInformation.setSchemeTerritory(((XSString) childSAMLObject).getValue());
+      }
+    } 
     else {
       super.processChildElement(parentSAMLObject, childSAMLObject);
-    }
+    }    
   }
   
 }

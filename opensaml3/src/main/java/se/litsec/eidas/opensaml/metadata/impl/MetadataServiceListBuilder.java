@@ -13,30 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package se.litsec.eidas.opensaml2.metadata.impl;
+package se.litsec.eidas.opensaml.metadata.impl;
 
-import org.opensaml.common.impl.AbstractSAMLObjectBuilder;
+import org.opensaml.saml.common.AbstractSAMLObjectBuilder;
 
-import se.litsec.eidas.opensaml2.metadata.SchemeTerritory;
+import se.litsec.eidas.opensaml.metadata.MetadataServiceList;
 
 /**
- * Builder for {@link SchemeTerritory} objects.
+ * Builder for {@link MetadataServiceList} objects.
  * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public class SchemeTerritoryBuilder extends AbstractSAMLObjectBuilder<SchemeTerritory> {
+public class MetadataServiceListBuilder extends AbstractSAMLObjectBuilder<MetadataServiceList> {
 
   /** {@inheritDoc} */
   @Override
-  public SchemeTerritory buildObject() {
-    return new SchemeTerritoryImpl(SchemeTerritory.DEFAULT_ELEMENT_NAME.getNamespaceURI(), SchemeTerritory.DEFAULT_ELEMENT_LOCAL_NAME,
-      SchemeTerritory.DEFAULT_ELEMENT_NAME.getPrefix());
+  public MetadataServiceList buildObject() {
+    return this.buildObject(MetadataServiceList.DEFAULT_ELEMENT_NAME.getNamespaceURI(), MetadataServiceList.DEFAULT_ELEMENT_LOCAL_NAME,
+      MetadataServiceList.DEFAULT_ELEMENT_NAME.getPrefix());
   }
 
   /** {@inheritDoc} */
   @Override
-  public SchemeTerritory buildObject(String namespaceURI, String localName, String namespacePrefix) {
-    return new SchemeTerritoryImpl(namespaceURI, localName, namespacePrefix);
+  public MetadataServiceList buildObject(String namespaceURI, String localName, String namespacePrefix) {
+    return new MetadataServiceListImpl(namespaceURI, localName, namespacePrefix);
   }
 
 }

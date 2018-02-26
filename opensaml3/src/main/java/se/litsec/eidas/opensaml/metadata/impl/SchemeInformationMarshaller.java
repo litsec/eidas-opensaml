@@ -15,10 +15,7 @@
  */
 package se.litsec.eidas.opensaml.metadata.impl;
 
-import org.opensaml.core.xml.XMLObject;
-import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.saml.common.AbstractSAMLObjectMarshaller;
-import org.w3c.dom.Element;
 
 import se.litsec.eidas.opensaml.metadata.SchemeInformation;
 
@@ -28,11 +25,4 @@ import se.litsec.eidas.opensaml.metadata.SchemeInformation;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class SchemeInformationMarshaller extends AbstractSAMLObjectMarshaller {
-
-  /** {@inheritDoc} */
-  @Override
-  protected void marshallElementContent(XMLObject xmlObject, Element domElement) throws MarshallingException {
-    super.marshallElementContent(xmlObject, domElement);
-  }
-
 }

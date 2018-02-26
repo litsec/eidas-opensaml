@@ -21,7 +21,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.xml.namespace.QName;
+
 import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.schema.XSBooleanValue;
+import org.opensaml.core.xml.util.AttributeMap;
 import org.opensaml.core.xml.util.XMLObjectChildrenList;
 import org.opensaml.saml.common.AbstractSAMLObject;
 import org.opensaml.xmlsec.signature.KeyInfo;
@@ -49,6 +53,11 @@ public class MetadataLocationImpl extends AbstractSAMLObject implements Metadata
 
   /** The location attribute. */
   private String location;
+  
+  /** "anyAttribute" attributes */
+  private final AttributeMap unknownAttributes;
+  
+  private static final QName suspendQname = new QName("Suspend");
 
   /**
    * Constructor.
@@ -63,6 +72,7 @@ public class MetadataLocationImpl extends AbstractSAMLObject implements Metadata
   public MetadataLocationImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
     super(namespaceURI, elementLocalName, namespacePrefix);
     this.endpoints = new XMLObjectChildrenList<Endpoint>(this);
+    this.unknownAttributes = new AttributeMap(this);
   }
 
   /** {@inheritDoc} */
@@ -129,4 +139,22 @@ public class MetadataLocationImpl extends AbstractSAMLObject implements Metadata
     this.location = this.prepareForAssignment(this.location, location);
   }
 
+  /** {@inheritDoc} */
+  @Override
+  public boolean getSuspend() {
+    String v = this.unknownAttributes.getOrDefault(suspendQname, XSBooleanValue.toString(false, false));
+    return XSBooleanValue.valueOf(v).getValue();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void setSuspend(boolean suspendFlag) {
+    this.unknownAttributes.put(suspendQname, XSBooleanValue.toString(suspendFlag, false));
+  }
+  
+  @Override
+  public AttributeMap getUnknownAttributes() {
+    return this.unknownAttributes;
+  }  
+  
 }

@@ -38,6 +38,7 @@ public class MetadataLocationMarshaller extends AbstractSAMLObjectMarshaller {
     if (mdl.getLocation() != null) {
       domElement.setAttributeNS(null, MetadataLocation.LOCATION_ATTR_NAME, mdl.getLocation());
     }
+    this.marshallUnknownAttributes(mdl, domElement);
   }
 
 }

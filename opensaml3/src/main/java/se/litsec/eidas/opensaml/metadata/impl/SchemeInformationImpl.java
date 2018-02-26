@@ -20,12 +20,13 @@ import java.util.Collections;
 import java.util.List;
 
 import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.schema.XSString;
+import org.opensaml.core.xml.schema.XSURI;
+import org.opensaml.core.xml.schema.impl.XSStringBuilder;
+import org.opensaml.core.xml.schema.impl.XSURIBuilder;
 import org.opensaml.saml.common.AbstractSAMLObject;
 
-import se.litsec.eidas.opensaml.metadata.IssuerName;
-import se.litsec.eidas.opensaml.metadata.SchemeIdentifier;
 import se.litsec.eidas.opensaml.metadata.SchemeInformation;
-import se.litsec.eidas.opensaml.metadata.SchemeTerritory;
 
 /**
  * Implementation class for {@link SchemeInformation}.
@@ -35,13 +36,13 @@ import se.litsec.eidas.opensaml.metadata.SchemeTerritory;
 public class SchemeInformationImpl extends AbstractSAMLObject implements SchemeInformation {
 
   /** Issuer name. */
-  private IssuerName issuerName;
+  private XSString issuerName;
 
   /** Scheme identifier. */
-  private SchemeIdentifier schemeIdentifier;
+  private XSURI schemeIdentifier;
 
   /** Scheme territory. */
-  private SchemeTerritory schemeTerritory;
+  private XSString schemeTerritory;
 
   /**
    * Constructor.
@@ -79,87 +80,86 @@ public class SchemeInformationImpl extends AbstractSAMLObject implements SchemeI
 
   /** {@inheritDoc} */
   @Override
-  public IssuerName getIssuerName() {
-    return this.issuerName;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getIssuerNameString() {
+  public String getIssuerName() {
     return this.issuerName != null ? this.issuerName.getValue() : null;
   }
 
   /** {@inheritDoc} */
   @Override
-  public void setIssuerName(IssuerName issuerName) {
-    this.issuerName = this.prepareForAssignment(this.issuerName, issuerName);
-  }
-
-  /** {@inheritDoc} */
-  @Override
   public void setIssuerName(String issuerName) {
-    IssuerName name = null;
+    XSString name = null;
     if (issuerName != null) {
-      name = (new IssuerNameBuilder()).buildObject();
+      name = (new XSStringBuilder()).buildObject(this.getElementQName().getNamespaceURI(), ISSUER_NAME_LOCAL_NAME,
+        this.getElementQName().getPrefix());
       name.setValue(issuerName);
     }
     this.setIssuerName(name);
   }
 
-  /** {@inheritDoc} */
-  @Override
-  public SchemeIdentifier getSchemeIdentifier() {
-    return this.schemeIdentifier;
+  /**
+   * Assigns the issuer name as a {@code XSString}.
+   * 
+   * @param issuerName
+   *          the issuer name
+   */
+  public void setIssuerName(XSString issuerName) {
+    this.issuerName = this.prepareForAssignment(this.issuerName, issuerName);
   }
 
   /** {@inheritDoc} */
   @Override
-  public String getSchemeIdentifierString() {
+  public String getSchemeIdentifier() {
     return this.schemeIdentifier != null ? this.schemeIdentifier.getValue() : null;
   }
 
   /** {@inheritDoc} */
   @Override
-  public void setSchemeIdentifier(SchemeIdentifier schemeIdentifier) {
+  public void setSchemeIdentifier(String schemeIdentifier) {
+    XSURI uri = null;
+    if (schemeIdentifier != null) {
+      uri = (new XSURIBuilder()).buildObject(this.getElementQName().getNamespaceURI(), SCHEME_IDENTIFIER_LOCAL_NAME,
+        this.getElementQName().getPrefix());
+      uri.setValue(schemeIdentifier);
+    }
+    this.setSchemeIdentifier(uri);
+  }
+
+  /**
+   * Assigns the scheme identifier as a {@code XSURI} type.
+   * 
+   * @param schemeIdentifier
+   *          the scheme identifier
+   */
+  public void setSchemeIdentifier(XSURI schemeIdentifier) {
     this.schemeIdentifier = this.prepareForAssignment(this.schemeIdentifier, schemeIdentifier);
   }
 
   /** {@inheritDoc} */
   @Override
-  public void setSchemeIdentifier(String schemeIdentifier) {
-    SchemeIdentifier si = null;
-    if (schemeIdentifier != null) {
-      si = (new SchemeIdentifierBuilder()).buildObject();
-    }
-    this.setSchemeIdentifier(si);
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public SchemeTerritory getSchemeTerritory() {
-    return this.schemeTerritory;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getSchemeTerritoryString() {
+  public String getSchemeTerritory() {
     return this.schemeTerritory != null ? this.schemeTerritory.getValue() : null;
   }
 
   /** {@inheritDoc} */
   @Override
-  public void setSchemeTerritory(SchemeTerritory schemeTerritory) {
-    this.schemeTerritory = this.prepareForAssignment(this.schemeTerritory, schemeTerritory);
-  }
-
-  /** {@inheritDoc} */
-  @Override
   public void setSchemeTerritory(String schemeTerritory) {
-    SchemeTerritory st = null;
+    XSString st = null;
     if (schemeTerritory != null) {
-      st = (new SchemeTerritoryBuilder()).buildObject();
+      st = (new XSStringBuilder()).buildObject(this.getElementQName().getNamespaceURI(), SCHEME_TERRITORY_LOCAL_NAME,
+        this.getElementQName().getPrefix());
+      st.setValue(schemeTerritory);
     }
     this.setSchemeTerritory(st);
+  }
+
+  /**
+   * Assigns the scheme territory as a {@code XSString} type.
+   * 
+   * @param schemeTerritory
+   *          the scheme territory
+   */
+  public void setSchemeTerritory(XSString schemeTerritory) {
+    this.schemeTerritory = this.prepareForAssignment(this.schemeTerritory, schemeTerritory);
   }
 
 }

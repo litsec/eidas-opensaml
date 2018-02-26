@@ -53,7 +53,7 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  *       </xs:documentation>
  *     </xs:annotation>
  *   </xs:attribute>
- *   <xs:anyAttribute namespace="##other" processContents="lax" />
+ *   <xs:anyAttribute namespace="##any" processContents="lax" />
  * </xs:complexType>}
  * </pre>
  * 

@@ -37,46 +37,16 @@ public class SchemeInformationTest extends OpenSAMLTestBase {
   public void testMarshallAndUnmarshall() throws Exception {
     
     SchemeInformation info = OpenSAMLTestBase.createSamlObject(SchemeInformation.class, SchemeInformation.DEFAULT_ELEMENT_NAME);
-    
-    IssuerName issuerName = OpenSAMLTestBase.createSamlObject(IssuerName.class, IssuerName.DEFAULT_ELEMENT_NAME);
-    issuerName.setValue("E-identification board");
-    info.setIssuerName(issuerName);
-    
-    SchemeIdentifier id = OpenSAMLTestBase.createSamlObject(SchemeIdentifier.class, SchemeIdentifier.DEFAULT_ELEMENT_NAME);
-    id.setValue("123456");
-    info.setSchemeIdentifier(id);
-    
-    SchemeTerritory c = OpenSAMLTestBase.createSamlObject(SchemeTerritory.class, SchemeTerritory.DEFAULT_ELEMENT_NAME);
-    c.setValue("SE");
-    info.setSchemeTerritory(c);
-    
-    Element element = OpenSAMLTestBase.marshall(info);
-    
-    SchemeInformation info2 = OpenSAMLTestBase.unmarshall(element, SchemeInformation.class);
-    Assert.assertEquals(info.getIssuerNameString(), info2.getIssuerName().getValue());
-    Assert.assertEquals(info.getSchemeIdentifierString(), info2.getSchemeIdentifier().getValue());
-    Assert.assertEquals(info.getSchemeTerritoryString(), info2.getSchemeTerritory().getValue());
-  }
-  
-  /**
-   * Tests the direct string setters for SchemeInformation.
-   * 
-   * @throws Exception
-   */
-  @Test
-  public void testStringSetters() throws Exception {
-    
-    SchemeInformation info = OpenSAMLTestBase.createSamlObject(SchemeInformation.class, SchemeInformation.DEFAULT_ELEMENT_NAME);
     info.setIssuerName("E-identification board");
-    info.setSchemeIdentifier("123456");
+    info.setSchemeIdentifier("123456");    
     info.setSchemeTerritory("SE");
     
     Element element = OpenSAMLTestBase.marshall(info);
     
     SchemeInformation info2 = OpenSAMLTestBase.unmarshall(element, SchemeInformation.class);
-    Assert.assertEquals(info.getIssuerName().getValue(), info2.getIssuerNameString());
-    Assert.assertEquals(info.getSchemeIdentifier().getValue(), info2.getSchemeIdentifierString());
-    Assert.assertEquals(info.getSchemeTerritory().getValue(), info2.getSchemeTerritoryString());    
+    Assert.assertEquals(info.getIssuerName(), info2.getIssuerName());
+    Assert.assertEquals(info.getSchemeIdentifier(), info2.getSchemeIdentifier());
+    Assert.assertEquals(info.getSchemeTerritory(), info2.getSchemeTerritory());
   }
   
   /**
@@ -86,18 +56,16 @@ public class SchemeInformationTest extends OpenSAMLTestBase {
   @Test
   public void testNull() throws Exception {
     SchemeInformation info = OpenSAMLTestBase.createSamlObject(SchemeInformation.class, SchemeInformation.DEFAULT_ELEMENT_NAME);
-    info.setIssuerName((IssuerName) null);
+    info.setIssuerName(null);
     info.setSchemeIdentifier("123456");
-    info.setSchemeTerritory((String) null);
+    info.setSchemeTerritory(null);
     
     Element element = OpenSAMLTestBase.marshall(info);
     
     SchemeInformation info2 = OpenSAMLTestBase.unmarshall(element, SchemeInformation.class);
-    Assert.assertNull(info2.getIssuerName());
-    Assert.assertNull(info2.getIssuerNameString()); 
-    Assert.assertEquals(info.getSchemeIdentifier().getValue(), info2.getSchemeIdentifierString());
+    Assert.assertNull(info2.getIssuerName()); 
+    Assert.assertEquals(info.getSchemeIdentifier(), info2.getSchemeIdentifier());
     Assert.assertNull(info2.getSchemeTerritory());
-    Assert.assertNull(info2.getSchemeTerritoryString());
   }
 
 }
