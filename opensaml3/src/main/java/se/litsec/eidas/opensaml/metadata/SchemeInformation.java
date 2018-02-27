@@ -43,10 +43,6 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
  * </xs:complexType>}
  * </pre>
  * 
- * @see IssuerName
- * @see SchemeIdentifier
- * @see SchemeTerritory
- * 
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public interface SchemeInformation extends SAMLObject {
