@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Litsec AB
+ * Copyright 2016-2018 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -143,8 +143,5 @@ public class AttributeUtils {
   public static <T extends XMLObject> void addAttributeValue(Attribute attribute, T value) {
     attribute.getAttributeValues().add(value);
   }
-
-  // TODO: Utility method to add LoA attribute to EntityAttributes.
-  // TODO: Utility method to get LoA attribute from EntityAttributes
-
+  
 }
