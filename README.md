@@ -14,8 +14,8 @@ The eIDAS technical specifications defines a number of SAML elements and attribu
 
 The following eIDAS specifications are implemented:
 * [eIDAS - Interoperability Architechture v1.0](https://joinup.ec.europa.eu/sites/default/files/eidas_interoperability_architecture_v1.00.pdf)
-* [eIDAS SAML Message Format v1.1-2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20Message%20Format_v1.1-2.pdf)
-* [eIDAS SAML Attribute Profile v1.1_2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20SAML%20Attribute%20Profile%20v1.1_2.pdf) 
+* [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/files/2219283/eIDAS.Message.Format_v1.2_final.docx)
+* [eIDAS SAML Attribute Profile v1.1_2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20SAML%20Attribute%20Profile%20v1.1_2.pdf)
 
 > **Note**: Support for OpenSAML 2.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6.
 
@@ -27,20 +27,20 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 <dependency>
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
-  <version>1.1.1</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.1.1](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.1.1/index.html).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.1.1](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.2.0/index.html).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site/opensaml3](https://litsec.github.io/eidas-opensaml/site/opensaml3/index.html).
 
 ### Examples
 
 #### Creating an eIDAS AuthnRequest message
 
-The [eIDAS SAML Message Format](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20Message%20Format_v1.1-2.pdf) specification describes how a SAML `AuthnRequest` message should be put together to comply to the eIDAS specifications. 
+The [eIDAS SAML Message Format](* [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/files/2219283/eIDAS.Message.Format_v1.2_final.docx) specification describes how a SAML `AuthnRequest` message should be put together to comply to the eIDAS specifications. 
 
 [CreateAuthnRequestExample.java](https://github.com/litsec/eidas-opensaml/blob/master/opensaml3/src/test/java/se/litsec/eidas/opensaml/examples/CreateAuthnRequestExample.java) illustrates how you could create an authentication request message using the eidas-opensaml library.
 
@@ -61,7 +61,7 @@ Contact [Litsec Labs](mailto:info@litsec.se) if you have any questions or sugges
 ##### eIDAS Specifications
 
 * [eIDAS - Interoperability Architechture v1.0](https://joinup.ec.europa.eu/sites/default/files/eidas_interoperability_architecture_v1.00.pdf)
-* [eIDAS SAML Message Format v1.1-2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20Message%20Format_v1.1-2.pdf)
+* [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/files/2219283/eIDAS.Message.Format_v1.2_final.docx)
 * [eIDAS SAML Attribute Profile v1.1_2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20SAML%20Attribute%20Profile%20v1.1_2.pdf)
 
 ##### Swedish eID Framework
