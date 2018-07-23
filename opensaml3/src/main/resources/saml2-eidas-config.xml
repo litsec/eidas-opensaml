@@ -27,6 +27,13 @@
       <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesMarshaller" />
       <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesUnmarshaller" />
     </ObjectProvider>
+    
+    <!-- eidas:NodeCountry -->
+    <ObjectProvider qualifiedName="eidas:NodeCountry">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.NodeCountryBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.NodeCountryMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.NodeCountryUnmarshaller" />
+    </ObjectProvider>    
 
     <!-- eidasnp:PersonIdentifierType -->
     <ObjectProvider qualifiedName="eidasnp:PersonIdentifierType">
