@@ -27,13 +27,13 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 <dependency>
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.2.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.2.0/index.html).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.3.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.3.0/index.html).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site](https://litsec.github.io/eidas-opensaml/site/index.html).
 
 ### Examples
@@ -66,13 +66,14 @@ Contact [Litsec Labs](mailto:info@litsec.se) if you have any questions or sugges
 
 ##### Swedish eID Framework
 
-* [Technical specifications for the Swedish eID Framework](https://github.com/elegnamnden/technical-framework)
-* [eIDAS web](http://eidasweb.se/home/) - The portal for the Swedish eID and eIDAS test infrastructure.
+* [Technical specifications for the Swedish eID Framework](https://github.com/swedenconnect/technical-framework)
+* [Sweden Connect](https://swedenconnect.se) - The portal for the Sweden Connect federation.
+* [Sweden Connect - Sandbox](https://sandbox.swedenconnect.se/home/) - The portal for the Swedish eID and eIDAS test infrastructure.
 
 ##### OpenSAML and Shibboleth
 
 * [OpenSAML v3 Confluence](https://wiki.shibboleth.net/confluence/display/OS30/Home)
-* [OpenSAML v3 API documentation](https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/3.3.0/apidocs/)
+* [OpenSAML v3 API documentation](https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/3.4.0/apidocs/)
 * [Shibboleth Identity Provider v3](https://wiki.shibboleth.net/confluence/display/IDP30) - *built using OpenSAML 3.x*
 
 
