@@ -27,13 +27,13 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 <dependency>
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
-  <version>1.3.0</version>
+  <version>${eidas-opensaml.version}</version>
 </dependency>
 ```
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.3.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.3.0/index.html).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.3.1](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.3.1/index.html).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site](https://litsec.github.io/eidas-opensaml/site/index.html).
 
 ### Examples
