@@ -4,7 +4,7 @@
 
 # eidas-opensaml
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3) [![Known Vulnerabilities](https://snyk.io/test/github/litsec/eidas-opensaml/badge.svg?targetFile=opensaml3%2Fpom.xml)](https://snyk.io/test/github/litsec/eidas-opensaml?targetFile=opensaml3%2Fpom.xml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3) [![Known Vulnerabilities](https://snyk.io/test/github/litsec/eidas-opensaml/badge.svg?targetFile=opensaml3%2Fpom.xml)](https://snyk.io/test/github/litsec/eidas-opensaml?targetFile=opensaml3%2Fpom.xml)
 
 OpenSAML extensions for the eIDAS Framework.
 
