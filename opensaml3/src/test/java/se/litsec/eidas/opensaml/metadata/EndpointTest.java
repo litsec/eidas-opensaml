@@ -78,6 +78,37 @@ public class EndpointTest extends OpenSAMLTestBase {
     Assert.assertEquals(ep.getEndpointType(), ep2.getEndpointType());
     Assert.assertEquals(ep.getEntityID(), ep2.getEntityID());
     Assert.assertFalse(ep2.getSuspend());    
-  }  
+  }
+  
+  /**
+   * Tests the HideFromDiscovery-attribute
+   * 
+   * @throws Exception
+   */
+  @Test
+  public void testHideFromDiscoveryAttribute() throws Exception {
+    Endpoint ep = OpenSAMLTestBase.createSamlObject(Endpoint.class, Endpoint.DEFAULT_ELEMENT_NAME);
+    ep.setEndpointType(Endpoint.PROXY_SERVICE_ENDPOINT_TYPE);
+    ep.setEntityID("http://eidas.node.se");
+    ep.setHideFromDiscovery(true);
+    
+    Element element = OpenSAMLTestBase.marshall(ep);
+        
+    Endpoint ep2 = OpenSAMLTestBase.unmarshall(element, Endpoint.class);
+    Assert.assertEquals(ep.getEndpointType(), ep2.getEndpointType());
+    Assert.assertEquals(ep.getEntityID(), ep2.getEntityID());
+    Assert.assertTrue(ep2.getHideFromDiscovery());
+    
+    ep = OpenSAMLTestBase.createSamlObject(Endpoint.class, Endpoint.DEFAULT_ELEMENT_NAME);
+    ep.setEndpointType(Endpoint.PROXY_SERVICE_ENDPOINT_TYPE);
+    ep.setEntityID("http://eidas.node.se");
+    
+    element = OpenSAMLTestBase.marshall(ep);
+        
+    ep2 = OpenSAMLTestBase.unmarshall(element, Endpoint.class);
+    Assert.assertEquals(ep.getEndpointType(), ep2.getEndpointType());
+    Assert.assertEquals(ep.getEntityID(), ep2.getEntityID());
+    Assert.assertFalse(ep2.getHideFromDiscovery());
+  }
   
 }
