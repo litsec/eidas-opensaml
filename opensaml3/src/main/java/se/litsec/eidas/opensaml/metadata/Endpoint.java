@@ -118,20 +118,38 @@ public interface Endpoint extends SAMLObject, AttributeExtensibleXMLObject {
   void setEntityID(String entityID);
 
   /**
-   * For the Swedish eIDAS configuration, a flag, {@code Suspend} is used to indicate whether an endpoint has been
-   * suspended. This method is just a short cut instead of using {@link #getUnknownAttributes()}.
+   * For the Swedish eIDAS configuration, the {@code Suspend} attribute is used to indicate whether an endpoint has been
+   * suspended. This method is just a shortcut instead of using {@link #getUnknownAttributes()}.
    * 
-   * @return if the {@code Suspend} flag has been set to {@code true} this method returns {@code true}, otherwise
+   * @return if the {@code Suspend} attribute has been set to {@code true} this method returns {@code true}, otherwise
    *         {@code false} 
    */
   boolean getSuspend();
 
   /**
-   * Assigns the {@code Suspend} flag. See {@link #getSuspend()}.
+   * Assigns the {@code Suspend} attribute. See {@link #getSuspend()}.
    * 
    * @param suspendFlag
    *          the suspend flag
    */
   void setSuspend(boolean suspendFlag);
+
+  /**
+   * For the Swedish eIDAS configuration, the {@code HideFromDiscovery} attribute is used to indicate whether the proxy
+   * service within an endpoint should be hidden from the connector "select country view". This method is just a
+   * shortcut instead of using {@link #getUnknownAttributes()}.
+   * 
+   * @return if the {@code HideFromDiscovery} attribute has been set to {@code true} this method returns {@code true},
+   *         otherwise {@code false}
+   */
+  boolean getHideFromDiscovery();
+
+  /**
+   * Assigns the {@code HideFromDiscovery} attribute. See {@link #getHideFromDiscovery()}.
+   * 
+   * @param hideFlag
+   *          the "HideFromDiscovery" flag
+   */
+  void setHideFromDiscovery(boolean hideFlag);
 
 }

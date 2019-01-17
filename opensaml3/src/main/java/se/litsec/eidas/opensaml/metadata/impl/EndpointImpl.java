@@ -42,7 +42,11 @@ public class EndpointImpl extends AbstractSAMLObject implements Endpoint {
   /** The entityID. */
   private String entityID;
   
+  /** The name for the Suspend attribute. */
   private static final QName suspendQname = new QName("Suspend");
+  
+  /** The name for the HideFromDiscovery attribute. */
+  private static final QName hideFromDiscoveryQname = new QName("HideFromDiscovery");
 
   /**
    * Constructor.
@@ -102,6 +106,19 @@ public class EndpointImpl extends AbstractSAMLObject implements Endpoint {
     this.unknownAttributes.put(suspendQname, XSBooleanValue.toString(suspendFlag, false));
   }
   
+  /** {@inheritDoc} */
+  @Override
+  public boolean getHideFromDiscovery() {
+    String v = this.unknownAttributes.getOrDefault(hideFromDiscoveryQname, XSBooleanValue.toString(false, false));
+    return XSBooleanValue.valueOf(v).getValue();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void setHideFromDiscovery(boolean hideFlag) {
+    this.unknownAttributes.put(hideFromDiscoveryQname, XSBooleanValue.toString(hideFlag, false));
+  }
+
   @Override
   public AttributeMap getUnknownAttributes() {
     return this.unknownAttributes;
