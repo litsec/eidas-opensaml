@@ -423,23 +423,23 @@
                 <link>https://build.shibboleth.net/nexus/content/sites/site/java-support/7.2.0/apidocs/</link>
                 <link>https://build.shibboleth.net/nexus/content/sites/site/spring-extensions/5.2.0/apidocs/</link>
                 -->
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-core/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-messaging-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-messaging-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-profile-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-profile-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-saml-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-saml-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-security-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-security-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-soap-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-soap-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-storage-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-storage-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-xmlsec-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/org/opensaml/opensaml-xmlsec-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/net/shibboleth/utilities/java-support/${shibboleth.java-support.version}/</link>                
-                <link>https://litsec.github.io/opensaml-ext/javadoc/ext/net/shibboleth/ext/spring-extensions/5.4.1/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-core/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-messaging-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-messaging-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-profile-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-profile-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-saml-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-saml-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-security-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-security-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-soap-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-soap-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-storage-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-storage-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-xmlsec-api/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-xmlsec-impl/${opensaml.version}/</link>
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/utilities/java-support/${shibboleth.java-support.version}/</link>                
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/ext/spring-extensions/5.4.1/</link>
               </links>
               <detectJavaApiLink>true</detectJavaApiLink>
             </configuration>
