@@ -25,21 +25,17 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.junit.BeforeClass;
-import org.opensaml.core.config.ConfigurationService;
-import org.opensaml.core.config.InitializationService;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.XMLObjectBuilder;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
-import org.opensaml.core.xml.config.XMLObjectProviderRegistry;
 import org.opensaml.core.xml.config.XMLObjectProviderRegistrySupport;
 import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.core.xml.io.UnmarshallingException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
 
-import net.shibboleth.utilities.java.support.xml.BasicParserPool;
 import net.shibboleth.utilities.java.support.xml.XMLParserException;
+import se.swedenconnect.opensaml.OpenSAMLInitializer;
+import se.swedenconnect.opensaml.OpenSAMLSecurityExtensionConfig;
 
 /**
  * Abstract base class that initializes OpenSAML for test classes.
@@ -47,9 +43,6 @@ import net.shibboleth.utilities.java.support.xml.XMLParserException;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public abstract class OpenSAMLTestBase {
-
-  /** Logger instance. */
-  private static Logger logger = LoggerFactory.getLogger(OpenSAMLTestBase.class);
 
   /** Builder features for the default parser pool. */
   private static final Map<String, Boolean> builderFeatures;
@@ -79,30 +72,9 @@ public abstract class OpenSAMLTestBase {
    */
   @BeforeClass
   public static void initializeOpenSAML() throws Exception {
-
-    logger.debug("Initializing OpenSAML 3.X library ...");
-
-    InitializationService.initialize();
-
-    XMLObjectProviderRegistry registry = null;
-    synchronized (ConfigurationService.class) {
-      registry = ConfigurationService.get(XMLObjectProviderRegistry.class);
-      if (registry == null) {
-        logger.debug("XMLObjectProviderRegistry did not exist in ConfigurationService, will be created");
-        registry = new XMLObjectProviderRegistry();
-        ConfigurationService.register(XMLObjectProviderRegistry.class, registry);
-      }
-    }
-
-    BasicParserPool basicParserPool = new BasicParserPool();
-    basicParserPool.setMaxPoolSize(100);
-    basicParserPool.setCoalescing(true);
-    basicParserPool.setIgnoreComments(true);
-    basicParserPool.setIgnoreElementContentWhitespace(true);
-    basicParserPool.setNamespaceAware(true);
-    basicParserPool.setBuilderFeatures(builderFeatures);
-    basicParserPool.initialize();
-    registry.setParserPool(basicParserPool);
+    
+    OpenSAMLInitializer.getInstance().initialize(
+      new OpenSAMLSecurityExtensionConfig());
   }
 
   /**
