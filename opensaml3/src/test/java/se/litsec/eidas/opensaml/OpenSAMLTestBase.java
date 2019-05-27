@@ -15,7 +15,11 @@
  */
 package se.litsec.eidas.opensaml;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
@@ -31,6 +35,8 @@ import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import org.opensaml.core.xml.config.XMLObjectProviderRegistrySupport;
 import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.core.xml.io.UnmarshallingException;
+import org.opensaml.security.x509.X509Credential;
+import org.opensaml.security.x509.impl.KeyStoreX509CredentialAdapter;
 import org.w3c.dom.Element;
 
 import net.shibboleth.utilities.java.support.xml.XMLParserException;
@@ -72,9 +78,10 @@ public abstract class OpenSAMLTestBase {
    */
   @BeforeClass
   public static void initializeOpenSAML() throws Exception {
-    
-    OpenSAMLInitializer.getInstance().initialize(
-      new OpenSAMLSecurityExtensionConfig());
+
+    OpenSAMLInitializer.getInstance()
+      .initialize(
+        new OpenSAMLSecurityExtensionConfig());
   }
 
   /**
@@ -183,6 +190,56 @@ public abstract class OpenSAMLTestBase {
   public static X509Certificate loadCertificate(String systemResource) throws CertificateException {
     InputStream certStream = ClassLoader.getSystemResourceAsStream(systemResource);
     return (X509Certificate) factory.generateCertificate(certStream);
+  }
+
+  /**
+   * Loads a key store.
+   * 
+   * @param keyStoreStream
+   *          the stream for the keystore
+   * @param keyStorePassword
+   *          the password
+   * @param keyStoreType
+   *          the type
+   * @return a {@code KeyStore} object
+   * @throws KeyStoreException
+   *           for key store errors
+   * @throws IOException
+   *           if the key store cannot be found
+   */
+  public static KeyStore loadKeyStore(InputStream keyStoreStream, String keyStorePassword, String keyStoreType) throws KeyStoreException,
+      IOException {
+    try {
+      KeyStore keyStore = keyStoreType != null ? KeyStore.getInstance(keyStoreType) : KeyStore.getInstance(KeyStore.getDefaultType());
+      keyStore.load(keyStoreStream, keyStorePassword.toCharArray());
+      return keyStore;
+    }
+    catch (NoSuchAlgorithmException | CertificateException e) {
+      throw new KeyStoreException(e);
+    }
+  }
+
+  /**
+   * Loads a key store and creates a credential.
+   * 
+   * @param keyStoreStream
+   *          the stream for the keystore
+   * @param keyStorePassword
+   *          the key store password
+   * @param alias
+   *          the alias
+   * @param keyPassword
+   *          the key password
+   * @return a credential
+   * @throws KeyStoreException
+   *           for key store errors
+   * @throws IOException
+   *           if the key store cannot be found
+   */
+  public static X509Credential loadKeyStoreCredential(InputStream keyStoreStream, String keyStorePassword, String alias, String keyPassword)
+      throws KeyStoreException, IOException {
+    KeyStore keyStore = loadKeyStore(keyStoreStream, keyStorePassword, "jks");
+    return new KeyStoreX509CredentialAdapter(keyStore, alias, keyPassword.toCharArray());
   }
 
 }
