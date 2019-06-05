@@ -52,7 +52,7 @@ The [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/fi
 
 #### Parsing an Assertion
 
-An assertion issued from an eIDAS service will contain the attributes defined in [eIDAS SAML Attribute Profile](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20SAML%20Attribute%20Profile%20v1.1_2.pdf).
+An assertion issued from an eIDAS service will contain the attributes defined in [eIDAS SAML Attribute Profile](https://github.com/litsec/eidas-opensaml/files/3236266/eIDAS.SAML.Attribute.Profile.v1.2-FINAL.pdf).
 
 [ParseAssertionExample.java](https://github.com/litsec/eidas-opensaml/blob/master/opensaml3/src/test/java/se/litsec/eidas/opensaml/examples/ParseAssertionExample.java) shows how to parse an Assertion and get hold of all attribute values.
 
