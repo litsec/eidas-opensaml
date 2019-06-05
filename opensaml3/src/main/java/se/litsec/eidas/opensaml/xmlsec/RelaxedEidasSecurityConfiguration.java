@@ -24,6 +24,7 @@ import org.opensaml.xmlsec.EncryptionConfiguration;
 import org.opensaml.xmlsec.SignatureSigningConfiguration;
 import org.opensaml.xmlsec.SignatureValidationConfiguration;
 import org.opensaml.xmlsec.encryption.support.EncryptionConstants;
+import org.opensaml.xmlsec.encryption.support.RSAOAEPParameters;
 import org.opensaml.xmlsec.impl.BasicDecryptionConfiguration;
 import org.opensaml.xmlsec.impl.BasicSignatureSigningConfiguration;
 import org.opensaml.xmlsec.impl.BasicSignatureValidationConfiguration;
@@ -60,6 +61,13 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES192,
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES128));
     config.setDataEncryptionAlgorithms(dataEncryptionAlgorithms);
+    
+    // Currently, CEF software version 1.X does not decrypt if we use SHA-256 for RSA-OAEP ...
+    //
+    config.setRSAOAEPParameters(new RSAOAEPParameters(
+      SignatureConstants.ALGO_ID_DIGEST_SHA1,
+      EncryptionConstants.ALGO_ID_MGF1_SHA1,
+      null));    
 
     return config;
   }
