@@ -59,9 +59,6 @@ import se.swedenconnect.opensaml.xmlsec.encryption.support.EcEncryptionConstants
  */
 public class EidasSecurityConfiguration extends AbstractSecurityConfiguration {
 
-  public EidasSecurityConfiguration() {
-  }
-
   /** {@inheritDoc} */
   @Override
   public String getProfileName() {
