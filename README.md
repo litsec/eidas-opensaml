@@ -4,7 +4,9 @@
 
 # eidas-opensaml
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3) [![Known Vulnerabilities](https://snyk.io/test/github/litsec/eidas-opensaml/badge.svg?targetFile=opensaml3%2Fpom.xml)](https://snyk.io/test/github/litsec/eidas-opensaml?targetFile=opensaml3%2Fpom.xml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3) 
+
+<!-- [![Known Vulnerabilities](https://snyk.io/test/github/litsec/eidas-opensaml/badge.svg?targetFile=opensaml3%2Fpom.xml)](https://snyk.io/test/github/litsec/eidas-opensaml?targetFile=opensaml3%2Fpom.xml) -->
 
 OpenSAML extensions for the eIDAS Framework.
 
@@ -13,9 +15,13 @@ eIDAS (EU REGULATION [910/2014](http://eur-lex.europa.eu/legal-content/EN/TXT/HT
 The eIDAS technical specifications defines a number of SAML elements and attribute definitions which are normally not supported by standard SAML software. The **eidas-opensaml** Open Source Java library extends the OpenSAML 3.X framework with support for the definitions from the eIDAS technical specifications.
 
 The following eIDAS specifications are implemented:
-* [eIDAS - Interoperability Architechture v1.0](https://joinup.ec.europa.eu/sites/default/files/eidas_interoperability_architecture_v1.00.pdf)
+* [eIDAS - Interoperability Architechture v1.2](https://github.com/litsec/eidas-opensaml/files/3236262/2019_05_23_eIDAS.Interoperability.Architecture.v1.2_Final2_CT.pdf)
+
+* [ eIDAS - Cryptographic requirements for the Interoperability Framework v1.2](https://github.com/litsec/eidas-opensaml/files/3236260/2019_05_21_eIDAS.Crypto.Requirements_v1.2_Final2.pdf)
+
 * [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/files/2219283/eIDAS.Message.Format_v1.2_final.docx)
-* [eIDAS SAML Attribute Profile v1.1_2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20SAML%20Attribute%20Profile%20v1.1_2.pdf)
+
+* [eIDAS SAML Attribute Profile v1.2](https://github.com/litsec/eidas-opensaml/files/3236266/eIDAS.SAML.Attribute.Profile.v1.2-FINAL.pdf)
 
 > **Note**: Support for OpenSAML 2.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6.
 
@@ -60,9 +66,13 @@ Contact [Litsec Labs](mailto:info@litsec.se) if you have any questions or sugges
 
 ##### eIDAS Specifications
 
-* [eIDAS - Interoperability Architechture v1.0](https://joinup.ec.europa.eu/sites/default/files/eidas_interoperability_architecture_v1.00.pdf)
+* [eIDAS - Interoperability Architechture v1.2](https://github.com/litsec/eidas-opensaml/files/3236262/2019_05_23_eIDAS.Interoperability.Architecture.v1.2_Final2_CT.pdf)
+
+* [ eIDAS - Cryptographic requirements for the Interoperability Framework v1.2](https://github.com/litsec/eidas-opensaml/files/3236260/2019_05_21_eIDAS.Crypto.Requirements_v1.2_Final2.pdf)
+
 * [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/files/2219283/eIDAS.Message.Format_v1.2_final.docx)
-* [eIDAS SAML Attribute Profile v1.1_2](https://ec.europa.eu/cefdigital/wiki/download/attachments/46992719/eIDAS%20SAML%20Attribute%20Profile%20v1.1_2.pdf)
+
+* [eIDAS SAML Attribute Profile v1.2](https://github.com/litsec/eidas-opensaml/files/3236266/eIDAS.SAML.Attribute.Profile.v1.2-FINAL.pdf)
 
 ##### Swedish eID Framework
 

@@ -45,13 +45,11 @@
     <java.version>1.8</java.version>
 
     <!-- Versions on dependencies -->
-    <opensaml.version>3.4.2</opensaml.version>
-    <shibboleth.java-support.version>7.4.2</shibboleth.java-support.version>
-    <opensaml-security-ext.version>1.0.2</opensaml-security-ext.version>
+    <opensaml.version>3.4.3</opensaml.version>
+    <opensaml-security-ext.version>1.0.3</opensaml-security-ext.version>
     
     <commons-lang.version>2.4</commons-lang.version>
     <joda-time.version>2.9</joda-time.version>
-    <guava.version>27.0-jre</guava.version>
     <slf4j.version>1.7.25</slf4j.version>
     <junit.version>4.12</junit.version>
 
@@ -85,36 +83,24 @@
     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>  
+  
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>
+        <groupId>se.swedenconnect.opensaml</groupId>
+        <artifactId>opensaml-bom</artifactId>
+        <version>${opensaml.version}.R2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
 
     <!-- OpenSAML -->
-    
-    <!-- 
-      Explicit dependency to httpcore. OpenSAML deps includes an older one, and we want to use 
-      the same version as Shibboleth does. 
-    -->
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpcore</artifactId>
-      <version>4.4.8</version>
-      <scope>compile</scope>
-      <type>jar</type>      
-    </dependency>
-    
-    <!-- 
-      Explict dependency to org.bouncycastle:bcprov-jdk15on. OpenSAML 3.4.2 uses 1.59 which has been
-      reported to have vulnerabilities https://app.snyk.io/vuln/SNYK-JAVA-ORGBOUNCYCASTLE-32412 and
-      https://app.snyk.io/vuln/SNYK-JAVA-ORGBOUNCYCASTLE-32369. 
-    -->
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
-      <version>1.60</version>
-      <scope>compile</scope>
-      <type>jar</type>
-    </dependency>
-    
     <dependency>
       <groupId>se.swedenconnect.opensaml</groupId>
       <artifactId>opensaml-security-ext</artifactId>
@@ -126,23 +112,11 @@
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-core</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-api</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-saml-api</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
       <exclusions>
         <exclusion>
           <groupId>org.opensaml</groupId>
@@ -154,86 +128,31 @@
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-saml-impl</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-codec</groupId>
-          <artifactId>commons-codec</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.velocity</groupId>
-          <artifactId>velocity</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.httpcomponents</groupId>
-          <artifactId>httpcore</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-security-api</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-codec</groupId>
-          <artifactId>commons-codec</artifactId>
-        </exclusion>
-        <!-- Included version is 1.59 which is vulnerable, see above.  -->
-        <exclusion>          
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcprov-jdk15on</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-security-impl</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
     </dependency>
     
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-xmlsec-api</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
     </dependency>
     
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>opensaml-xmlsec-impl</artifactId>
-      <version>${opensaml.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>net.shibboleth.utilities</groupId>
       <artifactId>java-support</artifactId>
-      <version>${shibboleth.java-support.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <!-- See https://app.snyk.io/vuln/SNYK-JAVA-COMGOOGLEGUAVA-32236 -->
-          <groupId>com.google.guava</groupId>
-          <artifactId>guava</artifactId>
-        </exclusion>
-        <exclusion>
-          <!-- Our version of Guava uses a newer version -->
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
@@ -244,14 +163,6 @@
       <scope>compile</scope>
     </dependency>
     
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>    
-
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
@@ -264,7 +175,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
       <type>jar</type>
     </dependency>
 
