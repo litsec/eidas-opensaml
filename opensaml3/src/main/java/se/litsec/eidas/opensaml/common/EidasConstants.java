@@ -33,10 +33,10 @@ public class EidasConstants {
 
   /** The eIDAS Natural Persons attribute QName prefix. */
   public static final String EIDAS_NP_PREFIX = "eidasnp";
-  
+
   /** The eIDAS metadata service list XML namespace. */
   public static final String EIDAS_SERVICELIST_NS = "http://eidas.europa.eu/metadata/servicelist";
-  
+
   /** The eIDAS metadata service list namespace prefix. */
   public static final String EIDAS_SERVICELIST_PREFIX = "ser";
 
@@ -44,35 +44,53 @@ public class EidasConstants {
   public static final String EIDAS_LOA_LOW = "http://eidas.europa.eu/LoA/low";
 
   /**
-   * The Authentication Context URI for the "Low" Level of Assurance where the eID scheme is not notified by the
-   * eIDAS country. <b>Note</b>: URI is not yet determined.
+   * The Authentication Context URI for the "Low" Level of Assurance where the eID scheme is not notified by the eIDAS
+   * country.
    */
-  public static final String EIDAS_LOA_LOW_NON_NOTIFIED = "http://eidas.europa.eu/LoA/NotNotified/low";
+  public static final String EIDAS_LOA_LOW_NON_NOTIFIED = "http://eidas.europa.eu/NotNotified/LoA/low";
+
+  /**
+   * Included for backwards compatibility and interoperability. Some applications used this URI for not-notified low
+   * before the URI was fully determined.
+   */
+  public static final String EIDAS_LOA_LOW_NON_NOTIFIED2 = "http://eidas.europa.eu/LoA/NotNotified/low";;
 
   /** The Authentication Context URI for the "Substantial" Level of Assurance. */
   public static final String EIDAS_LOA_SUBSTANTIAL = "http://eidas.europa.eu/LoA/substantial";
 
   /**
    * The Authentication Context URI for the "Substantial" Level of Assurance where the eID scheme is not notified by the
-   * eIDAS country. <b>Note</b>: URI is not yet determined.
+   * eIDAS country.
    */
-  public static final String EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED = "http://eidas.europa.eu/LoA/NotNotified/substantial";
+  public static final String EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED = "http://eidas.europa.eu/NotNotified/LoA/substantial";
+
+  /**
+   * Included for backwards compatibility and interoperability. Some applications used this URI for not-notified
+   * substantial before the URI was fully determined.
+   */
+  public static final String EIDAS_LOA_SUBSTANTIAL_NON_NOTIFIED2 = "http://eidas.europa.eu/LoA/NotNotified/substantial";
 
   /** The Authentication Context URI for the "High" Level of Assurance. */
   public static final String EIDAS_LOA_HIGH = "http://eidas.europa.eu/LoA/high";
 
   /**
    * The Authentication Context URI for the "High" Level of Assurance where the eID scheme is not notified by the eIDAS
-   * country. <b>Note</b>: URI is not yet determined.
+   * country.
    */
-  public static final String EIDAS_LOA_HIGH_NON_NOTIFIED = "http://eidas.europa.eu/LoA/NotNotified/high";
-  
+  public static final String EIDAS_LOA_HIGH_NON_NOTIFIED = "http://eidas.europa.eu/NotNotified/LoA/high";
+
   /**
-   * Attribute name for the entity attribute representing an eIDAS protocol version, as described in section 3.4
-   * of the "eIDAS Message Format" specification.
+   * Included for backwards compatibility and interoperability. Some applications used this URI for not-notified high
+   * before the URI was fully determined.
+   */
+  public static final String EIDAS_LOA_HIGH_NON_NOTIFIED2 = "http://eidas.europa.eu/LoA/NotNotified/high";
+
+  /**
+   * Attribute name for the entity attribute representing an eIDAS protocol version, as described in section 3.4 of the
+   * "eIDAS Message Format" specification.
    */
   public static final String EIDAS_PROTOCOL_VERSION_ATTRIBUTE_NAME = "http://eidas.europa.eu/entity-attributes/protocol-version";
-  
+
   /**
    * Attribute name for the entity attribute representing an eIDAS application identifier, as described in section 3.4
    * of the "eIDAS Message Format" specification.
