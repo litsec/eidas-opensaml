@@ -115,7 +115,7 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
    */
   @Override
   protected SignatureValidationConfiguration createDefaultSignatureValidationConfiguration() {
-    BasicSignatureValidationConfiguration config = (BasicSignatureValidationConfiguration) super.getDefaultSignatureValidationConfiguration(); 
+    BasicSignatureValidationConfiguration config = (BasicSignatureValidationConfiguration) super.createDefaultSignatureValidationConfiguration(); 
     
     config.setWhitelistedAlgorithms(null);
     
