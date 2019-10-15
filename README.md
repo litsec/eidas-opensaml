@@ -23,6 +23,8 @@ The following eIDAS specifications are implemented:
 
 * [eIDAS SAML Attribute Profile v1.2](https://ec.europa.eu/cefdigital/wiki/download/attachments/82773108/eIDAS%20SAML%20Attribute%20Profile%20v1.2%20Final.pdf)
 
+> See <https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eIDAS+eID+Profile> for the eIDAS eID Profile.
+
 > **Note**: Support for OpenSAML 2.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6.
 
 ### How to use the use the eidas-opensaml library
