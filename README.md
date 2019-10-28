@@ -41,7 +41,7 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.4.2](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.4.2/index.html).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.4.3](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.4.3/index.html).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site](https://litsec.github.io/eidas-opensaml/site/index.html).
 
 ### Examples
@@ -85,7 +85,7 @@ Contact [Litsec Labs](mailto:info@litsec.se) if you have any questions or sugges
 ##### OpenSAML and Shibboleth
 
 * [OpenSAML v3 Confluence](https://wiki.shibboleth.net/confluence/display/OS30/Home)
-* [OpenSAML v3 API documentation](https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/3.4.3/apidocs/)
+* [OpenSAML v3 API documentation](https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/3.4.5/apidocs/)
 * [Shibboleth Identity Provider v3](https://wiki.shibboleth.net/confluence/display/IDP30) - *built using OpenSAML 3.x*
 
 

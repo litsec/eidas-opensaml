@@ -6,7 +6,7 @@
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
   <packaging>jar</packaging>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
 
   <name>eIDAS :: OpenSAML 3.X</name>
   <description>OpenSAML 3.X extension library for the eIDAS Framework</description>
@@ -45,8 +45,8 @@
     <java.version>1.8</java.version>
 
     <!-- Versions on dependencies -->
-    <opensaml.version>3.4.3</opensaml.version>
-    <opensaml-security-ext.version>1.0.5</opensaml-security-ext.version>
+    <opensaml.version>3.4.5</opensaml.version>
+    <opensaml-security-ext.version>1.0.6</opensaml-security-ext.version>
     
     <commons-lang.version>2.4</commons-lang.version>
     <joda-time.version>2.9</joda-time.version>
@@ -90,7 +90,7 @@
       <dependency>
         <groupId>se.swedenconnect.opensaml</groupId>
         <artifactId>opensaml-bom</artifactId>
-        <version>${opensaml.version}.R3</version>
+        <version>${opensaml.version}.R1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -358,7 +358,7 @@
                 <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-storage-impl/${opensaml.version}/</link>
                 <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-xmlsec-api/${opensaml.version}/</link>
                 <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-xmlsec-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/utilities/java-support/7.5.0/</link>                
+                <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/utilities/java-support/7.5.1/</link>                
                 <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/ext/spring-extensions/5.4.1/</link>
               </links>
               <detectJavaApiLink>true</detectJavaApiLink>
