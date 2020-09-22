@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Litsec AB
+ * Copyright 2016-2020 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,30 +16,20 @@
 package se.litsec.eidas.opensaml.ext;
 
 /**
- * A type safe enumeration of the {@code <eidas:SPType>} element.
+ * An enumeration of the {@code <eidas:SPType>} element.
  *
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
-public final class SPTypeEnumeration {
+public enum SPTypeEnumeration {
 
   /** The "public" SP type. */
-  public static final SPTypeEnumeration PUBLIC = new SPTypeEnumeration("public");
+  PUBLIC("public"),
 
   /** The "private" SP type. */
-  public static final SPTypeEnumeration PRIVATE = new SPTypeEnumeration("private");
+  PRIVATE("private");
 
   /** The SP type. */
   private String type;
-
-  /**
-   * Constructor.
-   *
-   * @param type
-   *          the SP type
-   */
-  public SPTypeEnumeration(String type) {
-    this.type = type;
-  }
 
   /**
    * Returns the type value.
@@ -50,43 +40,38 @@ public final class SPTypeEnumeration {
     return this.type;
   }
 
+  /**
+   * Given the string representation of a SPType, the method returns its {@code SPTypeEnumeration} representation.
+   * 
+   * @param value
+   *          the value to parse
+   * @return the corresponding SPTypeEnumeration
+   * @throws IllegalArgumentException
+   *           if the supplied value is not a valid SPType
+   */
+  public static SPTypeEnumeration parseValue(final String value) {
+    for (SPTypeEnumeration e : SPTypeEnumeration.values()) {
+      if (e.getValue().equalsIgnoreCase(value)) {
+        return e;
+      }
+    }
+    throw new IllegalArgumentException("Not a valid SPType - " + value);
+  }
+
   /** {@inheritDoc} */
   @Override
   public String toString() {
     return this.type;
   }
 
-  /** {@inheritDoc} */
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
-    return result;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-    if (obj == null) {
-      return false;
-    }
-    if (this.getClass() != obj.getClass()) {
-      return false;
-    }
-    SPTypeEnumeration other = (SPTypeEnumeration) obj;
-    if (this.type == null) {
-      if (other.type != null) {
-        return false;
-      }
-    }
-    else if (!this.type.equals(other.type)) {
-      return false;
-    }
-    return true;
+  /**
+   * Constructor.
+   *
+   * @param type
+   *          the SP type
+   */
+  private SPTypeEnumeration(final String type) {
+    this.type = type;
   }
 
 }

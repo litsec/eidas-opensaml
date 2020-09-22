@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Litsec AB
+ * Copyright 2016-2020 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ public class SPTypeMarshaller extends AbstractSAMLObjectMarshaller {
   protected void marshallElementContent(XMLObject samlObject, Element domElement) throws MarshallingException {
     SPType spType = (SPType) samlObject;
 
-    if (spType.getType() != null && spType.getType().getValue() != null) {
+    if (spType.getType() != null) {
       ElementSupport.appendTextContent(domElement, spType.getType().getValue());
     }
   }
