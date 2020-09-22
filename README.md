@@ -91,5 +91,5 @@ Contact [Litsec Labs](mailto:info@litsec.se) if you have any questions or sugges
 
 ------
 
-Copyright &copy; 2016-2019, [Litsec AB](http://www.litsec.se). Licensed under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
+Copyright &copy; 2016-2020, [Litsec AB](http://www.litsec.se). Licensed under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 
