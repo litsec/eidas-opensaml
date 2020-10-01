@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Litsec AB
+ * Copyright 2016-2020 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,11 @@
 package se.litsec.eidas.opensaml.ext.impl;
 
 import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.UnmarshallingException;
 import org.opensaml.saml.common.AbstractSAMLObjectUnmarshaller;
+import org.w3c.dom.Text;
 
+import net.shibboleth.utilities.java.support.primitive.StringSupport;
 import se.litsec.eidas.opensaml.ext.SPType;
 import se.litsec.eidas.opensaml.ext.SPTypeEnumeration;
 
@@ -27,12 +30,22 @@ import se.litsec.eidas.opensaml.ext.SPTypeEnumeration;
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class SPTypeUnmarshaller extends AbstractSAMLObjectUnmarshaller {
-
+  
   /** {@inheritDoc} */
-  protected void processElementContent(XMLObject samlObject, String elementContent) {
-    SPType spType = (SPType) samlObject;
-
-    spType.setType(new SPTypeEnumeration(elementContent));
+  @Override
+  protected void unmarshallTextContent(final XMLObject xmlObject, final Text content) throws UnmarshallingException {
+    
+    final String textContent = StringSupport.trimOrNull(content.getWholeText());
+    if (textContent == null) {
+      throw new UnmarshallingException("Invalid SPType - missing content");
+    }
+    try {
+      final SPTypeEnumeration spTypeEnum = SPTypeEnumeration.parseValue(textContent);
+      SPType.class.cast(xmlObject).setType(spTypeEnum);
+    }
+    catch (IllegalArgumentException e) {
+      throw new UnmarshallingException(String.format("Invalid SPType - %s is not a valid SPType value", textContent));
+    }
   }
 
 }
