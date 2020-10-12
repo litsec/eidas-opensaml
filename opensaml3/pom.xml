@@ -51,7 +51,7 @@
     <commons-lang.version>2.4</commons-lang.version>
     <joda-time.version>2.9</joda-time.version>
     <slf4j.version>1.7.25</slf4j.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
 
   </properties>
   
