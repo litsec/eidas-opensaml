@@ -4,15 +4,19 @@
 
 # eidas-opensaml
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml3) 
-
-<!-- [![Known Vulnerabilities](https://snyk.io/test/github/litsec/eidas-opensaml/badge.svg?targetFile=opensaml3%2Fpom.xml)](https://snyk.io/test/github/litsec/eidas-opensaml?targetFile=opensaml3%2Fpom.xml) -->
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml4/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.litsec.eidas/eidas-opensaml4) 
 
 OpenSAML extensions for the eIDAS Framework.
 
+---
+
+**Note**: Support for OpenSAML 2.X and 3.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6 and the last release supporting OpenSAML 3.X is 1.4.4.
+
+---
+
 eIDAS (EU REGULATION [910/2014](http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&from=EN) on electronic identification and trust services for electronic transactions in the European internal market) defines requirements on cross-border recognition of electronic identification means in EU.
 
-The eIDAS technical specifications defines a number of SAML elements and attribute definitions which are normally not supported by standard SAML software. The **eidas-opensaml** Open Source Java library extends the OpenSAML 3.X framework with support for the definitions from the eIDAS technical specifications.
+The eIDAS technical specifications defines a number of SAML elements and attribute definitions which are normally not supported by standard SAML software. The **eidas-opensaml** Open Source Java library extends the OpenSAML framework with support for the definitions from the eIDAS technical specifications.
 
 The following eIDAS specifications are implemented:
 * [eIDAS - Interoperability Architechture v1.2](https://ec.europa.eu/cefdigital/wiki/download/attachments/82773108/eIDAS%20Interoperability%20Architecture%20v.1.2%20Final.pdf)
@@ -25,7 +29,6 @@ The following eIDAS specifications are implemented:
 
 > See <https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eIDAS+eID+Profile> for the eIDAS eID Profile.
 
-> **Note**: Support for OpenSAML 2.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6.
 
 ### How to use the use the eidas-opensaml library
 
@@ -34,14 +37,14 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 ```
 <dependency>
   <groupId>se.litsec.eidas</groupId>
-  <artifactId>eidas-opensaml3</artifactId>
+  <artifactId>eidas-opensaml4</artifactId>
   <version>${eidas-opensaml.version}</version>
 </dependency>
 ```
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.4.3](https://litsec.github.io/eidas-opensaml/javadoc/opensaml3/1.4.3/index.html).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.0.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.0.0/index.html).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site](https://litsec.github.io/eidas-opensaml/site/index.html).
 
 ### Examples
@@ -50,13 +53,13 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 
 The [eIDAS SAML Message Format v1.2](https://github.com/litsec/eidas-opensaml/files/2219283/eIDAS.Message.Format_v1.2_final.docx) specification describes how a SAML `AuthnRequest` message should be put together to comply to the eIDAS specifications. 
 
-[CreateAuthnRequestExample.java](https://github.com/litsec/eidas-opensaml/blob/master/opensaml3/src/test/java/se/litsec/eidas/opensaml/examples/CreateAuthnRequestExample.java) illustrates how you could create an authentication request message using the eidas-opensaml library.
+[CreateAuthnRequestExample.java](https://github.com/litsec/eidas-opensaml/blob/master/opensaml4/src/test/java/se/litsec/eidas/opensaml/examples/CreateAuthnRequestExample.java) illustrates how you could create an authentication request message using the eidas-opensaml library.
 
 #### Parsing an Assertion
 
 An assertion issued from an eIDAS service will contain the attributes defined in [eIDAS SAML Attribute Profile](https://github.com/litsec/eidas-opensaml/files/3236266/eIDAS.SAML.Attribute.Profile.v1.2-FINAL.pdf).
 
-[ParseAssertionExample.java](https://github.com/litsec/eidas-opensaml/blob/master/opensaml3/src/test/java/se/litsec/eidas/opensaml/examples/ParseAssertionExample.java) shows how to parse an Assertion and get hold of all attribute values.
+[ParseAssertionExample.java](https://github.com/litsec/eidas-opensaml/blob/master/opensaml4/src/test/java/se/litsec/eidas/opensaml/examples/ParseAssertionExample.java) shows how to parse an Assertion and get hold of all attribute values.
 
 ### Contact and support
 
@@ -84,12 +87,10 @@ Contact [Litsec Labs](mailto:info@litsec.se) if you have any questions or sugges
 
 ##### OpenSAML and Shibboleth
 
-* [OpenSAML v3 Confluence](https://wiki.shibboleth.net/confluence/display/OS30/Home)
-* [OpenSAML v3 API documentation](https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/3.4.5/apidocs/)
-* [Shibboleth Identity Provider v3](https://wiki.shibboleth.net/confluence/display/IDP30) - *built using OpenSAML 3.x*
+* [Shibboleth Identity Provider v4](https://wiki.shibboleth.net/confluence/display/IDP4/Home) - *built using OpenSAML 4.x*
 
 
 ------
 
-Copyright &copy; 2016-2020, [Litsec AB](http://www.litsec.se). Licensed under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
+Copyright &copy; 2016-2021, [Litsec AB](http://www.litsec.se). Licensed under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 
