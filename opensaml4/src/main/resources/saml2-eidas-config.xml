@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLTooling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eidas="http://eidas.europa.eu/saml-extensions"
+  xmlns:eidasnp="http://eidas.europa.eu/attributes/naturalperson" xmlns:ser="http://eidas.europa.eu/metadata/servicelist" 
+  xmlns="http://www.opensaml.org/xmltooling-config"
+  xsi:schemaLocation="http://www.opensaml.org/xmltooling-config ../../src/schema/xmltooling-config.xsd">
+
+  <!-- SAML 2.0 Providers for the OpenSAML eIDAS extensions -->
+  <ObjectProviders>
+
+    <!-- eidas:SPType -->
+    <ObjectProvider qualifiedName="eidas:SPType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.SPTypeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidas:RequestedAttribute -->
+    <ObjectProvider qualifiedName="eidas:RequestedAttribute">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributeBuilder" />
+      <MarshallingClass className="org.opensaml.saml.saml2.metadata.impl.RequestedAttributeMarshaller" />
+      <UnmarshallingClass className="org.opensaml.saml.saml2.metadata.impl.RequestedAttributeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidas:RequestedAttributes -->
+    <ObjectProvider qualifiedName="eidas:RequestedAttributes">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.RequestedAttributesUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidas:NodeCountry -->
+    <ObjectProvider qualifiedName="eidas:NodeCountry">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.impl.NodeCountryBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.impl.NodeCountryMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.impl.NodeCountryUnmarshaller" />
+    </ObjectProvider>    
+
+    <!-- eidasnp:PersonIdentifierType -->
+    <ObjectProvider qualifiedName="eidasnp:PersonIdentifierType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.PersonIdentifierTypeBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidasnp:CurrentFamilyNameType -->
+    <ObjectProvider qualifiedName="eidasnp:CurrentFamilyNameType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentFamilyNameTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidasnp:CurrentGivenNameType -->
+    <ObjectProvider qualifiedName="eidasnp:CurrentGivenNameType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentGivenNameTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeUnmarshaller" />
+    </ObjectProvider>
+
+    <!-- eidasnp:DateOfBirthType -->
+    <ObjectProvider qualifiedName="eidasnp:DateOfBirthType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.DateOfBirthTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidasnp:GenderType -->
+    <ObjectProvider qualifiedName="eidasnp:GenderType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.GenderTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.GenderTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.GenderTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidasnp:CurrentAddressType -->
+    <ObjectProvider qualifiedName="eidasnp:CurrentAddressType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidasnp:CurrentAddressStructuredType -->
+    <ObjectProvider qualifiedName="eidasnp:CurrentAddressStructuredType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressStructuredTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressStructuredTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.CurrentAddressStructuredTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidasnp:BirthNameType -->
+    <ObjectProvider qualifiedName="eidasnp:BirthNameType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.BirthNameTypeBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.ext.attributes.impl.TransliterationStringTypeUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- eidasnp:PlaceOfBirthType -->
+    <ObjectProvider qualifiedName="eidasnp:PlaceOfBirthType">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.impl.PlaceOfBirthTypeBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>    
+        
+    <!-- Underlying types used in CurrentAddressStructuredType -->
+
+    <ObjectProvider qualifiedName="eidasnp:PoBox">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.PoBoxBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:LocatorDesignator">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.LocatorDesignatorBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:LocatorName">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.LocatorNameBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:CvaddressArea">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.CvaddressAreaBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:Thoroughfare">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.ThoroughfareBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+
+    <ObjectProvider qualifiedName="eidasnp:PostName">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.PostNameBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:AdminunitFirstline">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.AdminunitFirstlineBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+
+    <ObjectProvider qualifiedName="eidasnp:AdminunitSecondline">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.AdminunitSecondlineBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <ObjectProvider qualifiedName="eidasnp:PostCode">
+      <BuilderClass className="se.litsec.eidas.opensaml.ext.attributes.address.impl.PostCodeBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- MetadataServiceList -->
+    
+    <!-- ser:SchemeInformation -->
+    <ObjectProvider qualifiedName="ser:SchemeInformation">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeInformationBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeInformationMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.SchemeInformationUnmarshaller" />
+    </ObjectProvider>
+        
+    <!-- ser:IssuerName -->
+    <ObjectProvider qualifiedName="ser:IssuerName">
+      <BuilderClass className="org.opensaml.core.xml.schema.impl.XSStringBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+        
+    <!-- ser:SchemeIdentifier -->
+    <ObjectProvider qualifiedName="ser:SchemeIdentifier">
+      <BuilderClass className="org.opensaml.core.xml.schema.impl.XSURIBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIUnmarshaller" />      
+    </ObjectProvider>
+    
+    <!-- ser:SchemeTerritory -->
+    <ObjectProvider qualifiedName="ser:SchemeTerritory">
+      <BuilderClass className="org.opensaml.core.xml.schema.impl.XSStringBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSStringUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:Endpoint -->
+    <ObjectProvider qualifiedName="ser:Endpoint">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.EndpointUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataLocation -->
+    <ObjectProvider qualifiedName="ser:MetadataLocation">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataLocationUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:DistributionPoint -->
+    <ObjectProvider qualifiedName="ser:DistributionPoint">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointBuilder" />
+      <MarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIMarshaller" />
+      <UnmarshallingClass className="org.opensaml.core.xml.schema.impl.XSURIUnmarshaller" />      
+    </ObjectProvider>
+    
+    <!-- ser:DistributionPoints -->
+    <ObjectProvider qualifiedName="ser:DistributionPoints">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.DistributionPointsUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataList -->
+    <ObjectProvider qualifiedName="ser:MetadataList">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataListUnmarshaller" />
+    </ObjectProvider>
+    
+    <!-- ser:MetadataServiceList -->
+    <ObjectProvider qualifiedName="ser:MetadataServiceList">
+      <BuilderClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataServiceListBuilder" />
+      <MarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataServiceListMarshaller" />
+      <UnmarshallingClass className="se.litsec.eidas.opensaml.metadata.impl.MetadataServiceListUnmarshaller" />
+    </ObjectProvider>
+    
+  </ObjectProviders>
+
+</XMLTooling>
