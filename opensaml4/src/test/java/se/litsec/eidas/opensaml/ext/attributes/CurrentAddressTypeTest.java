@@ -169,6 +169,37 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     Assert.assertEquals("London", address.getPostName());
     Assert.assertEquals("SW1A 1AA", address.getPostCode());
   }
+  
+  @Test
+  public void testUnmarshallNamespaceNotDefined() throws Exception {
+    final String xml = "<saml:Attribute xmlns:saml=\"urn:oasis:names:tc:SAML:2.0:assertion\" xmlns:a=\"http://schemas.xmlsoap.org/ws/2009/09/identity/claims\" FriendlyName=\"CurrentAddress\" Name=\"http://eidas.europa.eu/attributes/naturalperson/CurrentAddress\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:uri\" a:OriginalIssuer=\"urn:microsoft:cgg2010:fpsts\">"
+        + "<saml:AttributeValue xmlns:b=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tn=\"http://eidas.europa.eu/attributes/naturalperson\" b:type=\"tn:CurrentAddressType\">PGVpZGFzOkxvY2F0b3JEZXNpZ25hdG9yPjEzMTwvZWlkYXM6TG9jYXRvckRlc2lnbmF0b3I+DQo8ZWlkYXM6VGhvcm91Z2hmYXJlPjwvZWlkYXM6VGhvcm91Z2hmYXJlPg0KPGVpZGFzOlBvc3ROYW1lPkFybm9sdGljZSB1IETEm8SNw61uYTwvZWlkYXM6UG9zdE5hbWU+DQo8ZWlkYXM6UG9zdENvZGU+NDA3MTQ8L2VpZGFzOlBvc3RDb2RlPg0KPGVpZGFzOkN2YWRkcmVzc0FyZWE+QXJub2x0aWNlPC9laWRhczpDdmFkZHJlc3NBcmVhPg0K</saml:AttributeValue>"
+        + "</saml:Attribute>";
+    
+    // <eidas:LocatorDesignator>131</eidas:LocatorDesignator>
+    // <eidas:Thoroughfare></eidas:Thoroughfare>
+    // <eidas:PostName>Arnoltice u Děčína</eidas:PostName>
+    // <eidas:PostCode>40714</eidas:PostCode>
+    // <eidas:CvaddressArea>Arnoltice</eidas:CvaddressArea>
+    
+    Document doc = XMLObjectProviderRegistrySupport.getParserPool().parse(new ByteArrayInputStream(xml.getBytes("UTF-8")));
+    Element elm = doc.getDocumentElement();
+
+    Attribute attribute = OpenSAMLTestBase.unmarshall(elm, Attribute.class);
+    Assert.assertNotNull(attribute);
+    Assert.assertEquals(AttributeConstants.EIDAS_CURRENT_ADDRESS_ATTRIBUTE_NAME, attribute.getName());
+    Assert.assertEquals(AttributeConstants.EIDAS_CURRENT_ADDRESS_ATTRIBUTE_FRIENDLY_NAME, attribute.getFriendlyName());
+    
+    List<XMLObject> values = attribute.getAttributeValues();
+    Assert.assertTrue(values.size() == 1);
+    Assert.assertTrue(values.get(0) instanceof CurrentAddressType);
+    CurrentAddressType address = (CurrentAddressType) values.get(0);
+    Assert.assertEquals("131", address.getLocatorDesignator());
+    Assert.assertNull(address.getThoroughfare());
+    Assert.assertEquals("Arnoltice u Děčína", address.getPostName());
+    Assert.assertEquals("40714", address.getPostCode());
+    Assert.assertEquals("Arnoltice", address.getCvaddressArea());
+  }  
 
   /**
    * Test that creates an attribute and places a CurrentAddessType as a value.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Litsec AB
+ * Copyright 2016-2021 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import net.shibboleth.utilities.java.support.codec.Base64Support;
 import net.shibboleth.utilities.java.support.primitive.StringSupport;
 import net.shibboleth.utilities.java.support.xml.XMLConstants;
 import net.shibboleth.utilities.java.support.xml.XMLParserException;
+import se.litsec.eidas.opensaml.common.EidasConstants;
 import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
 
 /**
@@ -51,7 +52,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
    * Special handling of the Base64 encoded value that represents the address elements.
    */
   @Override
-  public XMLObject unmarshall(Element domElement) throws UnmarshallingException {
+  public XMLObject unmarshall(final Element domElement) throws UnmarshallingException {
 
     Document newDocument = null;
 
@@ -86,7 +87,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
    * @throws UnmarshallingException
    *           for unmarshalling errors
    */
-  private Document parseContents(Text node, Element domElement) throws UnmarshallingException {
+  private Document parseContents(final Text node, final Element domElement) throws UnmarshallingException {
 
     String textContent = StringSupport.trimOrNull(node.getWholeText());
     if (textContent == null) {
@@ -96,8 +97,9 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
 
     // First Base64-decode the contents ...
     //
-    byte[] bytes = Base64Support.decode(textContent);
-    String addressElements = new String(bytes);
+    final byte[] bytes = Base64Support.decode(textContent);
+    final String addressElements = new String(bytes);
+    
 
     // Then build a fake XML document holding the contents in element form.
     //
@@ -105,9 +107,20 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
     // The elements represented in 'addressElements' may have a namespace prefix
     // so we find out if we need to include that in the XML definition.
 
-    Map<String, String> bindings = getNamespaceBindings(domElement);
+    final Map<String, String> bindings = getNamespaceBindings(domElement);
+    
+    // There has been cases when the eidas: namespace prefix has been used to represent
+    // address elements, but the response/assertion itself did not define that prefix.
+    // So, let's be a little bit proactive ...
+    //
+    if (!bindings.containsKey(XMLConstants.XMLNS_PREFIX + ":" + EidasConstants.EIDAS_PREFIX)) {
+      bindings.put(XMLConstants.XMLNS_PREFIX + ":" + EidasConstants.EIDAS_PREFIX, EidasConstants.EIDAS_NP_NS);
+    }
+    if (!bindings.containsKey(XMLConstants.XMLNS_PREFIX + ":" + EidasConstants.EIDAS_NP_PREFIX)) {
+      bindings.put(XMLConstants.XMLNS_PREFIX + ":" + EidasConstants.EIDAS_NP_PREFIX, EidasConstants.EIDAS_NP_NS);
+    }
 
-    StringBuilder sb = new StringBuilder();
+    final StringBuilder sb = new StringBuilder();
     sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     sb.append("<" + domElement.getNodeName());
     for (Map.Entry<String, String> entry : bindings.entrySet()) {
@@ -120,12 +133,12 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
     // Parse into an XML document.
     //
     try {
-      Document doc = XMLObjectProviderRegistrySupport.getParserPool().parse(new ByteArrayInputStream(sb.toString().getBytes("UTF-8")));
+      final Document doc = XMLObjectProviderRegistrySupport.getParserPool().parse(new ByteArrayInputStream(sb.toString().getBytes("UTF-8")));
 
       // Copy the input dom element and replace its child node with our new nodes.
       //
-      Document newDoc = XMLObjectProviderRegistrySupport.getParserPool().newDocument();
-      Element newDom = (Element) domElement.cloneNode(true);
+      final Document newDoc = XMLObjectProviderRegistrySupport.getParserPool().newDocument();
+      final Element newDom = (Element) domElement.cloneNode(true);
       for (Map.Entry<String, String> entry : bindings.entrySet()) {
         newDom.setAttributeNS(XMLConstants.XMLNS_NS, entry.getKey(), entry.getValue());
       }
@@ -134,7 +147,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
         ;
       Node newChild = doc.getDocumentElement().getFirstChild();
       while (newChild != null) {
-        Node importedChild = newDoc.importNode(newChild, true);
+        final Node importedChild = newDoc.importNode(newChild, true);
         newDom.appendChild(importedChild);
         newChild = newChild.getNextSibling();
       }
@@ -155,7 +168,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
    *          the element to start from
    * @return a namespace map
    */
-  private static Map<String, String> getNamespaceBindings(Element element) {
+  private static Map<String, String> getNamespaceBindings(final Element element) {
     Map<String, String> namespaceMap = new HashMap<String, String>();
     getNamespaceBindings(element, namespaceMap);
     return namespaceMap;
@@ -169,7 +182,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
    * @param namespaceMap
    *          the map to fill
    */
-  private static void getNamespaceBindings(Element element, Map<String, String> namespaceMap) {
+  private static void getNamespaceBindings(final Element element, final Map<String, String> namespaceMap) {
     if (element == null) {
       return;
     }
@@ -186,5 +199,5 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
       getNamespaceBindings((Element) parent, namespaceMap);
     }
   }
-
+  
 }
