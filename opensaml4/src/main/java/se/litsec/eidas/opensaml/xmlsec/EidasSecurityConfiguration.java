@@ -21,23 +21,21 @@ import java.util.List;
 
 import org.apache.xml.security.signature.XMLSignature;
 import org.apache.xml.security.utils.Constants;
+import org.opensaml.xmlsec.AlgorithmPolicyConfiguration.Precedence;
 import org.opensaml.xmlsec.DecryptionConfiguration;
 import org.opensaml.xmlsec.EncryptionConfiguration;
 import org.opensaml.xmlsec.SignatureSigningConfiguration;
 import org.opensaml.xmlsec.SignatureValidationConfiguration;
-import org.opensaml.xmlsec.WhitelistBlacklistConfiguration.Precedence;
 import org.opensaml.xmlsec.config.impl.DefaultSecurityConfigurationBootstrap;
 import org.opensaml.xmlsec.encryption.support.EncryptionConstants;
 import org.opensaml.xmlsec.encryption.support.RSAOAEPParameters;
 import org.opensaml.xmlsec.impl.BasicDecryptionConfiguration;
+import org.opensaml.xmlsec.impl.BasicEncryptionConfiguration;
 import org.opensaml.xmlsec.impl.BasicSignatureSigningConfiguration;
 import org.opensaml.xmlsec.impl.BasicSignatureValidationConfiguration;
 import org.opensaml.xmlsec.signature.support.SignatureConstants;
 
-import se.swedenconnect.opensaml.xmlsec.BasicExtendedEncryptionConfiguration;
 import se.swedenconnect.opensaml.xmlsec.config.AbstractSecurityConfiguration;
-import se.swedenconnect.opensaml.xmlsec.config.ExtendedDefaultSecurityConfigurationBootstrap;
-import se.swedenconnect.opensaml.xmlsec.encryption.support.EcEncryptionConstants;
 
 /**
  * A security configuration for OpenSAML according to version 1.2 of "eIDAS - Cryptographic requirements for the
@@ -72,10 +70,7 @@ public class EidasSecurityConfiguration extends AbstractSecurityConfiguration {
   @Override
   protected EncryptionConfiguration createDefaultEncryptionConfiguration() {
 
-    BasicExtendedEncryptionConfiguration config = ExtendedDefaultSecurityConfigurationBootstrap.buildDefaultEncryptionConfiguration();
-
-    // The extended encryption configuration that we get from ExtendedDefaultSecurityConfigurationBootstrap
-    // sets the http://www.w3.org/2009/xmlenc11#ECDH-ES key agreement method.
+    final BasicEncryptionConfiguration config = DefaultSecurityConfigurationBootstrap.buildDefaultEncryptionConfiguration();
 
     config.setDataEncryptionAlgorithms(Arrays.asList(
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES256_GCM,
@@ -104,13 +99,13 @@ public class EidasSecurityConfiguration extends AbstractSecurityConfiguration {
   @Override
   protected DecryptionConfiguration createDefaultDecryptionConfiguration() {
 
-    BasicDecryptionConfiguration config = DefaultSecurityConfigurationBootstrap.buildDefaultDecryptionConfiguration();
+    final BasicDecryptionConfiguration config = DefaultSecurityConfigurationBootstrap.buildDefaultDecryptionConfiguration();
 
     // Whitelist has precedence over blacklist, so we simply add the algorithms listed in
     // "eIDAS - Cryptographic requirements for the Interoperability Framework".
     //
-    config.setWhitelistBlacklistPrecedence(Precedence.WHITELIST);
-    config.setWhitelistedAlgorithms(Arrays.asList(
+    config.setIncludeExcludePrecedence(Precedence.INCLUDE);
+    config.setIncludedAlgorithms(Arrays.asList(
       // Content encryption
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES256_GCM,
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES192_GCM,
@@ -122,7 +117,7 @@ public class EidasSecurityConfiguration extends AbstractSecurityConfiguration {
       EncryptionConstants.ALGO_ID_KEYWRAP_AES256,
       EncryptionConstants.ALGO_ID_KEYWRAP_AES128,
       // Key agreement
-      EcEncryptionConstants.ALGO_ID_KEYAGREEMENT_ECDH_ES));
+      EncryptionConstants.ALGO_ID_KEYAGREEMENT_ECDH_ES));
 
     return config;
   }
@@ -134,14 +129,14 @@ public class EidasSecurityConfiguration extends AbstractSecurityConfiguration {
   @Override
   protected SignatureSigningConfiguration createDefaultSignatureSigningConfiguration() {
 
-    BasicSignatureSigningConfiguration config = DefaultSecurityConfigurationBootstrap.buildDefaultSignatureSigningConfiguration();
+    final BasicSignatureSigningConfiguration config = DefaultSecurityConfigurationBootstrap.buildDefaultSignatureSigningConfiguration();
 
-    List<String> blacklistedAlgorithms = new ArrayList<>(config.getBlacklistedAlgorithms());
+    final List<String> blacklistedAlgorithms = new ArrayList<>(config.getExcludedAlgorithms());
     blacklistedAlgorithms.addAll(Arrays.asList(
       SignatureConstants.ALGO_ID_DIGEST_SHA1,
       SignatureConstants.ALGO_ID_DIGEST_SHA224,
       SignatureConstants.ALGO_ID_DIGEST_RIPEMD160));
-    config.setBlacklistedAlgorithms(blacklistedAlgorithms);
+    config.setExcludedAlgorithms(blacklistedAlgorithms);
 
     // Yup. RSA-SHAxxx is not there!
     config.setSignatureAlgorithms(Arrays.asList(
@@ -175,8 +170,8 @@ public class EidasSecurityConfiguration extends AbstractSecurityConfiguration {
     // Whitelist has precedence over blacklist, so we simply add the algorithms listed in
     // "eIDAS - Cryptographic requirements for the Interoperability Framework".
     //
-    config.setWhitelistBlacklistPrecedence(Precedence.WHITELIST);
-    config.setWhitelistedAlgorithms(Arrays.asList(
+    config.setIncludeExcludePrecedence(Precedence.INCLUDE);
+    config.setIncludedAlgorithms(Arrays.asList(
       // Digests
       SignatureConstants.ALGO_ID_DIGEST_SHA256,
       SignatureConstants.ALGO_ID_DIGEST_SHA384,

@@ -26,11 +26,10 @@ import org.opensaml.xmlsec.SignatureValidationConfiguration;
 import org.opensaml.xmlsec.encryption.support.EncryptionConstants;
 import org.opensaml.xmlsec.encryption.support.RSAOAEPParameters;
 import org.opensaml.xmlsec.impl.BasicDecryptionConfiguration;
+import org.opensaml.xmlsec.impl.BasicEncryptionConfiguration;
 import org.opensaml.xmlsec.impl.BasicSignatureSigningConfiguration;
 import org.opensaml.xmlsec.impl.BasicSignatureValidationConfiguration;
 import org.opensaml.xmlsec.signature.support.SignatureConstants;
-
-import se.swedenconnect.opensaml.xmlsec.BasicExtendedEncryptionConfiguration;
 
 /**
  * The algorithm requirements from version 1.2 of "eIDAS - Cryptographic requirements for the Interoperability
@@ -53,9 +52,9 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
    */
   @Override
   protected EncryptionConfiguration createDefaultEncryptionConfiguration() {
-    BasicExtendedEncryptionConfiguration config = (BasicExtendedEncryptionConfiguration) super.createDefaultEncryptionConfiguration();
+    final BasicEncryptionConfiguration config = (BasicEncryptionConfiguration) super.createDefaultEncryptionConfiguration();
 
-    List<String> dataEncryptionAlgorithms = new ArrayList<>(config.getDataEncryptionAlgorithms());
+    final List<String> dataEncryptionAlgorithms = new ArrayList<>(config.getDataEncryptionAlgorithms());
     dataEncryptionAlgorithms.addAll(Arrays.asList(
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES256,
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_AES192,
@@ -79,14 +78,14 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
    */
   @Override
   protected DecryptionConfiguration createDefaultDecryptionConfiguration() {
-    BasicDecryptionConfiguration config = (BasicDecryptionConfiguration) super.createDefaultDecryptionConfiguration();
-    config.setWhitelistedAlgorithms(null);
+    final BasicDecryptionConfiguration config = (BasicDecryptionConfiguration) super.createDefaultDecryptionConfiguration();
+    config.setIncludedAlgorithms(null);
 
-    List<String> blacklistedAlgorithms = new ArrayList<>(config.getBlacklistedAlgorithms());
+    final List<String> blacklistedAlgorithms = new ArrayList<>(config.getExcludedAlgorithms());
     blacklistedAlgorithms.addAll(Arrays.asList(
       EncryptionConstants.ALGO_ID_BLOCKCIPHER_TRIPLEDES,
       EncryptionConstants.ALGO_ID_KEYWRAP_TRIPLEDES));
-    config.setBlacklistedAlgorithms(blacklistedAlgorithms);
+    config.setExcludedAlgorithms(blacklistedAlgorithms);
 
     return config;
   }
@@ -96,9 +95,9 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
    */
   @Override
   protected SignatureSigningConfiguration createDefaultSignatureSigningConfiguration() {
-    BasicSignatureSigningConfiguration config = (BasicSignatureSigningConfiguration) super.createDefaultSignatureSigningConfiguration();
+    final BasicSignatureSigningConfiguration config = (BasicSignatureSigningConfiguration) super.createDefaultSignatureSigningConfiguration();
 
-    List<String> signatureAlgorithms = new ArrayList<>(config.getSignatureAlgorithms());
+    final List<String> signatureAlgorithms = new ArrayList<>(config.getSignatureAlgorithms());
     signatureAlgorithms.addAll(Arrays.asList(
       SignatureConstants.ALGO_ID_SIGNATURE_RSA_SHA256,
       SignatureConstants.ALGO_ID_SIGNATURE_RSA_SHA384,
@@ -115,11 +114,11 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
    */
   @Override
   protected SignatureValidationConfiguration createDefaultSignatureValidationConfiguration() {
-    BasicSignatureValidationConfiguration config = (BasicSignatureValidationConfiguration) super.createDefaultSignatureValidationConfiguration(); 
+    final BasicSignatureValidationConfiguration config = (BasicSignatureValidationConfiguration) super.createDefaultSignatureValidationConfiguration(); 
     
-    config.setWhitelistedAlgorithms(null);
+    config.setIncludedAlgorithms(null);
     
-    List<String> blackListedAlgorithms = new ArrayList<>(config.getBlacklistedAlgorithms());
+    final List<String> blackListedAlgorithms = new ArrayList<>(config.getExcludedAlgorithms());
     blackListedAlgorithms.addAll(Arrays.asList(
       SignatureConstants.ALGO_ID_DIGEST_SHA1,
       SignatureConstants.ALGO_ID_DIGEST_SHA224,
@@ -130,7 +129,7 @@ public class RelaxedEidasSecurityConfiguration extends EidasSecurityConfiguratio
       SignatureConstants.ALGO_ID_MAC_HMAC_SHA384,
       SignatureConstants.ALGO_ID_MAC_HMAC_SHA512,
       SignatureConstants.ALGO_ID_MAC_HMAC_SHA1));
-    config.setBlacklistedAlgorithms(blackListedAlgorithms);
+    config.setExcludedAlgorithms(blackListedAlgorithms);
     
     return config;
   }
