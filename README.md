@@ -44,7 +44,7 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.0.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.0.1/).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.1.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.1.0/).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site](https://litsec.github.io/eidas-opensaml/site/).
 
 ### Examples
