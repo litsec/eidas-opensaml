@@ -10,7 +10,7 @@ OpenSAML extensions for the eIDAS Framework.
 
 ---
 
-**Note**: Support for OpenSAML 2.X and 3.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6 and the last release supporting OpenSAML 3.X is 1.4.4.
+**Note**: Support for OpenSAML 2.X and 3.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6 and the last release supporting OpenSAML 3.X is 1.4.5.
 
 ---
 
@@ -44,7 +44,7 @@ The eidas-opensaml artifacts are published to Maven central and a dependency to 
 
 ### Documentation
 
-* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.1.0](https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.1.0/).
+* API documentation - [https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.1.1](https://litsec.github.io/eidas-opensaml/javadoc/opensaml4/2.1.1/).
 * Generated project documentation - [https://litsec.github.io/eidas-opensaml/site](https://litsec.github.io/eidas-opensaml/site/).
 
 ### Examples
