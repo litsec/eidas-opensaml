@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2021 Litsec AB
+ * Copyright 2016-2022 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,14 +40,14 @@ import se.litsec.eidas.opensaml.common.EidasConstants;
 
 /**
  * Test cases for {@link CurrentAddressType} and {@link CurrentAddressStructuredType}.
- * 
+ *
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class CurrentAddressTypeTest extends OpenSAMLTestBase {
 
   /**
    * Tests marshalling and unmarshalling of {@code CurrentAddressStructuredType}.
-   * 
+   *
    * @throws Exception
    *           for errors
    */
@@ -81,7 +81,7 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
 
   /**
    * Tests marshalling and unmarshalling of {@code CurrentAddressType}.
-   * 
+   *
    * @throws Exception
    *           for errors
    */
@@ -111,9 +111,9 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     CurrentAddressType address2 = OpenSAMLTestBase.unmarshall(element, CurrentAddressType.class);
 
     verify(address, address2);
-    
+
     String swedishEidString = address2.toSwedishEidString();
-    Assert.assertEquals("LocatorDesignator=6%20tr;LocatorName=10;Thoroughfare=Korta%20gatan;PostName=Solna;PostCode=19174", swedishEidString);
+    Assert.assertEquals("LocatorDesignator=6%20tr;LocatorName=10;Thoroughfare=Korta%20gatan;PostName=Solna;AdminunitFirstline=SE;AdminunitSecondline=Uppland;PostCode=19174", swedishEidString);
 
     // Test unmarshall again
     String xml = SerializeSupport.prettyPrintXML(element);
@@ -128,7 +128,7 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
    * Test unmarshalling an attribute holding a CurrentAddress type. Example is from eIDAS specs.
    * <p>
    * The example contains the Base64-encoding of the following XML-snippet:
-   * 
+   *
    * <pre>
    *  <eidas:LocatorDesignator>22</eidas:LocatorDesignator>
    *  <eidas:Thoroughfare>Arcacia Avenue</eidas:Thoroughfare>
@@ -136,7 +136,7 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
   *   <eidas:PostCode>SW1A 1AA</eidas:Postcode>
    * </pre>
    * </p>
-   * 
+   *
    * @throws Exception
    *           for errors.
    */
@@ -169,19 +169,19 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     Assert.assertEquals("London", address.getPostName());
     Assert.assertEquals("SW1A 1AA", address.getPostCode());
   }
-  
+
   @Test
   public void testUnmarshallNamespaceNotDefined() throws Exception {
     final String xml = "<saml:Attribute xmlns:saml=\"urn:oasis:names:tc:SAML:2.0:assertion\" xmlns:a=\"http://schemas.xmlsoap.org/ws/2009/09/identity/claims\" FriendlyName=\"CurrentAddress\" Name=\"http://eidas.europa.eu/attributes/naturalperson/CurrentAddress\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:uri\" a:OriginalIssuer=\"urn:microsoft:cgg2010:fpsts\">"
         + "<saml:AttributeValue xmlns:b=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tn=\"http://eidas.europa.eu/attributes/naturalperson\" b:type=\"tn:CurrentAddressType\">PGVpZGFzOkxvY2F0b3JEZXNpZ25hdG9yPjEzMTwvZWlkYXM6TG9jYXRvckRlc2lnbmF0b3I+DQo8ZWlkYXM6VGhvcm91Z2hmYXJlPjwvZWlkYXM6VGhvcm91Z2hmYXJlPg0KPGVpZGFzOlBvc3ROYW1lPkFybm9sdGljZSB1IETEm8SNw61uYTwvZWlkYXM6UG9zdE5hbWU+DQo8ZWlkYXM6UG9zdENvZGU+NDA3MTQ8L2VpZGFzOlBvc3RDb2RlPg0KPGVpZGFzOkN2YWRkcmVzc0FyZWE+QXJub2x0aWNlPC9laWRhczpDdmFkZHJlc3NBcmVhPg0K</saml:AttributeValue>"
         + "</saml:Attribute>";
-    
+
     // <eidas:LocatorDesignator>131</eidas:LocatorDesignator>
     // <eidas:Thoroughfare></eidas:Thoroughfare>
     // <eidas:PostName>Arnoltice u Děčína</eidas:PostName>
     // <eidas:PostCode>40714</eidas:PostCode>
     // <eidas:CvaddressArea>Arnoltice</eidas:CvaddressArea>
-    
+
     Document doc = XMLObjectProviderRegistrySupport.getParserPool().parse(new ByteArrayInputStream(xml.getBytes("UTF-8")));
     Element elm = doc.getDocumentElement();
 
@@ -189,7 +189,7 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     Assert.assertNotNull(attribute);
     Assert.assertEquals(AttributeConstants.EIDAS_CURRENT_ADDRESS_ATTRIBUTE_NAME, attribute.getName());
     Assert.assertEquals(AttributeConstants.EIDAS_CURRENT_ADDRESS_ATTRIBUTE_FRIENDLY_NAME, attribute.getFriendlyName());
-    
+
     List<XMLObject> values = attribute.getAttributeValues();
     Assert.assertTrue(values.size() == 1);
     Assert.assertTrue(values.get(0) instanceof CurrentAddressType);
@@ -199,11 +199,11 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     Assert.assertEquals("Arnoltice u Děčína", address.getPostName());
     Assert.assertEquals("40714", address.getPostCode());
     Assert.assertEquals("Arnoltice", address.getCvaddressArea());
-  }  
+  }
 
   /**
    * Test that creates an attribute and places a CurrentAddessType as a value.
-   * 
+   *
    * @throws Exception
    *           for errors
    */
@@ -217,7 +217,7 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     attribute.setNameFormat(Attribute.URI_REFERENCE);
 
     XMLObjectBuilder<CurrentAddressType> builder = OpenSAMLTestBase.getBuilder(CurrentAddressType.TYPE_NAME);
-    CurrentAddressType address = builder.buildObject(AttributeValue.DEFAULT_ELEMENT_NAME, 
+    CurrentAddressType address = builder.buildObject(AttributeValue.DEFAULT_ELEMENT_NAME,
       new QName(EidasConstants.EIDAS_NP_NS, CurrentAddressType.TYPE_NAME.getLocalPart(), "eidas"));
     fill(address);
 
@@ -250,6 +250,8 @@ public class CurrentAddressTypeTest extends OpenSAMLTestBase {
     address.setThoroughfare("Korta gatan");
     address.setPostName("Solna");
     address.setPostCode("19174");
+    address.setAdminunitFirstline("SE");
+    address.setAdminunitSecondline("Uppland");
   }
 
   private static void verify(CurrentAddressStructuredType expected, CurrentAddressStructuredType actual) {

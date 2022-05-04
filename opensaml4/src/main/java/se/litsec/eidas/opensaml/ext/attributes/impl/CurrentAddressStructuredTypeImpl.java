@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2021 Litsec AB
+ * Copyright 2016-2022 Litsec AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ import se.litsec.eidas.opensaml.ext.attributes.address.Thoroughfare;
 
 /**
  * Implementation of {@code CurrentAddressStructuredType}.
- * 
+ *
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implements CurrentAddressStructuredType {
@@ -74,7 +74,7 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
 
   /**
    * Constructor.
-   * 
+   *
    * @param namespaceURI
    *          the namespace the element is in
    * @param elementLocalName
@@ -110,9 +110,6 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
       children.add(this.postName);
     }
     if (this.adminunitFirstline != null) {
-      children.add(this.adminunitFirstline);
-    }
-    if (this.adminunitSecondline != null) {
       children.add(this.adminunitFirstline);
     }
     if (this.adminunitSecondline != null) {
@@ -238,7 +235,7 @@ public class CurrentAddressStructuredTypeImpl extends AbstractXMLObject implemen
 
   /**
    * Utility method for creating an OpenSAML object given its type and assigns the value.
-   * 
+   *
    * @param clazz
    *          the class to create
    * @param value
