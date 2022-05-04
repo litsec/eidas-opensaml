@@ -6,7 +6,7 @@
   <groupId>se.litsec.eidas</groupId>
   <artifactId>eidas-opensaml3</artifactId>
   <packaging>jar</packaging>
-  <version>1.4.5-SNAPSHOT</version>
+  <version>1.4.5</version>
 
   <name>eIDAS :: OpenSAML 3.X</name>
   <description>OpenSAML 3.X extension library for the eIDAS Framework</description>
@@ -319,33 +319,8 @@
               <windowtitle>eIDAS extension for OpenSAML 3.x - ${project.version}</windowtitle>
              
               <links>
-                <!-- 
-                  Doesn't work to use the Shib Wiki links for API docs since the Shib webserver sets X-Frame-Options 
-                  to SAMEORIGIN which makes it impossible to use frames. 
-                -->
-                <!--               
-                <link>https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/3.2.0/apidocs/</link>
-                <link>https://build.shibboleth.net/nexus/content/sites/site/java-support/7.2.0/apidocs/</link>
-                <link>https://build.shibboleth.net/nexus/content/sites/site/spring-extensions/5.2.0/apidocs/</link>
-                -->
-                <link>https://docs.swedenconnect.se/opensaml-security-ext/javadoc/${opensaml-security-ext.version}</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-core/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-messaging-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-messaging-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-profile-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-profile-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-saml-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-saml-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-security-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-security-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-soap-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-soap-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-storage-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-storage-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-xmlsec-api/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/org/opensaml/opensaml-xmlsec-impl/${opensaml.version}/</link>
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/utilities/java-support/7.5.1/</link>                
-                <link>https://litsec.github.io/opensaml-javadoc-mirror/net/shibboleth/ext/spring-extensions/5.4.1/</link>
+                <link>https://build.shibboleth.net/nexus/content/sites/site/java-opensaml/${opensaml.version}/apidocs/</link>
+                <link>https://build.shibboleth.net/nexus/content/sites/site/java-support/7.5.1/apidocs/</link>
               </links>
               <detectJavaApiLink>true</detectJavaApiLink>
             </configuration>
