@@ -10,7 +10,10 @@ OpenSAML extensions for the eIDAS Framework.
 
 ---
 
-**Note**: Support for OpenSAML 2.X and 3.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6 and the last release supporting OpenSAML 3.X is 1.4.5.
+** Note**: For OpenSAML 5 support, please use the https://github.com/swedenconnect/opensaml-eidas repository. This repo will only support 
+earlier versions of OpenSAML ...
+
+> Note: Support for OpenSAML 2.X and 3.X has been discontinued. The last release of eidas-opensaml supporting OpenSAML 2.X is 1.0.6 and the last release supporting OpenSAML 3.X is 1.4.5.
 
 ---
 
