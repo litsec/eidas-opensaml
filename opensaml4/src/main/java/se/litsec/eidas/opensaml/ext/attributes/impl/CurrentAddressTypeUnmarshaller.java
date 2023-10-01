@@ -17,6 +17,7 @@ package se.litsec.eidas.opensaml.ext.attributes.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ import se.litsec.eidas.opensaml.ext.attributes.CurrentAddressType;
 
 /**
  * Thread safe unmarshaller for {@link CurrentAddressType}.
- * 
+ *
  * @author Martin Lindström (martin.lindstrom@litsec.se)
  */
 public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredTypeUnmarshaller {
@@ -78,7 +79,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
   /**
    * Parses the Base64-encoded contents of a {@code CurrentAddressType} element into the actual elements that this
    * encoding represents.
-   * 
+   *
    * @param node the text node to parse @param domElement the DOM element that we are unmarshalling @return a new DOM
    * document holding a clone of the {@code domElement} with its previous text node child replaced with the parsed
    * elements @throws UnmarshallingException for unmarshalling errors @throws
@@ -95,7 +96,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
     //
     try {
       final byte[] bytes = Base64Support.decode(textContent);
-      final String addressElements = new String(bytes);
+      final String addressElements = new String(bytes, StandardCharsets.UTF_8);
 
       // Then build a fake XML document holding the contents in element form.
       //
@@ -159,7 +160,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
   /**
    * Returns a map holding all registered namespace bindings, where the key is the qualified name of the namespace and
    * the value part is the URI.
-   * 
+   *
    * @param element
    *          the element to start from
    * @return a namespace map
@@ -172,7 +173,7 @@ public class CurrentAddressTypeUnmarshaller extends CurrentAddressStructuredType
 
   /**
    * Helper method to {@link #getNamespaceBindings(Element)}
-   * 
+   *
    * @param element
    *          the element to parse
    * @param namespaceMap
