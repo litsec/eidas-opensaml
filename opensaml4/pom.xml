@@ -132,7 +132,7 @@
     <dependency>
       <groupId>se.swedenconnect.opensaml</groupId>
       <artifactId>opensaml-security-ext</artifactId>
-      <version>3.1.2</version>
+      <version>4.0.0</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
@@ -212,7 +212,7 @@
             <id>enforce</id>
             <configuration>
               <rules>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
             <goals>
